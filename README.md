@@ -8,7 +8,7 @@ No financiamento de veículo em atraso, a **Entrega Amigável (EA)** é quando o
 - uma regra explícita diz **se** dá para ofertar agora, e o painel mostra o **porquê** de cada contrato;
 - a qualidade é medida pelo que importa nesse caso: **precisão e recall no topo, PR-AUC e captura**. A AUC aparece, mas sozinha engana.
 
-A fase 2 (em construção) audita as ligações desses clientes: ligações sintéticas com vozes neurais, transcrição com faster-whisper e regras que detectam se o operador ofertou a EA, medidas contra o gabarito.
+A segunda parte audita as ligações desses clientes. São 60 ligações sintéticas com vozes neurais e linha telefônica simulada, transcritas com faster-whisper. Regras tolerantes a erro de transcrição detectam se o operador ofertou a EA, e o resultado é medido contra o gabarito: **91,7% de acerto**, sem nenhum falso positivo de oferta.
 
 ![Painel, aba Operação](docs/painel.png)
 
@@ -23,6 +23,7 @@ A fase 2 (em construção) audita as ligações desses clientes: ligações sint
    - o próximo passo;
    - os **2 motivos** que mais empurraram a chance para cima, por exemplo "deve mais do que o carro vale" ou "contato certo recente".
 4. **Aba Modelo.** Curva precisão × recall, captura acumulada com os cortes, escada de candidatos com gate, teste de vazamento, backtest de produção, ordenação semanal, cortes por fase com vigência e linha do tempo.
+5. **Aba Auditoria de ligações.** As 60 ligações com player e transcrição em balões; o clique num balão leva o áudio ao trecho. Também traz a matriz regra × gabarito, a ablação da tolerância, oferta × tabulação e a visão por operador.
 
 Cada card tem um botão **ⓘ** com o "como ler". Há três temas (Midnight, Dark e Light). O painel funciona no celular.
 
@@ -147,6 +148,52 @@ Nos 200 ALTO de hoje: 144 SIM, 32 NÃO e 24 EM ANDAMENTO.
 
 Se todas passam, o código é **0** e a publicação é atômica: arquivo temporário seguido de `os.replace`. O CSV publicado leva a classe, o APTO e o próximo passo.
 
+## Auditoria de ligações
+
+![Painel, aba Auditoria de ligações](docs/painel_ligacoes.png)
+
+A pergunta da operação é simples: **o operador ofereceu a Entrega Amigável para o cliente ALTO?** No projeto real, a resposta vinha da gravação: transcrição automática e regras sobre o texto. Aqui o mesmo caminho é refeito com áudio sintético, e com uma vantagem que o real não tem: **gabarito**. Cada ligação nasce de um roteiro que diz exatamente o que foi falado, então dá para medir a regra, e não só acreditar nela.
+
+**Como as 60 ligações foram feitas**
+
+1. **Roteiro com gabarito** (`src/audio/roteiros.py`). Cada ligação parte de um contato real da carteira sintética: discador, contato com a pessoa certa, cliente ALTO naquele dia, últimos 30 dias úteis. O operador e a tabulação são os daquele contato. Uma gramática com seed 42 escreve a conversa: abertura, identidade, dívida, oferta ou não, objeções, fechamento.
+   - **Gabarito:** 33 OFERECEU, 9 SÓ O CLIENTE FALOU, 18 NÃO OFERECEU; 15 ligações com alerta de conduta.
+   - **Pegadinhas:** "a loja me entregou o carro", "vou te entregar o boleto", oferta só por "devolver o veículo", cliente pedindo a EA sem o operador ofertar, alerta dito pelo cliente. Há também quase-alertas, frases que parecem conduta irregular e não são, para a precisão não ser trivial.
+2. **Voz e telefone** (`src/audio/sintetizar.py`). As vozes neurais pt-BR do edge-tts, com velocidade e tom variados, viram 5 personas de cliente e 4 de operador. O operador vai no canal esquerdo e o cliente no direito. Cada canal passa pela linha telefônica: 8 kHz, faixa de 300 a 3.400 Hz, lei µ, ruído e 3% de pacotes perdidos. O canal do operador ainda recebe a conversa das posições vizinhas da central. Saem 60 MP3 de 55 a 97 s, com 16 MB no total.
+3. **Transcrição** (`src/audio/transcrever.py`). faster-whisper large-v3-turbo transcreve cada canal separado, com timestamp por palavra. Uma pausa de 1 s abre um balão novo. A limpeza tira o eco do prompt e os loops de repetição. A CPU levou 34 minutos para as 60 ligações.
+
+**O ruído foi calibrado, não chutado.** Com o telefone limpo (SNR de 10 a 25 dB), o Whisper errava só 5,5% das palavras e acertava todas as ofertas, e assim a regra tolerante não teria o que provar. Testei quatro níveis de degradação numa amostra separada. Com a central nos dois canais, o Whisper inventava falas a partir do fundo. Com a central só no operador, o erro ficou em 31%, como numa ligação real. Mesmo assim ele acertava "entrega amigável" porque o termo estava no prompt. Com um prompt genérico de cobrança, o mesmo que serviria a qualquer carteira, apareceram "entrega ligada" e "entrega migada".
+
+**Resultados contra o gabarito**
+
+| | Resultado |
+|---|---|
+| Erro por palavra do Whisper (WER) | operador **30,6%** (central ruidosa), cliente **11,6%** |
+| Acerto da regra de oferta | **91,7%** (55 de 60) |
+| OFERECEU | 28 de 33 reconhecidas, **nenhum falso positivo** |
+| SÓ O CLIENTE FALOU · NÃO OFERECEU | 9 de 9 · 18 de 18 |
+| Alertas (todos com precisão de 100%) | desconto em % 4 de 4, quitação sem ressalva 5 de 6, nome limpo 2 de 3, ameaça de bloqueio 2 de 5 |
+
+**Ablação: quanto a tolerância rende.** A regex simples só reconhece "entrega amigável" escrito certo. As regras tolerantes aceitam palavras raras parecidas ("migável", "ligável"), palavras comuns só logo depois de "entrega" ("entrega ligada", sem pegar "uma amiga minha") e uma âncora com até uma letra errada ("entrga").
+
+| | Acerto | Recall de OFERECEU |
+|---|---|---|
+| Texto perfeito do roteiro: simples = tolerante | 100% | 100% |
+| Texto do Whisper, regex simples | 85,0% | 78,8% |
+| Texto do Whisper, regras tolerantes | **91,7%** | **84,8%** |
+
+A tolerância recuperou **4 ligações**: duas "entrega ligada" na fala do operador e duas "entrega amigada" do cliente. Ela não criou nenhum falso positivo. Com o texto perfeito as duas empatam, então a distância é o custo da transcrição, e não da regra.
+
+**Onde a regra errou, e por que eu não corrigi.** Em 3 ofertas a frase sumiu da transcrição: com a central ao fundo, o Whisper simplesmente não a escreveu. Em outras 2, "amigável" virou **"viável"**, uma palavra real. Nos alertas, "penhorar" virou "melhorar" duas vezes. Colocar "entrega viável" no mapa agora subiria o acerto, mas esse erro foi visto no conjunto de teste. Ajustar a regra a ele seria medir com a régua que acabou de ser cortada sob medida. No ciclo real, a grafia entra no mapa e a próxima rodada de ligações mede de novo. As duas grafias que entraram ("migada", "amigada") vieram da rodada de calibração, com outro ruído e outros sorteios.
+
+**O que a operação leva daqui**
+
+- **Oferta × tabulação:** em 5 ligações a regra ouviu a oferta e o operador tabulou outra coisa (acordo, renegociação, sem desfecho): é tabulação a revisar. No sentido inverso, 5 ligações tabuladas como RECUSA EA não têm oferta reconhecível no texto, e é exatamente aí que vale a escuta humana.
+- **Por operador:** taxa de oferta e alertas por operador. Com 60 ligações, isso serve para escolher quem escutar, não para punir ninguém.
+- **No painel:** a lista é filtrável por oferta, alerta, operador e acerto. Ao abrir uma ligação, o player toca o áudio e a transcrição aparece em balões. Clicar num balão leva o áudio ao trecho, as palavras que dispararam a regra ficam destacadas e um selo mostra a regra contra o gabarito. A marcação humana (Ofereceu / Não / Dúvida, mais observação) fica no navegador e sai em CSV.
+
+A regra é reaplicada sobre o texto salvo a cada build, sem retranscrever, como no projeto real. A CI testa a lógica com textos de exemplo e nunca instala edge-tts nem faster-whisper. Nenhum áudio ou texto real foi usado.
+
 ## Como rodar
 
 ```bash
@@ -154,7 +201,16 @@ pip install -r requirements.txt
 python dados/gerar_carteira.py      # carteira sintética de 120 mil contratos (~10 s)
 python -m src.treinar               # escada com gate, teste de vazamento e importância em relatorios/ (~1 min)
 python -m src.montar_painel         # escoragem diária em 3 modos, agregados e docs/index.html (~3 min; cache em dados/escoragem/)
-python -m pytest                    # 69 testes
+python -m pytest                    # 147 testes
+```
+
+**Áudio (opcional, local; a CI não roda).** Roteiros, MP3 e transcrições já estão versionados, e o build só reaplica as regras sobre o texto salvo. Para refazer tudo do zero:
+
+```bash
+pip install -r requirements-audio.txt   # edge-tts, faster-whisper, PyAV
+python -m src.audio.roteiros            # dados/ligacoes/roteiros.json (roteiro + gabarito)
+python -m src.audio.sintetizar          # docs/audio/*.mp3 e dados/ligacoes/tempos.json (rede só aqui; --proxy se precisar)
+python -m src.audio.transcrever         # dados/ligacoes/transcricoes.jsonl (~35 s por ligação na CPU; retoma de onde parou)
 ```
 
 Para ver o painel, sirva a pasta `docs/` (por exemplo `python -m http.server --directory docs`). A cada push na `main`, a CI gera uma base pequena, roda o treino e os testes, e publica `docs/` no GitHub Pages.
@@ -179,17 +235,13 @@ src/linha_tempo.py           régua × congelado × retreino, conclusões calcul
 src/treinar.py               orquestra a escada, o vazamento e a importância
 src/montar_painel.py         monta o payload (atribuição as-of) e grava o HTML
 src/painel.html              o painel (HTML, CSS e JS puro; Chart.js; fundo em canvas)
-docs/                        o painel publicado e as imagens deste README
+src/audio/roteiros.py        seleção das ligações na carteira e roteiros com gabarito
+src/audio/regras.py          regras de oferta e de alerta tolerantes a erro de transcrição
+src/audio/sintetizar.py      vozes neurais, central, telefone e MP3 estéreo
+src/audio/transcrever.py     Whisper por canal, turnos por pausa, limpeza, WER, checkpoint
+src/audio/medir.py           regra × gabarito: confusão, alertas, ablação, tabulação, operador
+dados/ligacoes/              roteiros.json, tempos.json, transcricoes.jsonl
+docs/                        o painel publicado, os 60 MP3 (docs/audio/) e as imagens deste README
 relatorios/                  escada.json, vazamento.json, importancia.csv
-tests/                       69 testes: futuro, alvo, gate, cortes, vigência, travas, APTO, as-of, payload, guarda de publicação
+tests/                       147 testes: futuro, alvo, gate, cortes, vigência, travas, APTO, as-of, payload, regras, pegadinhas, telefone, turnos, WER, medição, guarda de publicação
 ```
-
-## Fase 2 (em construção): auditoria de ligações
-
-- 60 ligações sintéticas com clientes ALTO, geradas a partir de roteiros com **gabarito**: ofertou ou não, tipo de oferta e frases de alerta do operador.
-- Vozes neurais com o operador num canal e o cliente no outro, e simulação de telefone (8 kHz e ruído).
-- Transcrição com faster-whisper large-v3-turbo.
-- Regras tolerantes a erro de transcrição, medidas contra o gabarito: matriz de confusão, precisão e recall por alerta, e ablação.
-- Uma aba nova no painel, com o player do áudio e a transcrição sincronizada.
-
-Nenhum áudio ou texto real é usado.
