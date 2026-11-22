@@ -42,3 +42,11 @@ def test_cortes_acumulam_vigencias(t):
     esc, cortes = r
     assert sorted(cortes["vigente_desde"].unique()) == [pd.Timestamp("2026-01-26"), pd.Timestamp("2026-02-02")]
     assert esc["dia"].nunique() == 10
+
+
+def test_cache_muda_quando_a_carteira_muda(t):
+    from src.escoragem import assinatura
+    t2 = {k: v.copy() for k, v in t.items()}
+    t2["eventos_ea"] = t2["eventos_ea"].iloc[1:]
+    assert assinatura(t) == assinatura({k: v.copy() for k, v in t.items()})
+    assert assinatura(t) != assinatura(t2)

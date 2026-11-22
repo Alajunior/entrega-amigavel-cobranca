@@ -47,3 +47,8 @@ def test_pilha_oot_sem_sobreposicao():
     treino, oot = separar_oot(s, 6)
     assert oot == s[-6:] and not set(treino) & set(oot)
     assert all(t + pd.Timedelta(days=60) <= oot[0] for t in treino)
+
+
+def test_pp_usa_sinal_de_menos():
+    from src.candidatos import _pp
+    assert _pp(-0.018) == "−1,8" and _pp(0.025) == "+2,5"

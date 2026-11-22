@@ -8,6 +8,7 @@ Modos: "mensal" (logística retreinada, o que publica), "congelado" (a logístic
 contrafactual) e "sombra" (LightGBM retreinado nas mesmas datas, com cortes próprios: o desafiante).
 A foto de D só sabe o que aconteceu antes de D; o alvo só existe quando D + 60 <= HOJE (senão NaN, nunca zero).
 """
+import hashlib
 import pickle
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -85,6 +86,14 @@ def _compactar(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def assinatura(tabelas: dict) -> str:
+    """Impressão digital do conteúdo das tabelas (não só do tamanho): mudou o gerador, muda o nome do cache."""
+    h = hashlib.sha256()
+    for nome in ("contratos", "contatos", "eventos_ea", "acordos"):
+        h.update(pd.util.hash_pandas_object(tabelas[nome], index=False).to_numpy().tobytes())
+    return h.hexdigest()[:12]
+
+
 def escorar_periodos(tabelas: dict, modos=("mensal", "congelado", "sombra"), inicio=INICIO_PAINEL, fim=HOJE,
                      cache: Path | None = None) -> dict[str, tuple[pd.DataFrame, pd.DataFrame]]:
     """Escora os dias úteis do período em vários modos de uma vez (a foto de cada dia é montada uma só vez).
@@ -93,8 +102,7 @@ def escorar_periodos(tabelas: dict, modos=("mensal", "congelado", "sombra"), ini
     inicio, fim = pd.Timestamp(inicio), pd.Timestamp(fim)
     arq = None
     if cache is not None:
-        n = len(tabelas["contratos"])
-        arq = Path(cache) / f"escoragem_{'-'.join(modos)}_{inicio:%Y%m%d}_{fim:%Y%m%d}_{n}.pkl"
+        arq = Path(cache) / f"escoragem_{'-'.join(modos)}_{inicio:%Y%m%d}_{fim:%Y%m%d}_{assinatura(tabelas)}.pkl"
         if arq.exists():
             return pickle.loads(arq.read_bytes())
     dias = pd.bdate_range(inicio, fim)

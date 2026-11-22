@@ -1,3 +1,949 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><title>Entrega Amigável</title></head>
-<body><script>const D = /*__DADOS__*/;</script></body></html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrega Amigável · Acompanhamento</title>
+<meta name="description" content="Painel de um modelo de propensão a Entrega Amigável de veículos em cobrança (dados sintéticos): funil operacional, classes ALTO/MEDIO/BAIXO, fila de ação e qualidade do modelo de classe rara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="{{FONTES}}">
+<script src="{{CHARTJS}}"></script>
+<style>
+/* =================== temas (tokens) — mesma família visual do painel de Monitoramento =================== */
+body{
+  --bg:radial-gradient(1200px 640px at 82% -12%,#2b2620 0%,#171410 55%,#0d0b08 92%);
+  --text:#ece6da;--strong:#fff;--t2:#b8ae9c;--t3:#c9bfa8;--t4:#b3a68c;--axis:#9c927f;
+  --ac:#D4A72C;--ac2:#B98A3D;--acs:#f0dca0;--ac-at:#e8c468;--ac-cp:#ffc18a;
+  --acg:linear-gradient(135deg,#D4A72C,#B98A3D);--ac-rgb:212,167,44;--ac-anim:#D4A72C;--ac-anim-glow:rgba(212,167,44,.5);
+  --bd:rgba(212,167,44,.2);--bd-h:rgba(212,167,44,.25);--bd-i:rgba(212,167,44,.3);
+  --glass:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  --kpi:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  --cbox:rgba(255,255,255,.02);--inp:#1c1712;--sticky:#181410;--thead:#1e1810;--tot1:#241e14;
+  --stripe:rgba(255,255,255,.03);--hover:rgba(212,167,44,.10);
+  --pos:#5be59a;--neg:#ff6b81;--flat:#b8ae9c;--warn:#ff9f43;
+  --chart-c:#f0dca0;--chart-b:rgba(212,167,44,.14);
+  --p-dot:rgba(212,167,44,.9);--p-line:212,167,44;--p-mouse:185,138,61;
+  --fx-d:#5ec8ff;--fx-o:#f2b33d;--fx-p:#c3cede;--fx-b:#d98a52;
+  --scheme:dark;
+}
+body[data-theme="midnight"]{
+  --bg:radial-gradient(1200px 640px at 82% -12%,#0f2647 0%,#081729 55%,#040b16 92%);
+  --text:#dbe7fb;--t2:#9fb8d9;--t3:#bcd0ec;--t4:#9fb8d9;--axis:#7f97b8;
+  --ac:#ff7a59;--ac2:#3b5b8c;--acs:#ffd2c2;--ac-at:#e8c468;--ac-cp:#ffc18a;
+  --acg:linear-gradient(135deg,#ff9473,#ff7a59);--ac-rgb:255,122,89;--ac-anim:#ff9d80;--ac-anim-glow:rgba(255,122,89,.5);
+  --bd:rgba(59,91,140,.42);--bd-h:rgba(59,91,140,.6);--bd-i:rgba(59,91,140,.55);
+  --inp:#081729;--sticky:#050d1a;--thead:#0a1830;--tot1:#0f2040;--hover:rgba(59,91,140,.22);
+  --chart-c:#9fb8d9;--chart-b:rgba(59,91,140,.25);
+  --p-dot:rgba(255,122,89,.85);--p-line:59,91,140;--p-mouse:255,122,89;
+}
+body[data-theme="light"]{
+  --bg:linear-gradient(180deg,#EDE6D8 0%,#F6F2E8 100%);
+  --text:#23262b;--strong:#2e2a1e;--t2:#475569;--t3:#475569;--t4:#475569;--axis:#64748b;
+  --ac:#8a6a1f;--ac2:#B98A3D;--acs:#6b5518;--ac-at:#8a6a1f;--ac-cp:#9a5b00;
+  --acg:linear-gradient(135deg,#8a6a1f,#B98A3D);--ac-rgb:138,106,31;--ac-anim:#8a6a1f;--ac-anim-glow:rgba(138,106,31,.35);
+  --bd:#dbe4ee;--bd-h:#d6cfbf;--bd-i:#cbd5e1;
+  --glass:#fff;--kpi:linear-gradient(180deg,#fff,#f8fbff);--cbox:#f8fafc;--inp:#fff;
+  --sticky:#fff;--thead:#2e2a1e;--tot1:#eef1f6;--stripe:#f8fafc;--hover:#F3ECD9;
+  --pos:#166534;--neg:#991b1b;--flat:#94a3b8;
+  --chart-c:#334155;--chart-b:rgba(15,23,42,.08);
+  --p-dot:rgba(139,106,31,.55);--p-line:139,106,31;--p-mouse:185,138,61;
+  --fx-d:#0b78c2;--fx-o:#a87508;--fx-p:#5f6f86;--fx-b:#a3501c;--scheme:light;
+}
+/* =================== base =================== */
+*{box-sizing:border-box}
+html{color-scheme:var(--scheme)}
+body{margin:0;padding:22px;min-height:100vh;background:var(--bg);background-attachment:fixed;color:var(--text);
+  font:14px/1.45 Inter,'Segoe UI',Arial,sans-serif}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{max-width:1560px;margin:0 auto;position:relative;z-index:1}
+b,strong{font-weight:700}
+.muted{color:var(--t2);font-size:12.5px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--bd-h)}
+h1{font:800 clamp(18px,2.2vw,28px)/1.15 Sora,Inter,sans-serif;margin:0;color:var(--strong)}
+h1 span{color:var(--ac)}
+.sub{font-size:13px;color:var(--t2);margin-top:3px}
+.sp{flex:1}
+.badge{font:700 11.5px Inter;color:var(--t3);border:1px solid var(--bd-i);background:rgba(255,255,255,.04);border-radius:30px;padding:6px 12px;white-space:nowrap}
+body[data-theme="light"] .badge{background:#fff}
+.pill{border-radius:10px;padding:7px 13px;background:linear-gradient(135deg,#241e14,#6b5518);box-shadow:0 0 22px rgba(185,138,61,.45);
+  font:800 10px Inter;letter-spacing:.08em;text-transform:uppercase;color:#f0dca0;text-align:center;line-height:1.35}
+body[data-theme="midnight"] .pill{background:linear-gradient(135deg,#0a1830,#3b5b8c);box-shadow:0 0 22px rgba(59,91,140,.55);color:#dbe7fb}
+body[data-theme="light"] .pill{background:linear-gradient(135deg,#2e2a1e,#6b5518);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.seg{display:inline-flex;align-items:center;background:rgba(255,255,255,.05);border:1px solid var(--bd-i);border-radius:30px;padding:4px;gap:3px;flex-wrap:wrap}
+body[data-theme="light"] .seg{background:#fff}
+.seg>b{font-size:11px;color:var(--t2);padding:6px 10px}
+.seg button{border:0;background:transparent;color:var(--t3);font:700 12px Inter;padding:7px 15px;border-radius:24px;cursor:pointer;transition:.2s}
+.seg button.on{background:var(--acg);color:#04121f}
+body[data-theme="light"] .seg button.on{color:#fff}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.tabs button{border:1px solid var(--bd-i);background:rgba(255,255,255,.04);color:var(--t3);font:700 13px Inter;padding:10px 20px;border-radius:30px;cursor:pointer;transition:.2s}
+.tabs button.on{background:var(--acg);border-color:transparent;color:#fff;box-shadow:0 8px 20px rgba(var(--ac-rgb),.35)}
+body[data-theme="midnight"] .tabs button.on{color:#04121f}
+body[data-theme="light"] .tabs button{background:#fff;color:#475569}
+body[data-theme="light"] .tabs button.on{color:#fff;background:var(--acg)}
+.glass{background:var(--glass);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:16px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 12px 30px rgba(0,0,0,.32)}
+body[data-theme="light"] .glass{box-shadow:0 2px 10px rgba(15,23,42,.06)}
+.ctitle{font:700 15px Sora,Inter,sans-serif;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;color:var(--strong)}
+.ctitle .muted{font:400 12.5px Inter}
+.hbtn{margin-left:auto;border:1px solid var(--bd-i);background:rgba(255,255,255,.04);color:var(--t2);border-radius:8px;padding:3px 10px;font:700 11.5px Inter;cursor:pointer}
+body[data-theme="light"] .hbtn{background:#fff}
+.hbtn.on{color:var(--ac);border-color:rgba(var(--ac-rgb),.6)}
+.help{display:none;font-size:12.5px;line-height:1.55;color:var(--t4);background:rgba(var(--ac-rgb),.07);border-left:3px solid rgba(var(--ac-rgb),.55);
+  border-radius:0 8px 8px 0;padding:9px 13px;margin:0 0 12px;max-width:120ch}
+.help.on{display:block}
+.help b{color:var(--acs)}
+body[data-theme="light"] .help{background:#f1f5f9;border-left-color:#8a6a1f}
+.note{font-size:12.5px;color:var(--t3);background:rgba(var(--ac-rgb),.06);border:1px dashed rgba(var(--ac-rgb),.4);border-radius:10px;padding:8px 12px;margin:10px 0 0}
+.note b{color:var(--strong)}
+.linha{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.cmdbar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;padding:12px 16px}
+.lb{font:800 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--t2)}
+select{font:13px Inter;color:var(--text);background:var(--inp);border:1px solid var(--bd-i);border-radius:9px;padding:7px 10px;min-width:120px;max-width:100%}
+.preset{font:700 12px Inter;padding:6px 13px;border-radius:30px;background:rgba(var(--ac-rgb),.1);border:1px solid rgba(var(--ac-rgb),.3);color:var(--acs);cursor:pointer;transition:.2s}
+.preset:hover{background:rgba(var(--ac-rgb),.2)}
+body[data-theme="light"] .preset{background:#f1f5f9;color:#334155;border-color:#cbd5e1}
+.ab{font:800 11px Inter;letter-spacing:.06em;text-transform:uppercase}
+.ab.a{color:var(--ac-at)} .ab.c{color:var(--ac-cp)}
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--kpi);border:1px solid var(--bd);border-left:4px solid var(--flat);border-radius:14px;padding:14px 15px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);min-width:0}
+.kpi .h{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.kpi .l{font:700 10.5px Inter;letter-spacing:.05em;text-transform:uppercase;color:var(--t2)}
+.kpi .bdg{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px;flex:none}
+.kpi .v{font:800 22px Sora,Inter;margin-top:5px;color:var(--strong);transition:color .2s;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi .v.animating{color:var(--ac-anim);text-shadow:0 0 12px var(--ac-anim-glow)}
+.kpi .dl{font:700 11.5px 'JetBrains Mono',monospace;margin-top:3px}
+.kpi.up{border-left-color:var(--pos);animation:kpiGlow 2.8s ease-in-out infinite}
+.kpi.down{border-left-color:var(--neg)}
+.kpi.up .bdg{background:rgba(91,229,154,.18);color:var(--pos);box-shadow:0 0 10px rgba(91,229,154,.35)}
+.kpi.down .bdg{background:rgba(255,107,129,.18);color:var(--neg);box-shadow:0 0 10px rgba(255,107,129,.35)}
+.kpi.flat .bdg,.kpi.nd .bdg{background:rgba(154,147,200,.16);color:var(--flat)}
+.up-t{color:var(--pos)} .down-t{color:var(--neg)} .flat-t,.nd-t{color:var(--flat)} .warn-t{color:var(--warn)}
+@keyframes kpiGlow{0%,100%{box-shadow:0 0 0 1px rgba(91,229,154,.20),0 0 10px rgba(91,229,154,.12)}50%{box-shadow:0 0 0 1px rgba(91,229,154,.34),0 0 20px rgba(91,229,154,.28)}}
+@keyframes kpiGlowLight{0%,100%{box-shadow:0 0 0 1px rgba(22,163,74,.16),0 0 8px rgba(22,163,74,.10)}50%{box-shadow:0 0 0 1px rgba(22,163,74,.30),0 0 16px rgba(22,163,74,.22)}}
+body[data-theme="light"] .kpi{border-color:#e7eef7;border-left-width:5px}
+body[data-theme="light"] .kpi.up{border-left-color:#16a34a;animation-name:kpiGlowLight}
+body[data-theme="light"] .kpi.down{border-left-color:#dc2626}
+body[data-theme="light"] .kpi.up .bdg{background:#dcfce7;color:#166534;box-shadow:none}
+body[data-theme="light"] .kpi.down .bdg{background:#fee2e2;color:#991b1b;box-shadow:none}
+/* chips de faixa */
+.chip{display:inline-flex;align-items:center;gap:7px;font:700 12px Inter;padding:5px 12px;border-radius:30px;border:1px solid var(--bd-i);
+  background:rgba(255,255,255,.04);color:var(--t3);cursor:pointer;transition:.18s}
+body[data-theme="light"] .chip{background:#fff}
+.chip i{width:9px;height:9px;border-radius:50%}
+.chip.off{opacity:.4;text-decoration:line-through}
+.chip.on{border-color:rgba(var(--ac-rgb),.75);color:var(--strong)}
+/* tabelas */
+.tblwrap{overflow:auto;max-height:520px;border-radius:10px;border:1px solid var(--bd)}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+.t th,.t td{padding:8px 9px;text-align:right;white-space:nowrap}
+.t th{position:sticky;top:0;z-index:2;background:var(--thead);font:700 10.5px Inter;letter-spacing:.04em;text-transform:uppercase;color:var(--t3)}
+body[data-theme="light"] .t th{color:#fff}
+.t th:first-child,.t td:first-child{position:sticky;left:0;text-align:left;background:var(--sticky);z-index:1}
+.t th:first-child{z-index:3;background:var(--thead)}
+.t tbody tr:nth-child(even) td{background-image:linear-gradient(var(--stripe),var(--stripe))}
+.t tbody tr:hover td{background-image:linear-gradient(var(--hover),var(--hover))}
+.t tr.tot td{font-weight:800;border-top:2px solid rgba(var(--ac-rgb),.4);background-image:linear-gradient(rgba(var(--ac-rgb),.10),rgba(var(--ac-rgb),.10))}
+.t tr.tot td:first-child{background:var(--tot1)}
+.t tr.sel td{background-image:linear-gradient(rgba(var(--ac-rgb),.16),rgba(var(--ac-rgb),.16))}
+.dlt{display:block;font:700 10.5px 'JetBrains Mono',monospace;margin-top:1px}
+.bv{display:block;font-size:10.5px;color:var(--ac-cp)}
+.t td.tx,.t th.tx{text-align:left}
+.fxn{display:inline-flex;align-items:center;gap:7px;font-weight:700}
+.fxn i{width:10px;height:10px;border-radius:3px}
+.tag{display:inline-block;padding:3px 10px;border-radius:999px;font:800 11px Inter;letter-spacing:.03em}
+.tag.perfeita{background:rgba(91,229,154,.16);color:var(--pos);border:1px solid rgba(91,229,154,.45)}
+.tag.fraca{background:rgba(255,159,67,.14);color:var(--warn);border:1px solid rgba(255,159,67,.45)}
+.tag.INVERTIDA{background:rgba(255,107,129,.18);color:var(--neg);border:1px solid rgba(255,107,129,.6)}
+.tag.semdados{background:rgba(154,147,200,.12);color:var(--flat);border:1px solid rgba(154,147,200,.35)}
+body[data-theme="light"] .tag.fraca{color:#9a4b00}
+td.ruim{color:var(--neg);font-weight:800}
+/* gráficos e grades */
+.chart{position:relative;width:100%;height:300px}
+.chart.h340{height:340px} .chart.h260{height:260px} .chart.h240{height:240px}
+.g2{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;align-items:start}
+.g2e{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.g2>*,.g2e>*{min-width:0}
+.g2>.glass,.g2e>.glass{margin-bottom:16px}
+/* simulador */
+input[type=range]{width:100%;accent-color:var(--ac)}
+.simg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.simg .b,.pcard,.tile{background:rgba(255,255,255,.045);border:1px solid var(--bd);border-radius:12px;padding:11px 13px;min-width:0}
+body[data-theme="light"] .simg .b,body[data-theme="light"] .pcard,body[data-theme="light"] .tile{background:#fff}
+.simg .v,.tile .tv{font:800 21px/1.15 Sora;color:var(--strong)}
+.simg .l,.tile .ts,.pcard .ps{font-size:12px;color:var(--t2)}
+.tile .tl,.pcard .pk{font:800 10.5px Inter;letter-spacing:.05em;text-transform:uppercase;color:var(--t2);margin-bottom:3px}
+.pcard .pv{font:800 17px Sora;color:var(--strong)}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:11px;margin:4px 0 14px}
+.tile .tv small{font:700 13px Inter;color:var(--t2)}
+.seta{color:var(--t2);font-weight:700}
+/* escada */
+.escada{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}
+.degrau{background:rgba(255,255,255,.045);border:1px solid var(--bd);border-radius:14px;padding:13px 15px}
+body[data-theme="light"] .degrau{background:#fff}
+.degrau.venc{border-color:var(--pos);box-shadow:0 0 0 1px var(--pos) inset,0 0 22px rgba(91,229,154,.18)}
+.degrau .dn{font:800 15px Sora;color:var(--strong)}
+.degrau .dd{font-size:12px;color:var(--t2);margin:2px 0 8px}
+.degrau .dv{font:800 22px Sora;color:var(--strong)}
+.gatebox{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:150px;font-size:11.5px}
+.gatebox .gt{font:800 11px Inter;letter-spacing:.06em;text-transform:uppercase;color:var(--t2);text-align:center}
+.crit{display:flex;gap:6px;align-items:flex-start;line-height:1.35}
+.crit .ok{color:var(--pos);font-weight:800}.crit .no{color:var(--neg);font-weight:800}
+.veredito{margin-top:14px;padding:11px 14px;border-left:3px solid var(--pos);background:rgba(91,229,154,.08);border-radius:0 8px 8px 0;font-size:14px}
+.veredito.no{border-left-color:var(--warn);background:rgba(255,159,67,.08)}
+.lac{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;padding:11px 15px;border-radius:12px;cursor:pointer;
+  background:rgba(255,159,67,.10);border:1px solid rgba(255,159,67,.45);border-left:4px solid var(--warn);font-size:13px;color:var(--t3)}
+.lac b{color:var(--strong)} .lac .ic{font-size:18px;line-height:1.2} .lac .det{display:none;margin-top:6px;font-size:12.5px} .lac.on .det{display:block}
+.mot{display:inline-block;font:700 10.5px Inter;padding:2px 8px;border-radius:999px;margin:1px 4px 1px 0;white-space:nowrap;
+  background:rgba(var(--ac-rgb),.10);border:1px solid rgba(var(--ac-rgb),.35);color:var(--acs)}
+.cod{display:inline-block;min-width:26px;text-align:center;padding:2px 9px;border-radius:999px;font:800 11px 'JetBrains Mono',monospace}
+.cod.ok{background:rgba(91,229,154,.16);color:var(--pos);border:1px solid rgba(91,229,154,.45)}
+.cod.no{background:rgba(255,107,129,.18);color:var(--neg);border:1px solid rgba(255,107,129,.6)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tcard{background:rgba(255,255,255,.045);border:1px solid var(--bd);border-left:4px solid var(--pos);border-radius:12px;padding:13px 15px;min-width:0}
+body[data-theme="light"] .tcard,body[data-theme="light"] .concl{background:#fff}
+.tcard.atencao{border-left-color:var(--warn)} .tcard.falhou{border-left-color:var(--neg)}
+.tcard .tq{font:700 13.5px Sora;color:var(--strong);margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.tcard .tr{font-size:12.5px;color:var(--t3);line-height:1.5}
+.tcard .tv{font:800 11px Inter;letter-spacing:.05em;text-transform:uppercase;margin-top:8px}
+.tcard.ok .tv{color:var(--pos)} .tcard.atencao .tv{color:var(--warn)} .tcard.falhou .tv{color:var(--neg)}
+.resumo{font-size:13.5px;margin:0 0 12px;color:var(--t3)} .resumo b{color:var(--strong)}
+.concls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.concl{background:var(--glass);border:1px solid var(--bd);border-radius:16px;padding:16px 17px;min-width:0;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.concl .cn{font:800 30px/1.1 Sora;color:var(--ac)} .concl .ct{font:700 14.5px/1.35 Sora;color:var(--strong);margin:8px 0 6px}
+.concl .cx{font-size:12.5px;color:var(--t3);line-height:1.5}
+footer{margin-top:24px;padding-top:14px;border-top:1px solid rgba(var(--ac-rgb),.18);text-align:center;font:600 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
+.oculto{display:none!important}
+/* responsivo */
+@media(max-width:1400px){.kpis{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1100px){.tgrid{grid-template-columns:1fr 1fr}.concls{grid-template-columns:1fr 1fr}.escada{grid-template-columns:1fr}.gatebox{min-width:0;padding:4px 6px}.gatebox .gt{text-align:left}}
+@media(max-width:980px){.g2,.g2e{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.tgrid,.concls{grid-template-columns:1fr}body{padding:12px}.simg{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}.kpi .v{font-size:18px}.tabs button{padding:9px 14px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.kpi.up{animation:none;box-shadow:0 0 0 1px rgba(91,229,154,.25),0 0 14px rgba(91,229,154,.20)}}
+
+/* =================== Entrega Amigável: classes (rampa ordinal de um tom, validada para daltonismo) =================== */
+body{--cl-a:#cde2fb;--cl-m:#6da7ec;--cl-b:#256abf}
+body[data-theme="light"]{--cl-a:#104281;--cl-m:#2a78d6;--cl-b:#86b6ef}
+.kpis{grid-template-columns:repeat(7,1fr)}
+.ufgrid{display:grid;grid-template-columns:repeat(6,minmax(0,52px));gap:5px;justify-content:center;margin:6px auto 4px}
+.uft{aspect-ratio:1;border-radius:8px;display:grid;place-items:center;font:800 12px Inter;border:1px solid var(--bd);color:var(--strong);cursor:default}
+.uft small{display:block;font:600 9.5px Inter;opacity:.85}
+.legq{display:flex;gap:4px;align-items:center;justify-content:center;font-size:11.5px;color:var(--t2);margin-top:6px}
+.legq i{width:22px;height:10px;border-radius:3px;display:inline-block}
+.apto{display:inline-block;font:800 10.5px Inter;padding:2px 9px;border-radius:999px;white-space:nowrap;border:1px solid var(--bd-i)}
+.apto.SIM{color:var(--pos);border-color:rgba(91,229,154,.5);background:rgba(91,229,154,.12)}
+.apto.NAO{color:var(--neg);border-color:rgba(255,107,129,.5);background:rgba(255,107,129,.12)}
+.apto.AND{color:var(--ac-at);border-color:rgba(232,196,104,.5);background:rgba(232,196,104,.10)}
+.apto.VER{color:var(--warn);border-color:rgba(255,159,67,.5);background:rgba(255,159,67,.10)}
+.apto.APD{color:var(--t3)}
+body[data-theme="light"] .apto.AND{color:#8a6a1f} body[data-theme="light"] .apto.VER{color:#9a4b00}
+.cbx{display:inline-flex;gap:6px;flex-wrap:wrap}
+.busca{font:13px Inter;color:var(--text);background:var(--inp);border:1px solid var(--bd-i);border-radius:9px;padding:7px 10px;min-width:180px}
+.btn{font:700 12px Inter;padding:7px 14px;border-radius:30px;border:1px solid rgba(var(--ac-rgb),.45);background:rgba(var(--ac-rgb),.12);color:var(--acs);cursor:pointer}
+body[data-theme="light"] .btn{background:#f1f5f9;color:#334155;border-color:#cbd5e1}
+.proj{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:10px}
+.escada3{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}
+@media(max-width:1400px){.kpis{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1100px){.escada3{grid-template-columns:1fr}}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}.ufgrid{grid-template-columns:repeat(6,minmax(0,1fr))}.proj{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-theme="midnight">
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Entrega <span>Amigável</span> · Acompanhamento</h1>
+    <div class="sub" id="sub"></div>
+  </div>
+  <div class="sp"></div>
+  <span class="badge" id="bFoto"></span><span class="badge" id="bGer"></span>
+  <div class="pill">Projeto de portfólio<br>dados sintéticos</div>
+  <div class="seg" id="segTema" role="group" aria-label="Tema"><b>Versão</b>
+    <button data-tema="midnight">Midnight</button><button data-tema="dark">Dark</button><button data-tema="light">Light</button></div>
+</header>
+
+<div class="glass cmdbar">
+  <span class="lb">Fase (atraso)</span><span class="cbx" id="fases"></span>
+  <span class="lb">Canal</span>
+  <div class="seg" id="segCanal"><button data-canal="todos" class="on">Todos</button><button data-canal="discador">Discador</button><button data-canal="digital">Digital</button></div>
+  <span class="lb">Sucesso atribuído por</span>
+  <div class="seg" id="segAtrib"><button data-atrib="form" class="on">Data da formalização</button><button data-atrib="ind">Data da indicação</button></div>
+</div>
+
+<div class="tabs" role="tablist">
+  <button role="tab" data-aba="oper" class="on">📋 Operação</button>
+  <button role="tab" data-aba="modelo">🔬 Modelo</button>
+  <button role="tab" data-aba="ligacoes" id="tabLig" class="oculto">🎧 Auditoria de ligações</button>
+</div>
+
+<!-- ============================ OPERAÇÃO ============================ -->
+<section id="v-oper">
+  <div class="glass">
+    <div class="ctitle">🗓 Período em análise <span class="muted">comanda os indicadores e os cards desta aba</span>
+      <button class="hbtn" data-h="h-per">ⓘ ajuda</button></div>
+    <div class="help" id="h-per"><b>Período × Período</b> compara dois intervalos de dias úteis; <b>Dia × Dia</b> compara dois dias; <b>Período único</b> mostra um intervalo sem comparação. As contagens são em <b>contratos-dia</b>: somar os dias de um período dá os contatos e eventos do período, não clientes únicos. Com ~4 formalizações por dia, o Dia × Dia oscila muito: para decidir, prefira o mês.</div>
+    <div class="linha"><div class="seg" id="segModo"><button data-modo="per" class="on">Período × Período</button><button data-modo="dia">Dia × Dia</button><button data-modo="uni">Período único</button></div></div>
+    <div class="linha" id="ctlPer"><span class="ab a">A</span><select id="pA1"></select><span class="seta">→</span><select id="pA2"></select>
+      <span class="ab c">B</span><select id="pB1"></select><span class="seta">→</span><select id="pB2"></select>
+      <button class="preset" data-pp="mes">Mês vigente × anterior</button><button class="preset" data-pp="sem">Semana × anterior</button></div>
+    <div class="linha oculto" id="ctlDia"><span class="ab a">A</span><select id="dA"></select><span class="ab c">B</span><select id="dB"></select>
+      <button class="preset" data-pd="d1">D-1</button><button class="preset" data-pd="d7">mesmo dia da semana anterior</button></div>
+    <div class="linha oculto" id="ctlUni"><select id="u1"></select><span class="seta">→</span><select id="u2"></select>
+      <button class="preset" data-pu="mes">Mês vigente</button><button class="preset" data-pu="7">7 dias úteis</button><button class="preset" data-pu="ant">Mês passado</button><button class="preset" data-pu="tudo">Tudo</button></div>
+  </div>
+  <div class="kpis" id="kpis"></div>
+
+  <div class="glass">
+    <div class="ctitle">🧭 Comparação dinâmica <span class="muted" id="cmpSub"></span>
+      <button class="hbtn" data-h="h-cmp">ⓘ ajuda</button></div>
+    <div class="help" id="h-cmp"><b>Conversão</b> = indicações ÷ CPC (de cada contato com a pessoa certa, quantos viraram indicação de EA). <b>Efetividade</b> = formalizadas ÷ indicações. Com "sucesso atribuído pela indicação", a formalização volta para o dia e a classe da indicação (coorte): indicações recentes ainda podem formalizar, por isso aparece <b>em maturação</b>. Cada evento leva a classe que o contrato tinha <b>no dia do evento</b>. Em cada célula: período A, a variação e o período B embaixo.</div>
+    <div class="linha"><div class="seg" id="segVisao"><button data-visao="classe" class="on">Por classe</button><button data-visao="funil">Funil operacional</button><button data-visao="fase">Por fase</button></div>
+      <span class="lb" id="lbFaixa">Faixa de atraso</span><select id="faixaSel" aria-label="Faixa de atraso"></select></div>
+    <div id="cmpTab" class="tblwrap"></div>
+    <div class="chart h260" id="cmpGrafBox"><canvas id="cmpGraf"></canvas></div>
+  </div>
+
+  <div class="g2">
+    <div class="glass">
+      <div class="ctitle">📈 Tendência diária <span class="muted">indicações e formalizações por dia útil</span>
+        <button class="hbtn" data-h="h-tend">ⓘ ajuda</button></div>
+      <div class="help" id="h-tend">Barras = indicações; linha = formalizações (pela data escolhida em "sucesso atribuído por"). Mostra o período A, com no mínimo 20 dias úteis. <b>Acumulado</b> soma desde o início do intervalo.</div>
+      <div class="linha"><div class="seg" id="segTend"><button data-tend="dia" class="on">Diário</button><button data-tend="acum">Acumulado</button></div></div>
+      <div class="chart"><canvas id="tendGraf"></canvas></div>
+    </div>
+    <div class="glass">
+      <div class="ctitle">🗓 Evolução do mês <span class="muted" id="mesSub"></span>
+        <button class="hbtn" data-h="h-mes">ⓘ ajuda</button></div>
+      <div class="help" id="h-mes"><b>Projeção</b> = realizado ÷ dias úteis já passados × dias úteis do mês. Simples de propósito: a operação confere de cabeça. Usa o mês do último dia do período A.</div>
+      <div class="proj" id="proj"></div>
+      <div class="chart h240"><canvas id="mesGraf"></canvas></div>
+    </div>
+  </div>
+
+  <div class="glass" id="cFila">
+    <div class="ctitle">🎯 Fila de ação · ALTO de hoje <span class="muted" id="filaSub"></span>
+      <button class="hbtn" data-h="h-fila">ⓘ ajuda</button></div>
+    <div class="help" id="h-fila">Os contratos ALTO da foto de hoje, do maior para o menor score. O score diz <b>quem</b>; a regra <b>APTO</b> diz <b>se pode ofertar agora</b>: SIM; A PARTIR DE (ainda não tem 90 dias de atraso); EM ANDAMENTO (indicação aberta); VERIFICAR (insucesso nos últimos 60 dias); NÃO (acordo em dia). Os <b>motivos</b> são as duas variáveis que mais empurraram a chance para cima, medidas contra o contrato médio do treino (contribuição exata da logística).</div>
+    <div class="linha"><input class="busca" id="busca" placeholder="buscar contrato ou motivo" aria-label="Buscar na fila"></div>
+    <div class="tblwrap" id="filaTab"></div>
+  </div>
+
+  <div class="g2e">
+    <div class="glass" id="cPerfil">
+      <div class="ctitle">🧬 Quem formaliza × base <span class="muted" id="perfSub"></span>
+        <button class="hbtn" data-h="h-perf">ⓘ ajuda</button></div>
+      <div class="help" id="h-perf">Medianas de quem formalizou a EA nos 60 dias seguintes à foto, contra a carteira inteira, nas 6 últimas safras maduras. Ajuda a operação a reconhecer o perfil antes do score.</div>
+      <div class="tblwrap" id="perfTab"></div>
+    </div>
+    <div class="glass" id="cUf">
+      <div class="ctitle">🗺 Por UF <span class="muted">período escorado inteiro</span>
+        <button class="hbtn" data-h="h-uf">ⓘ ajuda</button></div>
+      <div class="help" id="h-uf">Cartograma em grade: cada quadrado é uma UF na posição aproximada do mapa. A cor mostra a métrica por mil contratos em estoque; passe o mouse para ver os números.</div>
+      <div class="linha"><div class="seg" id="segUf"><button data-uf="formalizadas" class="on">Formalizadas / mil</button><button data-uf="indicacoes">Indicações / mil</button></div></div>
+      <div class="ufgrid" id="ufGrid"></div><div class="legq" id="ufLeg"></div>
+    </div>
+  </div>
+
+  <div class="glass">
+    <div class="ctitle">📄 Analítico de eventos <span class="muted" id="anSub"></span>
+      <button class="hbtn" data-h="h-an">ⓘ ajuda</button></div>
+    <div class="help" id="h-an">Um registro por evento de EA no período A (indicação, formalização ou insucesso), com a classe do contrato no dia do evento. Respeita fase e canal. <b>Baixar CSV</b> leva todas as linhas filtradas (a tabela mostra as 300 primeiras).</div>
+    <div class="linha"><div class="seg" id="segTipo"><button data-tipo="todos" class="on">Todos</button><button data-tipo="indicacao">Indicações</button><button data-tipo="formalizada">Formalizadas</button><button data-tipo="insucesso">Insucessos</button></div>
+      <button class="btn" id="baixar">⬇ Baixar CSV</button></div>
+    <div class="tblwrap" id="anTab"></div>
+  </div>
+</section>
+
+<!-- ============================ MODELO ============================ -->
+<section id="v-modelo" class="oculto">
+  <div class="tiles" id="mTiles"></div>
+  <div class="g2e">
+    <div class="glass" id="cPr">
+      <div class="ctitle">🎯 Precisão × recall <span class="muted">fora do tempo (6 últimas safras maduras)</span>
+        <button class="hbtn" data-h="h-pr">ⓘ ajuda</button></div>
+      <div class="help" id="h-pr">Com menos de 1% de entregas, a AUC engana: um modelo pode ter AUC alta e quase nunca acertar no topo. A curva mostra, para cada parte das entregas encontrada (recall), quantas das ligações acertam (precisão). A linha tracejada é a taxa base: o que se acerta ligando ao acaso.</div>
+      <div class="chart"><canvas id="prGraf"></canvas></div>
+    </div>
+    <div class="glass" id="cCap">
+      <div class="ctitle">📐 Captura acumulada <span class="muted">% do estoque acionado × % das entregas alcançadas</span>
+        <button class="hbtn" data-h="h-cap">ⓘ ajuda</button></div>
+      <div class="help" id="h-cap">Ordenando do maior para o menor score: com x% do estoque, quantas entregas se alcança. As linhas de <b>80%</b> e <b>95%</b> são os cortes do ALTO e do MEDIO. A régua é a regra sem modelo; a diagonal é o acaso.</div>
+      <div class="chart"><canvas id="capGraf"></canvas></div>
+    </div>
+  </div>
+
+  <div class="glass" id="cEscada">
+    <div class="ctitle">🪜 Escada de candidatos <span class="muted">vence o mais simples que passa no gate</span>
+      <button class="hbtn" data-h="h-esc">ⓘ ajuda</button></div>
+    <div class="help" id="h-esc">Cada degrau só sobe se o desafiante ganhar do campeão na <b>captura de entregas nos 10% de maior score</b>, com intervalo de confiança de 95% por bootstrap de contratos (1.000 reamostras) acima de zero, e sem piorar a PR-AUC. Se o LightGBM passasse contra a logística, entraria em <b>modo sombra</b> antes de publicar.</div>
+    <div class="escada3" id="escada"></div>
+    <div class="veredito" id="veredito"></div>
+  </div>
+
+  <div class="g2e">
+    <div class="glass" id="cVaz">
+      <div class="ctitle">🕳 Teste de vazamento <span class="muted">o mesmo contrato aparece em várias safras</span>
+        <button class="hbtn" data-h="h-vaz">ⓘ ajuda</button></div>
+      <div class="help" id="h-vaz">A validação cruzada <b>aleatória</b> espalha fotos do mesmo contrato entre treino e teste: o modelo "reconhece" o contrato e parece melhor do que é. A validação <b>agrupada por contrato</b> (GroupKFold) mantém todas as fotos de um contrato do mesmo lado. A diferença é quanto a aleatória mente.</div>
+      <div class="tblwrap" id="vazTab"></div><div class="note" id="vazNota"></div>
+    </div>
+    <div class="glass" id="cBt">
+      <div class="ctitle">🧪 Backtest de produção <span class="muted">classe publicada × entrega real em 60 dias</span>
+        <button class="hbtn" data-h="h-bt">ⓘ ajuda</button></div>
+      <div class="help" id="h-bt">A classe que foi <b>publicada</b> em cada dia útil maduro (alvo de 60 dias já fechado), contra a formalização real nos 60 dias seguintes. Lift = taxa da classe ÷ taxa geral.</div>
+      <div class="tblwrap" id="btTab"></div>
+    </div>
+  </div>
+
+  <div class="g2e">
+    <div class="glass" id="cOrd">
+      <div class="ctitle">📊 Ordenação semanal <span class="muted" id="ordSub"></span>
+        <button class="hbtn" data-h="h-ord">ⓘ ajuda</button></div>
+      <div class="help" id="h-ord">Por semana: a taxa de entrega de cada classe. O esperado é ALTO acima de MEDIO acima de BAIXO. Semana <b>invertida</b> fura essa ordem; <b>sem dados</b> é semana com menos de 5 entregas em alguma classe.</div>
+      <div class="chart"><canvas id="ordGraf"></canvas></div>
+    </div>
+    <div class="glass" id="cEst">
+      <div class="ctitle">🧷 Estabilidade mensal <span class="muted">dias maduros, modelo vigente de cada dia</span>
+        <button class="hbtn" data-h="h-est">ⓘ ajuda</button></div>
+      <div class="help" id="h-est">Recall do ALTO = parte das entregas do mês que estava no ALTO; % do estoque no ALTO = quanto da carteira a operação precisa trabalhar. As duas no mesmo eixo de porcentagem.</div>
+      <div class="chart h240"><canvas id="estGraf"></canvas></div>
+      <div class="tblwrap" id="estTab" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <div class="g2e">
+    <div class="glass" id="cCortes">
+      <div class="ctitle">✂ Cortes por fase e vigência <span class="muted">fora da amostra de treino</span>
+        <button class="hbtn" data-h="h-cor">ⓘ ajuda</button></div>
+      <div class="help" id="h-cor">A cada retreino, os cortes saem de 3 safras que o modelo não viu: ALTO = score a partir do qual estão 80% das entregas; MEDIO = 95%. Fase com menos de 30 entregas usa o corte global. Cada vigência fica guardada: reescorar um dia antigo usa a regra daquele dia.</div>
+      <div class="linha"><span class="lb">Vigência</span><select id="vigSel" aria-label="Vigência"></select></div>
+      <div class="tblwrap" id="corTab"></div>
+    </div>
+    <div class="glass" id="cImp">
+      <div class="ctitle">🔎 Por que o modelo decide <span class="muted">média do |efeito| na logística, fora do tempo</span>
+        <button class="hbtn" data-h="h-imp">ⓘ ajuda</button></div>
+      <div class="help" id="h-imp">Quanto cada variável move a chance (em log-odds), em média, contra o contrato médio do treino. Na logística isso é exato, sem aproximação.</div>
+      <div class="chart"><canvas id="impGraf"></canvas></div>
+    </div>
+  </div>
+
+  <div class="glass" id="cTempo">
+    <div class="ctitle">📈 Linha do tempo <span class="muted">% das entregas alcançadas ligando para 10% do estoque</span>
+      <button class="hbtn" data-h="h-tempo">ⓘ ajuda</button></div>
+    <div class="help" id="h-tempo">Mês a mês, nos dias maduros: a régua sem modelo, o modelo congelado do primeiro dia e o retreinado todo mês. O dado é sintético e a entrega não depende de quem foi acionado: a comparação mede a qualidade da ordem, não o efeito da ligação.</div>
+    <div class="concls" id="concls"></div>
+    <div class="chart"><canvas id="tempoGraf"></canvas></div>
+  </div>
+
+  <div class="glass oculto" id="cSombra">
+    <div class="ctitle">⚔ Duelo publicado × sombra</div>
+    <div class="chart h240"><canvas id="sombraGraf"></canvas></div>
+  </div>
+</section>
+
+<section id="v-ligacoes" class="oculto"></section>
+
+<footer>entrega amigável · carteira exemplo de veículos · dados sintéticos · projeto de portfólio</footer>
+</div>
+
+<script>
+const D = /*__DADOS__*/;
+/* ======================= utilidades ======================= */
+const $ = id => document.getElementById(id);
+const QS = (s, el = document) => [...el.querySelectorAll(s)];
+const ESTATICO = /estatico/.test(location.search);
+const RM = ESTATICO || matchMedia("(prefers-reduced-motion: reduce)").matches;
+const MENOS = "−";
+const nf = c => new Intl.NumberFormat("pt-BR", {minimumFractionDigits: c, maximumFractionDigits: c});
+const fI = nf(0), f1 = nf(1), f2 = nf(2), f3 = nf(3);
+const ok = v => v != null && isFinite(v);
+const seguro = (a, b) => (ok(a) && ok(b) && b !== 0) ? a / b : null;
+const sinal = (v, txt) => (v > 0 ? "+" : v < 0 ? MENOS : "") + txt;
+const pct = (v, c = 1) => !ok(v) ? "—" : sinal(v, nf(c).format(Math.abs(v * 100)) + "%");
+const pctAbs = (v, c = 1) => !ok(v) ? "—" : nf(c).format(v * 100) + "%";
+const pp = (v, c = 1) => !ok(v) ? "—" : sinal(v, nf(c).format(Math.abs(v * 100)) + " pp");
+const int = v => !ok(v) ? "—" : fI.format(Math.round(v));
+const brlC = v => !ok(v) ? "—" : Math.abs(v) >= 1e9 ? "R$ " + f1.format(v / 1e9) + " bi" : Math.abs(v) >= 1e6 ? "R$ " + f1.format(v / 1e6) + " mi" : Math.abs(v) >= 1e3 ? "R$ " + fI.format(v / 1e3) + " mil" : "R$ " + fI.format(v);
+const dBR = s => s.slice(8, 10) + "/" + s.slice(5, 7);
+const dBRY = s => dBR(s) + "/" + s.slice(0, 4);
+const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+const mesAno = s => MESES[+s.slice(5, 7) - 1] + "/" + s.slice(2, 4);
+const css = v => getComputedStyle(document.body).getPropertyValue(v).trim();
+const store = {get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+               set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }};
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function mostrar(id, sim) { const el = $(id); if (el) el.classList.toggle("oculto", !sim); return sim; }
+
+/* ======================= dados e estado ======================= */
+const M = D.meta, DIAS = M.dias, ND = DIAS.length, CL = M.classes, FX = M.faixas, FASE_DA_FAIXA = M.fase_da_faixa;
+const COR_CL = {ALTO: "--cl-a", MEDIO: "--cl-m", BAIXO: "--cl-b"};
+const corCl = k => css(COR_CL[k]);
+const S = {aba: "oper", modo: "per", fases: new Set(M.fases), canal: "todos", atrib: "form", visao: "classe", faixa: "todas",
+           tend: "dia", tipo: "todos", uf: "formalizadas", vig: null};
+const graf = {};
+
+/* ======================= fundo animado (partículas) ======================= */
+(function particulas() {
+  const cv = $("bg"), ctx = cv.getContext("2d");
+  let W, H, P = [], mx = -9999, my = -9999;
+  function criar() {
+    W = cv.width = innerWidth; H = cv.height = innerHeight;
+    const n = Math.min(120, Math.floor(W * H / 14000));
+    P = Array.from({length: n}, () => ({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35}));
+  }
+  function frame(mover) {
+    const dot = css("--p-dot"), line = css("--p-line"), mouse = css("--p-mouse");
+    ctx.clearRect(0, 0, W, H);
+    for (const p of P) {
+      if (mover) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        const dx = p.x - mx, dy = p.y - my, dm = Math.hypot(dx, dy);
+        if (dm < 150 && dm > 0.01) { const f = (150 - dm) / 150 * .9; p.x += dx / dm * f; p.y += dy / dm * f; }
+      }
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.7, 0, Math.PI * 2); ctx.fillStyle = dot; ctx.fill();
+      const dm = Math.hypot(p.x - mx, p.y - my);
+      if (dm < 170) { ctx.strokeStyle = `rgba(${mouse},${(170 - dm) / 170 * .5})`; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mx, my); ctx.stroke(); }
+    }
+    ctx.lineWidth = .8;
+    for (let i = 0; i < P.length; i++) for (let j = i + 1; j < P.length; j++) {
+      const d = Math.hypot(P[i].x - P[j].x, P[i].y - P[j].y);
+      if (d < 120) { ctx.strokeStyle = `rgba(${line},${(120 - d) / 120 * .22})`;
+        ctx.beginPath(); ctx.moveTo(P[i].x, P[i].y); ctx.lineTo(P[j].x, P[j].y); ctx.stroke(); }
+    }
+  }
+  function loop() { if (!document.hidden) frame(true); requestAnimationFrame(loop); }
+  addEventListener("resize", () => {
+    if (innerWidth !== W) criar(); else { H = cv.height = innerHeight; for (const p of P) p.y = Math.min(p.y, H); }
+    if (RM) frame(false); });
+  addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener("mouseout", e => { if (!e.relatedTarget) { mx = my = -9999; } });
+  criar();
+  if (RM) { frame(false); window.redesenharFundo = () => frame(false); } else { window.redesenharFundo = () => {}; loop(); }
+})();
+
+/* ======================= gráficos ======================= */
+function mk(id, cfg) {
+  if (graf[id]) { graf[id].destroy(); delete graf[id]; }
+  const el = $(id); if (!el) return;
+  Chart.defaults.color = css("--chart-c"); Chart.defaults.borderColor = css("--chart-b");
+  Chart.defaults.font.family = "Inter";
+  cfg.options = Object.assign({responsive: true, maintainAspectRatio: false, animation: RM ? false : {duration: 450}}, cfg.options || {});
+  graf[id] = new Chart(el, cfg);
+}
+function destruir() { for (const k in graf) { graf[k].destroy(); delete graf[k]; } }
+const leg = {position: "top", labels: {boxWidth: 12, usePointStyle: true}};
+const eixoPct = {ticks: {callback: v => fI.format(v * 100) + "%"}};
+
+/* ======================= agregação (Operação) ======================= */
+const VAZIO = () => ({est: 0, div: 0, trab: 0, disc: 0, alo: 0, cpc: 0, ind: 0, fpi: 0, fpf: 0, ins: 0});
+const faseOk = fx => S.fases.has(FASE_DA_FAIXA[fx]);
+function agr(i1, i2) {
+  const nd = i2 - i1 + 1, porCl = {}, porFase = {}, porFx = {}, T = VAZIO();
+  for (const c of CL) porCl[c] = VAZIO();
+  for (const f of M.fases) porFase[f] = VAZIO();
+  for (const x of FX) porFx[x] = VAZIO();
+  const somar = (o, k, v) => { o[k] += v; };
+  const E = D.estoque;
+  for (let r = 0; r < E.dia.length; r++) {
+    const d = E.dia[r]; if (d < i1 || d > i2) continue;
+    const fx = E.faixa[r]; if (!faseOk(fx)) continue;
+    if (S.faixa !== "todas" && FX[fx] !== S.faixa) continue;
+    const c = CL[E.classe[r]], f = FASE_DA_FAIXA[fx];
+    for (const o of [T, porCl[c], porFase[f], porFx[FX[fx]]]) { somar(o, "est", E.contratos[r]); somar(o, "div", E.divida[r]); }
+  }
+  const F = D.fluxo;
+  for (let r = 0; r < F.dia.length; r++) {
+    const d = F.dia[r]; if (d < i1 || d > i2) continue;
+    const fx = F.faixa[r]; if (!faseOk(fx)) continue;
+    if (S.faixa !== "todas" && FX[fx] !== S.faixa) continue;
+    if (S.canal !== "todos" && M.canais[F.canal[r]] !== S.canal) continue;
+    const c = CL[F.classe[r]], f = FASE_DA_FAIXA[fx];
+    for (const o of [T, porCl[c], porFase[f], porFx[FX[fx]]]) {
+      o.trab += F.trabalhado[r]; o.disc += F.discagem[r]; o.alo += F.alo[r]; o.cpc += F.cpc[r];
+      o.ind += F.indicacoes[r]; o.fpi += F.form_por_ind[r]; o.fpf += F.form_por_form[r]; o.ins += F.insucessos[r];
+    }
+  }
+  for (const o of [T, ...Object.values(porCl), ...Object.values(porFase), ...Object.values(porFx)]) derivar(o, nd);
+  return {T, porCl, porFase, porFx, nd};
+}
+function derivar(o, nd) {
+  o.form = S.atrib === "ind" ? o.fpi : o.fpf;
+  o.estMed = o.est / nd; o.divMed = o.div / nd;
+  o.conv = seguro(o.ind, o.cpc); o.efet = seguro(o.form, o.ind);
+  o.penet = seguro(o.trab, o.est); o.hit = seguro(o.alo, o.disc); o.pcpc = seguro(o.cpc, o.alo);
+  o.indMil = seguro(o.ind * 1000, o.est); o.formMil = seguro(o.form * 1000, o.est);
+}
+function periodos() {
+  const v = id => +$(id).value, ord = a => a.sort((x, y) => x - y);
+  if (S.modo === "dia") return {A: [v("dA"), v("dA")], B: [v("dB"), v("dB")]};
+  if (S.modo === "per") return {A: ord([v("pA1"), v("pA2")]), B: ord([v("pB1"), v("pB2")])};
+  return {A: ord([v("u1"), v("u2")]), B: null};
+}
+const rotPer = p => p[0] === p[1] ? dBRY(DIAS[p[0]]) : `${dBR(DIAS[p[0]])} a ${dBRY(DIAS[p[1]])}`;
+const maturando = p => S.atrib === "ind" && DIAS.some((d, i) => i >= p[0] && i <= p[1] && !M.maduro_ind[i]);
+function delta(a, b) {
+  const v = seguro(a, b); if (v == null) return {cls: "nd", txt: "—"};
+  const x = v - 1; if (Math.abs(x) <= .001) return {cls: "flat", txt: pct(x)};
+  return {cls: x > 0 ? "up" : "down", txt: pct(x)};
+}
+
+/* ======================= KPIs ======================= */
+const KPIS = [["Base ativa (contratos méd.)", "estMed", int], ["Valor em risco (méd.)", "divMed", brlC], ["CPC", "cpc", int],
+  ["Indicações", "ind", int], ["Formalizadas", "form", int], ["Conversão (ind ÷ CPC)", "conv", v => pctAbs(v, 1)],
+  ["Efetividade (form ÷ ind)", "efet", v => pctAbs(v, 1)]];
+function renderKpis(A, B, p) {
+  const mat = maturando(p.A);
+  $("kpis").innerHTML = KPIS.map(([nome, k, fmt]) => {
+    const a = A.T[k], b = B ? B.T[k] : null;
+    const d = !B ? {cls: "nd", txt: "período único"} : (mat && ["form", "efet"].includes(k)) ? {cls: "nd", txt: "em maturação"} : delta(a, b);
+    const bdg = {up: "▲", down: "▼", flat: "→", nd: "•"}[d.cls];
+    return `<div class="kpi ${d.cls}"><div class="h"><span class="l">${nome}</span><span class="bdg" aria-hidden="true">${bdg}</span></div>
+      <div class="v">${a == null ? "—" : fmt(a)}</div>
+      <div class="dl ${d.cls}-t">${d.txt}${B && b != null ? ` <span class="muted">vs ${fmt(b)}</span>` : ""}</div></div>`;
+  }).join("");
+}
+
+/* ======================= Comparação dinâmica ======================= */
+const clNome = k => k === "__T" ? "Total" : `<span class="fxn"><i style="background:${corCl(k)}"></i>${k}</span>`;
+function celula(a, b, fmt, mat = false) {
+  if (b === undefined) return `<td><b>${a == null ? "—" : fmt(a)}</b></td>`;
+  const d = mat ? {cls: "flat", txt: "em maturação"} : delta(a, b);
+  return `<td><b>${a == null ? "—" : fmt(a)}</b><span class="dlt ${d.cls}-t">${d.txt}</span><span class="bv">${b == null ? "—" : fmt(b)}</span></td>`;
+}
+const COLS_CL = [["Contratos méd.", "estMed", int], ["CPC", "cpc", int], ["Indicações", "ind", int], ["Formalizadas", "form", int],
+  ["Conversão", "conv", v => pctAbs(v, 1)], ["Efetividade", "efet", v => pctAbs(v, 1)], ["Indic. / mil contratos-dia", "indMil", v => f2.format(v)],
+  ["Form. / mil contratos-dia", "formMil", v => f2.format(v)]];
+function renderCmp(A, B, p) {
+  const mat = maturando(p.A);
+  $("cmpSub").textContent = `A: ${rotPer(p.A)}` + (B ? ` · B: ${rotPer(p.B)}` : "");
+  mostrar("lbFaixa", S.visao === "classe"); mostrar("faixaSel", S.visao === "classe");
+  let html = "", lbl = [], sets = [];
+  if (S.visao === "classe") {
+    const linhas = [...CL.map(c => [c, A.porCl[c], B ? B.porCl[c] : undefined]), ["__T", A.T, B ? B.T : undefined]];
+    html = `<table class="t"><thead><tr><th>Classe</th><th>% estoque</th>${COLS_CL.map(c => `<th>${c[0]}</th>`).join("")}</tr></thead><tbody>` +
+      linhas.map(([k, a, b]) => `<tr class="${k === "__T" ? "tot" : ""}"><td>${clNome(k)}</td><td>${pctAbs(seguro(a.est, A.T.est), 1)}</td>` +
+        COLS_CL.map(([, c, fmt]) => celula(a[c], b === undefined ? undefined : b[c], fmt, mat && ["form", "efet", "formMil"].includes(c))).join("") + "</tr>").join("") + "</tbody></table>";
+    lbl = CL; sets = [{label: "Conversão (ind ÷ CPC)", data: CL.map(c => A.porCl[c].conv), backgroundColor: CL.map(corCl), borderRadius: 4}];
+  } else if (S.visao === "funil") {
+    const et = [["Contratos (contratos-dia)", "est", null], ["Trabalhado", "trab", ["Penetração", "penet"]], ["Discagem", "disc", null],
+      ["ALÔ", "alo", ["Hit rate (ALÔ ÷ discagem)", "hit"]], ["CPC", "cpc", ["% CPC (CPC ÷ ALÔ)", "pcpc"]],
+      ["Indicação", "ind", ["% Conversão (ind ÷ CPC)", "conv"]], ["Formalizada", "form", ["% Eficiência (form ÷ ind)", "efet"]]];
+    html = `<table class="t"><thead><tr><th>Etapa</th><th>Quantidade</th><th class="tx">Taxa da etapa</th><th>Valor</th>${CL.map(c => `<th>${c}</th>`).join("")}</tr></thead><tbody>` +
+      et.map(([n, k, tx]) => `<tr><td>${n}</td>${celula(A.T[k], B ? B.T[k] : undefined, int, mat && k === "form")}<td class="tx">${tx ? tx[0] : ""}</td>` +
+        (tx ? celula(A.T[tx[1]], B ? B.T[tx[1]] : undefined, v => pctAbs(v, 1), mat && tx[1] === "efet") : "<td></td>") +
+        CL.map(c => `<td>${int(A.porCl[c][k])}</td>`).join("") + "</tr>").join("") + "</tbody></table>";
+    lbl = et.slice(3).map(e => e[0]); sets = CL.map(c => ({label: c, data: et.slice(3).map(e => A.porCl[c][e[1]]), backgroundColor: corCl(c), borderRadius: 4}));
+  } else {
+    html = `<table class="t"><thead><tr><th>Fase</th><th>Contratos méd.</th><th>Indicações</th><th>Formalizadas</th><th>Indic. / mil</th><th>Form. / mil</th>${CL.map(c => `<th>Form. ${c}</th>`).join("")}</tr></thead><tbody>` +
+      M.fases.filter(f => S.fases.has(f)).map(f => { const a = A.porFase[f], b = B ? B.porFase[f] : undefined;
+        return `<tr><td>${f} dias</td>${celula(a.estMed, b && b.estMed, int)}${celula(a.ind, b && b.ind, int)}${celula(a.form, b && b.form, int, mat)}` +
+          `${celula(a.indMil, b && b.indMil, v => f2.format(v))}${celula(a.formMil, b && b.formMil, v => f2.format(v), mat)}` +
+          CL.map(c => `<td>${int(faseClasse(p.A, f, c))}</td>`).join("") + "</tr>"; }).join("") + "</tbody></table>";
+    const fs = M.fases.filter(f => S.fases.has(f));
+    lbl = fs; sets = [{label: "Indicações / mil contratos-dia", data: fs.map(f => A.porFase[f].indMil), backgroundColor: css("--cl-m"), borderRadius: 4},
+                      {label: "Formalizadas / mil contratos-dia", data: fs.map(f => A.porFase[f].formMil), backgroundColor: css("--cl-a"), borderRadius: 4}];
+  }
+  $("cmpTab").innerHTML = html;
+  mk("cmpGraf", {type: "bar", data: {labels: lbl, datasets: sets},
+    options: {plugins: {legend: leg, tooltip: {callbacks: {label: c => `${c.dataset.label}: ${S.visao === "fase" ? f2.format(c.parsed.y) : S.visao === "classe" ? pctAbs(c.parsed.y, 1) : int(c.parsed.y)}`}}},
+      scales: {y: S.visao === "classe" ? eixoPct : {}}}});
+}
+function faseClasse(per, f, c) {
+  let s = 0; const F = D.fluxo;
+  for (let r = 0; r < F.dia.length; r++) {
+    if (F.dia[r] < per[0] || F.dia[r] > per[1] || FASE_DA_FAIXA[F.faixa[r]] !== f || CL[F.classe[r]] !== c) continue;
+    if (S.canal !== "todos" && M.canais[F.canal[r]] !== S.canal) continue;
+    s += S.atrib === "ind" ? F.form_por_ind[r] : F.form_por_form[r];
+  }
+  return s;
+}
+
+/* ======================= Tendência e evolução do mês ======================= */
+function serieDiaria(i1, i2) {
+  const ind = new Array(i2 - i1 + 1).fill(0), form = new Array(i2 - i1 + 1).fill(0), F = D.fluxo;
+  for (let r = 0; r < F.dia.length; r++) {
+    const d = F.dia[r]; if (d < i1 || d > i2 || !faseOk(F.faixa[r])) continue;
+    if (S.canal !== "todos" && M.canais[F.canal[r]] !== S.canal) continue;
+    ind[d - i1] += F.indicacoes[r]; form[d - i1] += S.atrib === "ind" ? F.form_por_ind[r] : F.form_por_form[r];
+  }
+  return {ind, form};
+}
+const acum = a => { let s = 0; return a.map(v => s += v); };
+function renderTend(p) {
+  const i2 = p.A[1], i1 = Math.min(p.A[0], Math.max(0, i2 - 19));
+  let {ind, form} = serieDiaria(i1, i2);
+  if (S.tend === "acum") { ind = acum(ind); form = acum(form); }
+  mk("tendGraf", {data: {labels: DIAS.slice(i1, i2 + 1).map(dBR), datasets: [
+      {type: "bar", label: "Indicações", data: ind, backgroundColor: css("--cl-m"), borderRadius: 3, order: 2},
+      {type: "line", label: "Formalizações", data: form, borderColor: css("--ac"), backgroundColor: css("--ac"), borderWidth: 2, pointRadius: 2, tension: .25, order: 1}]},
+    options: {interaction: {mode: "index", intersect: false}, plugins: {legend: leg}, scales: {x: {ticks: {maxTicksLimit: 12}}, y: {beginAtZero: true}}}});
+}
+function diasUteisDoMes(ym) {
+  const [y, m] = ym.split("-").map(Number); let n = 0;
+  for (let d = 1; d <= new Date(y, m, 0).getDate(); d++) { const w = new Date(y, m - 1, d).getDay(); if (w > 0 && w < 6) n++; }
+  return n;
+}
+function renderMes(p) {
+  const fim = p.A[1], ym = DIAS[fim].slice(0, 7); let i1 = fim;
+  while (i1 > 0 && DIAS[i1 - 1].slice(0, 7) === ym) i1--;
+  const {ind, form} = serieDiaria(i1, fim), passados = fim - i1 + 1, total = diasUteisDoMes(ym);
+  const ri = ind.reduce((a, b) => a + b, 0), rf = form.reduce((a, b) => a + b, 0);
+  $("mesSub").textContent = `${mesAno(DIAS[fim])} · ${passados} de ${total} dias úteis`;
+  $("proj").innerHTML = [["Indicações", ri], ["Formalizadas", rf]].map(([n, v]) =>
+    `<div class="tile"><div class="tl">${n}</div><div class="tv">${int(v)} <small>realizado</small></div><div class="ts">projeção do mês: <b>${int(v / passados * total)}</b></div></div>`).join("");
+  mk("mesGraf", {type: "line", data: {labels: DIAS.slice(i1, fim + 1).map(dBR), datasets: [
+      {label: "Indicações (acum.)", data: acum(ind), borderColor: css("--cl-m"), borderWidth: 2, pointRadius: 0},
+      {label: "Formalizadas (acum.)", data: acum(form), borderColor: css("--ac"), borderWidth: 2, pointRadius: 0}]},
+    options: {plugins: {legend: leg}, scales: {y: {beginAtZero: true}}}});
+}
+
+/* ======================= Fila, perfil, UF, analítico ======================= */
+const aptoCls = a => a === "SIM" ? "SIM" : a === "NÃO" ? "NAO" : a === "EM ANDAMENTO" ? "AND" : a === "VERIFICAR" ? "VER" : "APD";
+function renderFila() {
+  if (!mostrar("cFila", D.fila && D.fila.length)) return;
+  const q = $("busca").value.trim().toLowerCase();
+  const fila = D.fila.filter(r => S.fases.has(r.fase) && (!q || String(r.id_contrato).includes(q) || r.motivos.join(" ").toLowerCase().includes(q)));
+  $("filaSub").textContent = `${fI.format(fila.length)} contratos · foto de ${dBRY(M.hoje)}`;
+  $("filaTab").innerHTML = `<table class="t"><thead><tr><th>Contrato</th><th>Chance (score)</th><th class="tx">Fase</th><th>Atraso</th><th>Dívida ÷ carro</th><th class="tx">Apto</th><th class="tx">Próximo passo</th><th class="tx">Motivos</th></tr></thead><tbody>` +
+    fila.map(r => `<tr><td>${r.id_contrato}</td><td>${pctAbs(r.score, 1)}</td><td class="tx">${r.fase}</td><td>${int(r.dias_atraso)} d</td><td>${f2.format(r.ltv_atual)}×</td>` +
+      `<td class="tx"><span class="apto ${aptoCls(r.apto)}">${esc(r.apto)}</span></td><td class="tx">${esc(r.proximo_passo)}</td><td class="tx">${r.motivos.map(m => `<span class="mot">${esc(m)}</span>`).join("")}</td></tr>`).join("") + "</tbody></table>";
+}
+const PERFIL_NOMES = {dias_atraso: ["Dias de atraso", int], ltv_atual: ["Dívida ÷ valor do carro", v => f2.format(v) + "×"], pct_pago: ["Parte do plano paga", v => pctAbs(v, 0)],
+  idade_veiculo: ["Idade do carro (anos)", v => f1.format(v)], divida_total: ["Dívida total", brlC], qtd_cpc_30d: ["CPC em 30 dias", v => f1.format(v)],
+  dias_desde_ult_cpc: ["Dias sem contato certo", int], idade: ["Idade do cliente", int]};
+function renderPerfil() {
+  if (!mostrar("cPerfil", !!D.perfil)) return;
+  const P = D.perfil;
+  $("perfSub").textContent = `${fI.format(P.n_formaliza)} formalizações em ${fI.format(P.n_base)} contratos-safra`;
+  $("perfTab").innerHTML = `<table class="t"><thead><tr><th>Variável</th><th>Quem formaliza</th><th>Base</th><th>Razão</th></tr></thead><tbody>` +
+    Object.entries(PERFIL_NOMES).filter(([k]) => k in P.formaliza).map(([k, [n, fmt]]) => { const a = P.formaliza[k], b = P.base[k];
+      return `<tr><td>${n}</td><td><b>${a == null ? "—" : fmt(a)}</b></td><td>${b == null ? "—" : fmt(b)}</td><td>${ok(seguro(a, b)) ? f2.format(seguro(a, b)) + "×" : "—"}</td></tr>`; }).join("") + "</tbody></table>";
+}
+const UF_POS = {RR: [0, 1], AP: [0, 2], AM: [1, 0], PA: [1, 1], MA: [1, 3], CE: [1, 4], RN: [1, 5], AC: [2, 0], RO: [2, 1], TO: [2, 2], PI: [2, 3], PB: [2, 4],
+  PE: [2, 5], MT: [3, 1], GO: [3, 2], BA: [3, 3], SE: [3, 4], AL: [3, 5], MS: [4, 1], DF: [4, 2], MG: [4, 3], ES: [4, 4], PR: [5, 1], SP: [5, 2], RJ: [5, 3], SC: [6, 1], RS: [7, 1]};
+function renderUf() {
+  if (!mostrar("cUf", D.uf && D.uf.length)) return;
+  const rampa = document.body.dataset.theme === "light" ? ["#cde2fb", "#9ec5f4", "#6da7ec", "#2a78d6", "#1c5cab"] : ["#184f95", "#256abf", "#3987e5", "#6da7ec", "#b7d3f6"];
+  const v = D.uf.map(u => ({...u, taxa: seguro(u[S.uf] * 1000, u.contratos * ND)}));
+  const xs = v.map(u => u.taxa).filter(ok), lo = Math.min(...xs), hi = Math.max(...xs);
+  const passo = t => !ok(t) || hi === lo ? 0 : Math.min(4, Math.floor((t - lo) / (hi - lo) * 5));
+  $("ufGrid").innerHTML = v.map(u => { const [r, c] = UF_POS[u.uf] || [7, 5], k = passo(u.taxa), escuro = document.body.dataset.theme === "light" ? k >= 3 : k <= 1;
+    return `<div class="uft" style="grid-row:${r + 1};grid-column:${c + 1};background:${rampa[k]};color:${escuro ? "#fff" : "#04121f"}"
+      title="${u.uf}: ${int(u.contratos)} contratos méd., ${int(u.indicacoes)} indicações, ${int(u.formalizadas)} formalizadas">${u.uf}<small>${ok(u.taxa) ? f2.format(u.taxa) : "—"}</small></div>`; }).join("");
+  $("ufLeg").innerHTML = `${f2.format(lo)} ` + rampa.map(c => `<i style="background:${c}"></i>`).join("") + ` ${f2.format(hi)} por mil contratos-dia`;
+}
+function eventosFiltrados(p) {
+  const d1 = DIAS[p.A[0]], d2 = DIAS[p.A[1]];
+  return (D.eventos || []).filter(e => e.data >= d1 && e.data <= d2 && (!e.fase || S.fases.has(e.fase)) &&
+    (S.canal === "todos" || e.canal === S.canal) && (S.tipo === "todos" || e.tipo === S.tipo));
+}
+const TIPO = {indicacao: "Indicação", formalizada: "Formalizada", insucesso: "Insucesso"};
+function renderAnalitico(p) {
+  const ev = eventosFiltrados(p);
+  $("anSub").textContent = `${fI.format(ev.length)} eventos · ${rotPer(p.A)}`;
+  $("anTab").innerHTML = `<table class="t"><thead><tr><th class="tx">Data</th><th class="tx">Evento</th><th>Contrato</th><th class="tx">Classe no dia</th><th class="tx">Fase</th><th class="tx">Canal</th><th class="tx">Operador</th><th class="tx">Motivo</th></tr></thead><tbody>` +
+    ev.slice(0, 300).map(e => `<tr><td class="tx">${dBRY(e.data)}</td><td class="tx">${TIPO[e.tipo]}</td><td>${e.id_contrato}</td><td class="tx">${e.classe === "SEM CLASSE" ? "—" : clNome(e.classe)}</td>` +
+      `<td class="tx">${e.fase || "—"}</td><td class="tx">${e.canal}</td><td class="tx">${e.operador}</td><td class="tx">${esc(e.motivo)}</td></tr>`).join("") + "</tbody></table>";
+}
+function baixarCsv() {
+  const ev = eventosFiltrados(periodos()), cols = ["data", "tipo", "id_contrato", "classe", "fase", "canal", "operador", "motivo"];
+  const linhas = [cols.join(";"), ...ev.map(e => cols.map(c => String(e[c] ?? "").replace(/;/g, ",")).join(";"))];
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + linhas.join("\r\n")], {type: "text/csv;charset=utf-8"}));
+  a.download = `eventos_ea_${DIAS[periodos().A[0]]}_${DIAS[periodos().A[1]]}.csv`; a.click(); URL.revokeObjectURL(a.href);
+}
+function renderOper() {
+  const p = periodos(), A = agr(...p.A), B = p.B ? agr(...p.B) : null;
+  renderKpis(A, B, p); renderCmp(A, B, p); renderTend(p); renderMes(p); renderFila(); renderPerfil(); renderUf(); renderAnalitico(p);
+}
+
+/* ======================= MODELO ======================= */
+const MD = D.modelo || {};
+const NOMES_M = {regua: "Régua", logistica: "Logística", lightgbm: "LightGBM"};
+const DESC_M = {regua: "sem modelo: deve mais do que o carro vale, depois o maior atraso", logistica: "linear, explicação exata por variável",
+  lightgbm: "árvores com gradiente, pega interações"};
+function renderTiles() {
+  const m = MD.metricas_oot, bt = (MD.backtest || []).find(r => r.classe === "ALTO");
+  if (!mostrar("mTiles", !!m)) return;
+  const t = [["PR-AUC fora do tempo", f3.format(m.pr_auc), `acaso = taxa base ${pctAbs(m.taxa_base, 2)}`], ["AUC fora do tempo", f3.format(m.auc), "ordem geral (engana na classe rara)"],
+    ["Precisão nos 10% do topo", pctAbs(m.precisao_top["10"], 1), `lift ${f1.format(m.lift_top10)}× sobre o acaso`], ["Recall nos 10% do topo", pctAbs(m.recall_top["10"], 1), "das entregas, ligando para 10%"]];
+  if (bt) t.push(["ALTO em produção", pctAbs(bt.part_eas, 0) + " das entregas", `com ${pctAbs(bt.part_estoque, 0)} do estoque (dias maduros)`]);
+  $("mTiles").innerHTML = t.map(([l, v, s]) => `<div class="tile"><div class="tl">${l}</div><div class="tv">${v}</div><div class="ts">${s}</div></div>`).join("");
+}
+function renderCurvas() {
+  if (mostrar("cPr", !!MD.curva_pr)) {
+    const c = MD.curva_pr;
+    mk("prGraf", {type: "line", data: {datasets: [
+        {label: "Modelo publicado", data: c.recall.map((r, i) => ({x: r, y: c.precisao[i]})), borderColor: css("--ac"), borderWidth: 2, pointRadius: 0},
+        {label: "Acaso (taxa base)", data: [{x: 0, y: c.taxa_base}, {x: 1, y: c.taxa_base}], borderColor: css("--t2"), borderDash: [5, 4], borderWidth: 1.5, pointRadius: 0}]},
+      options: {parsing: false, plugins: {legend: leg, tooltip: {callbacks: {label: k => `recall ${pctAbs(k.parsed.x, 0)} · precisão ${pctAbs(k.parsed.y, 1)}`}}},
+        scales: {x: {type: "linear", min: 0, max: 1, title: {display: true, text: "recall (parte das entregas encontrada)"}, ...eixoPct},
+                 y: {min: 0, title: {display: true, text: "precisão"}, ...eixoPct}}}});
+  }
+  if (mostrar("cCap", !!MD.captura)) {
+    const c = MD.captura, pts = s => s.x.map((x, i) => ({x, y: s.y[i]}));
+    const linhaH = (y, txt) => ({label: txt, data: [{x: 0, y}, {x: 1, y}], borderColor: css("--t2"), borderDash: [2, 4], borderWidth: 1, pointRadius: 0});
+    mk("capGraf", {type: "line", data: {datasets: [
+        {label: "Modelo publicado", data: pts(c.modelo), borderColor: css("--ac"), borderWidth: 2, pointRadius: 0},
+        {label: "Régua", data: pts(c.regua), borderColor: css("--cl-m"), borderWidth: 2, pointRadius: 0},
+        {label: "Acaso", data: [{x: 0, y: 0}, {x: 1, y: 1}], borderColor: css("--t2"), borderDash: [5, 4], borderWidth: 1, pointRadius: 0},
+        linhaH(.8, "Corte ALTO (80%)"), linhaH(.95, "Corte MEDIO (95%)")]},
+      options: {parsing: false, plugins: {legend: leg, tooltip: {callbacks: {label: k => `${k.dataset.label}: ${pctAbs(k.parsed.x, 0)} do estoque → ${pctAbs(k.parsed.y, 0)} das entregas`}}},
+        scales: {x: {type: "linear", min: 0, max: 1, title: {display: true, text: "% do estoque acionado"}, ...eixoPct}, y: {min: 0, max: 1, ...eixoPct}}}});
+  }
+}
+function renderEscada() {
+  const e = MD.escada; if (!mostrar("cEscada", !!e)) return;
+  const deg = k => { const d = e.degraus[k];
+    return `<div class="degrau ${e.publicado === k ? "venc" : ""}"><div class="dn">${NOMES_M[k]}${e.publicado === k ? " · publicado" : e.sombra === k ? " · sombra" : ""}</div>
+      <div class="dd">${DESC_M[k]}</div><div class="dv">${pctAbs(d.captura_top10, 1)}</div><div class="muted">das entregas nos 10% do topo</div>
+      <div class="muted">PR-AUC ${f3.format(d.pr_auc)} · AUC ${f3.format(d.auc)}</div></div>`; };
+  const gt = g => `<div class="gatebox"><div class="gt">gate</div><div class="crit"><span class="${g.ic[0] > 0 ? "ok" : "no"}">${g.ic[0] > 0 ? "✓" : "✗"}</span>
+    <span>captura ${pp(g.diff)} (IC ${pp(g.ic[0])} a ${pp(g.ic[1])})</span></div>
+    <div class="crit"><span class="${g.passou ? "ok" : "no"}">${g.passou ? "✓" : "✗"}</span><span>${g.passou ? "passou" : "não passou"}</span></div></div>`;
+  $("escada").innerHTML = deg("regua") + gt(e.gates[0]) + deg("logistica") + gt(e.gates[1]) + deg("lightgbm");
+  $("veredito").className = "veredito" + (e.sombra ? "" : " no"); $("veredito").textContent = e.frase;
+}
+function renderVaz() {
+  const v = MD.vazamento; if (!mostrar("cVaz", !!v)) return;
+  $("vazTab").innerHTML = `<table class="t"><thead><tr><th>Modelo</th><th>AUC aleatória</th><th>AUC por contrato</th><th>Diferença</th><th>PR-AUC aleatória</th><th>PR-AUC por contrato</th></tr></thead><tbody>` +
+    ["logistica", "lightgbm"].map(k => `<tr><td>${NOMES_M[k]}</td><td>${f3.format(v[k].aleatorio.auc)}</td><td>${f3.format(v[k].grupo.auc)}</td><td class="${v[k].diferenca_auc > .01 ? "ruim" : ""}">${sinal(v[k].diferenca_auc, f3.format(Math.abs(v[k].diferenca_auc)))}</td>` +
+      `<td>${f3.format(v[k].aleatorio.pr_auc)}</td><td>${f3.format(v[k].grupo.pr_auc)}</td></tr>`).join("") + "</tbody></table>";
+  const pior = ["logistica", "lightgbm"].sort((a, b) => v[b].diferenca_auc - v[a].diferenca_auc)[0];
+  $("vazNota").innerHTML = `A validação aleatória superestima o <b>${NOMES_M[pior]}</b> em <b>${f3.format(v[pior].diferenca_auc)}</b> de AUC: modelos flexíveis decoram o contrato. ${fI.format(v.n_linhas)} fotos de ${fI.format(v.n_contratos)} contratos.`;
+}
+function renderBt() {
+  const b = MD.backtest; if (!mostrar("cBt", !!b)) return;
+  $("btTab").innerHTML = `<table class="t"><thead><tr><th>Classe</th><th>% do estoque</th><th>Taxa de entrega em 60 dias</th><th>Lift</th><th>% das entregas</th></tr></thead><tbody>` +
+    b.map(r => `<tr><td>${clNome(r.classe)}</td><td>${pctAbs(r.part_estoque, 1)}</td><td>${pctAbs(r.taxa, 2)}</td><td>${f2.format(r.lift)}×</td><td><b>${pctAbs(r.part_eas, 1)}</b></td></tr>`).join("") + "</tbody></table>";
+}
+function renderOrd() {
+  const o = MD.ordenacao; if (!mostrar("cOrd", !!o)) return;
+  const n = s => o.filter(x => x.status === s).length;
+  $("ordSub").textContent = `${n("perfeita")} perfeitas · ${n("invertida")} invertidas · ${n("sem dados")} sem dados (${o.length} semanas)`;
+  mk("ordGraf", {type: "line", data: {labels: o.map(x => dBR(x.semana)), datasets: CL.map(c => ({label: c, data: o.map(x => x["taxa_" + c]), borderColor: corCl(c), backgroundColor: corCl(c), borderWidth: 2, pointRadius: 0}))},
+    options: {interaction: {mode: "index", intersect: false}, plugins: {legend: leg, tooltip: {callbacks: {label: k => `${k.dataset.label}: ${pctAbs(k.parsed.y, 2)}`}}},
+      scales: {y: {beginAtZero: true, ticks: {callback: v => f1.format(v * 100) + "%"}}}}});
+}
+function renderEst() {
+  const s = MD.estabilidade; if (!mostrar("cEst", !!s)) return;
+  mk("estGraf", {type: "line", data: {labels: s.map(x => mesAno(x.mes + "-01")), datasets: [
+      {label: "Recall do ALTO", data: s.map(x => x.recall_alto), borderColor: css("--ac"), borderWidth: 2, pointRadius: 2},
+      {label: "% do estoque no ALTO", data: s.map(x => x.pct_alto), borderColor: css("--cl-m"), borderWidth: 2, pointRadius: 2}]},
+    options: {plugins: {legend: leg, tooltip: {callbacks: {label: k => `${k.dataset.label}: ${pctAbs(k.parsed.y, 1)}`}}}, scales: {y: {min: 0, max: 1, ...eixoPct}}}});
+  $("estTab").innerHTML = `<table class="t"><thead><tr><th>Mês</th><th>PR-AUC</th><th>AUC</th><th>Taxa base</th></tr></thead><tbody>` +
+    s.map(x => `<tr><td>${mesAno(x.mes + "-01")}</td><td>${f3.format(x.pr_auc)}</td><td>${f3.format(x.auc)}</td><td>${pctAbs(x.taxa_base, 2)}</td></tr>`).join("") + "</tbody></table>";
+}
+function renderCortes() {
+  const c = MD.cortes; if (!mostrar("cCortes", !!c)) return;
+  const vigs = [...new Set(c.map(x => x.vigente_desde))].sort().reverse();
+  if (!S.vig || !vigs.includes(S.vig)) S.vig = vigs[0];
+  $("vigSel").innerHTML = vigs.map(v => `<option value="${v}">${dBRY(v)}</option>`).join(""); $("vigSel").value = S.vig;
+  $("corTab").innerHTML = `<table class="t"><thead><tr><th>Fase</th><th>Corte ALTO</th><th>Corte MEDIO</th><th>Entregas na calibração</th><th class="tx">Origem</th></tr></thead><tbody>` +
+    c.filter(x => x.vigente_desde === S.vig).map(x => `<tr class="${x.fase === "__GLOBAL__" ? "tot" : ""}"><td>${x.fase === "__GLOBAL__" ? "Global" : x.fase + " dias"}</td><td>${pctAbs(x.corte_alto, 1)}</td><td>${pctAbs(x.corte_medio, 1)}</td><td>${int(x.n_ea)}</td><td class="tx">${x.origem === "fase" ? "corte da fase" : "corte global"}</td></tr>`).join("") + "</tbody></table>";
+}
+function renderImp() {
+  const im = MD.importancia; if (!mostrar("cImp", !!im)) return;
+  mk("impGraf", {type: "bar", data: {labels: im.map(x => x.nome), datasets: [{label: "média |efeito| (log-odds)", data: im.map(x => x.media_abs), backgroundColor: css("--cl-m"), borderRadius: 4}]},
+    options: {indexAxis: "y", plugins: {legend: {display: false}, tooltip: {callbacks: {label: k => f3.format(k.parsed.x)}}},
+      scales: {y: {afterFit: s => { s.width = Math.min(190, s.chart.width * .45); }}}}});
+}
+function renderTempo() {
+  const t = MD.tempo; if (!mostrar("cTempo", !!t)) return;
+  $("concls").innerHTML = t.conclusoes.map(c => `<div class="concl"><div class="cn">${esc(c.numero)}</div><div class="ct">${esc(c.titulo)}</div><div class="cx">${esc(c.texto)}</div></div>`).join("");
+  const meses = [...new Set(t.cenarios.map(x => x.mes))].sort();
+  const CEN = {regua: ["Régua", "--t2"], congelado: ["Congelado", "--cl-b"], mensal: ["Retreino mensal (publicado)", "--ac"], sombra: ["Sombra (LightGBM)", "--cl-a"]};
+  const cens = [...new Set(t.cenarios.map(x => x.cenario))];
+  mk("tempoGraf", {type: "line", data: {labels: meses.map(m => mesAno(m + "-01")), datasets: cens.map(c => ({label: CEN[c][0],
+      data: meses.map(m => (t.cenarios.find(x => x.mes === m && x.cenario === c) || {}).pct_eas ?? null), borderColor: css(CEN[c][1]), borderWidth: 2, pointRadius: 2}))},
+    options: {interaction: {mode: "index", intersect: false}, plugins: {legend: leg, tooltip: {callbacks: {label: k => `${k.dataset.label}: ${pctAbs(k.parsed.y, 1)}`}}}, scales: {y: {min: 0, max: 1, ...eixoPct}}}});
+  if (mostrar("cSombra", !!MD.sombra)) {
+    const s = MD.sombra.meses;
+    mk("sombraGraf", {type: "line", data: {labels: s.map(x => mesAno(x.mes + "-01")), datasets: [
+        {label: "Publicado (logística)", data: s.map(x => x.mensal), borderColor: css("--ac"), borderWidth: 2},
+        {label: "Sombra (LightGBM)", data: s.map(x => x.sombra), borderColor: css("--cl-a"), borderWidth: 2}]},
+      options: {plugins: {legend: leg}, scales: {y: eixoPct}}});
+  }
+}
+function renderModelo() { renderTiles(); renderCurvas(); renderEscada(); renderVaz(); renderBt(); renderOrd(); renderEst(); renderCortes(); renderImp(); renderTempo(); }
+
+/* ======================= controles ======================= */
+function render() { if (S.aba === "oper") renderOper(); else if (S.aba === "modelo") renderModelo(); }
+function opcoesDias(sel, valor) { sel.innerHTML = DIAS.map((d, i) => `<option value="${i}">${dBRY(d)}</option>`).join(""); sel.value = valor; }
+function aplicarModo(m) {
+  S.modo = m; QS("#segModo [data-modo]").forEach(b => b.classList.toggle("on", b.dataset.modo === m));
+  mostrar("ctlDia", m === "dia"); mostrar("ctlPer", m === "per"); mostrar("ctlUni", m === "uni");
+}
+function aplicarTema(t) {
+  if (!["midnight", "dark", "light"].includes(t)) t = "midnight";
+  document.body.dataset.theme = t; store.set("tema", t);
+  QS("#segTema [data-tema]").forEach(b => b.classList.toggle("on", b.dataset.tema === t));
+  window.redesenharFundo();
+}
+function aplicarAba(a) {
+  if (a === "ligacoes" && !D.ligacoes) a = "oper";
+  S.aba = a; QS("[data-aba]").forEach(b => { b.classList.toggle("on", b.dataset.aba === a); b.setAttribute("aria-selected", b.dataset.aba === a); });
+  mostrar("v-oper", a === "oper"); mostrar("v-modelo", a === "modelo"); mostrar("v-ligacoes", a === "ligacoes");
+  destruir(); render();
+}
+function seg(id, attr, fn) { QS(`#${id} [data-${attr}]`).forEach(b => b.onclick = () => {
+  QS(`#${id} [data-${attr}]`).forEach(x => x.classList.toggle("on", x === b)); fn(b.dataset[attr]); }); }
+const inicioMes = i => { const m = DIAS[i].slice(0, 7); let j = i; while (j > 0 && DIAS[j - 1].slice(0, 7) === m) j--; return j; };
+function iniciar() {
+  aplicarTema(store.get("tema") || "midnight");
+  QS("#segTema [data-tema]").forEach(b => b.onclick = () => { aplicarTema(b.dataset.tema); destruir(); render(); });
+  const e = MD.escada || {};
+  $("sub").innerHTML = `Carteira Exemplo de veículos · modelo publicado: <b>${NOMES_M[e.publicado] || "—"}</b> retreinada todo mês · ALTO = 80% das entregas, MEDIO = 95%`;
+  $("bFoto").textContent = "📸 Foto de " + dBRY(M.hoje); $("bGer").textContent = "⚙ Gerado em " + M.gerado_em;
+  $("fases").innerHTML = M.fases.map(f => `<button class="chip on" data-fase="${f}">${f}</button>`).join("");
+  QS("#fases [data-fase]").forEach(b => b.onclick = () => { const f = b.dataset.fase;
+    if (S.fases.has(f)) { if (S.fases.size > 1) S.fases.delete(f); } else S.fases.add(f);
+    QS("#fases [data-fase]").forEach(x => { x.classList.toggle("on", S.fases.has(x.dataset.fase)); x.classList.toggle("off", !S.fases.has(x.dataset.fase)); }); render(); });
+  $("faixaSel").innerHTML = `<option value="todas">Todas</option>` + FX.map(f => `<option value="${f}">${f} dias</option>`).join("");
+  $("faixaSel").onchange = ev => { S.faixa = ev.target.value; render(); };
+  seg("segCanal", "canal", v => { S.canal = v; render(); });
+  seg("segAtrib", "atrib", v => { S.atrib = v; render(); });
+  seg("segVisao", "visao", v => { S.visao = v; if (v !== "classe") { S.faixa = "todas"; $("faixaSel").value = "todas"; } render(); });
+  seg("segTend", "tend", v => { S.tend = v; renderTend(periodos()); });
+  seg("segTipo", "tipo", v => { S.tipo = v; renderAnalitico(periodos()); });
+  seg("segUf", "uf", v => { S.uf = v; renderUf(); });
+  QS("[data-aba]").forEach(b => b.onclick = () => aplicarAba(b.dataset.aba));
+  QS("[data-h]").forEach(b => b.onclick = () => { const h = $(b.dataset.h); h.classList.toggle("on"); b.classList.toggle("on", h.classList.contains("on")); });
+  // padrão: mês vigente contra o mês anterior
+  const u = ND - 1, iM = inicioMes(u), fB = Math.max(0, iM - 1), iB = inicioMes(fB);
+  opcoesDias($("pA1"), iM); opcoesDias($("pA2"), u); opcoesDias($("pB1"), iB); opcoesDias($("pB2"), fB);
+  opcoesDias($("dA"), u); opcoesDias($("dB"), Math.max(0, u - 1));
+  opcoesDias($("u1"), iM); opcoesDias($("u2"), u);
+  ["dA", "dB", "pA1", "pA2", "pB1", "pB2", "u1", "u2"].forEach(id => $(id).onchange = () => render());
+  QS("#segModo [data-modo]").forEach(b => b.onclick = () => { aplicarModo(b.dataset.modo); render(); });
+  QS("[data-pd]").forEach(b => b.onclick = () => { const a = +$("dA").value, j = b.dataset.pd === "d1" ? a - 1 : a - 5;
+    if (j >= 0) { $("dB").value = j; render(); } });
+  QS("[data-pp]").forEach(b => b.onclick = () => { const fim = +$("pA2").value;
+    if (b.dataset.pp === "sem") { const i1 = Math.max(0, fim - 4); $("pA1").value = i1; $("pB2").value = Math.max(0, i1 - 1); $("pB1").value = Math.max(0, i1 - 5); }
+    else { const i1 = inicioMes(fim), f2_ = Math.max(0, i1 - 1); $("pA1").value = i1; $("pB2").value = f2_; $("pB1").value = inicioMes(f2_); }
+    render(); });
+  QS("[data-pu]").forEach(b => b.onclick = () => { const fim = +$("u2").value; let i1 = 0, i2 = fim;
+    if (b.dataset.pu === "7") i1 = Math.max(0, fim - 6); else if (b.dataset.pu === "mes") i1 = inicioMes(fim);
+    else if (b.dataset.pu === "ant") { i2 = Math.max(0, inicioMes(fim) - 1); i1 = inicioMes(i2); }
+    $("u1").value = i1; $("u2").value = i2; render(); });
+  $("busca").oninput = () => renderFila();
+  $("baixar").onclick = baixarCsv;
+  $("vigSel").onchange = ev => { S.vig = ev.target.value; renderCortes(); };
+  mostrar("tabLig", !!D.ligacoes);
+  aplicarModo("per");
+  const qs = location.search + location.hash;
+  aplicarAba(/aba=modelo/.test(qs) ? "modelo" : /aba=ligacoes/.test(qs) ? "ligacoes" : "oper");
+}
+iniciar();
+</script>
+</body>
+</html>

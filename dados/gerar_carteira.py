@@ -27,8 +27,9 @@ Como a carteira funciona:
     - tabulação do operador: em ~15% das ligações com desfecho de EA o operador lança outra coisa.
 
 Valores medidos com a base padrão (120 mil contratos, ~99 mil com passagem pelo período, geração em ~10 s):
-    estoque ativo ~28 mil por dia útil; ~3,2 mil tentativas e ~580 CPC por dia útil; ~7 indicações e ~4,3
-    formalizações por dia útil; taxa ea_60d nas safras maduras de 0,45% (abr/2025) a 1,0% (set/2026), média 0,56%.
+    estoque ativo ~28 mil por dia útil; ~3,2 mil tentativas e ~580 CPC por dia útil; ~6,5 indicações e ~3,8
+    formalizações por dia útil; taxa ea_60d nas safras maduras de 0,49% (abr/2025) a 0,73% (set/2026), média 0,55%;
+    dívida ÷ valor atual do carro com mediana 0,98 e p90 1,42.
 """
 import argparse
 from pathlib import Path
@@ -124,7 +125,7 @@ def _bins_semanais(df, entrada, n, mask):
     return b
 
 
-def _simular(rng, n, entrada, bureau, contratos, cont, quebra):
+def _simular(rng, n, entrada, bureau, contratacao, contratos, cont, quebra):
     """Laço semanal com riscos concorrentes. Devolve saída (dia, motivo) e as decisões de EA."""
     pct_pago = contratos["parcelas_pagas"].to_numpy() / contratos["plano"].to_numpy()
     divida = contratos["valor_parcela"].to_numpy() * (contratos["plano"].to_numpy() - contratos["parcelas_pagas"].to_numpy())
@@ -156,13 +157,13 @@ def _simular(rng, n, entrada, bureau, contratos, cont, quebra):
             break
         ano_cal = D0.year + (D0.dayofyear + dia0) / 365.25
         idade_v = np.clip(ano_cal - ano_v, 0, None)
-        ltv = divida / (valor0 * 0.85 ** idade_v)
+        ltv = divida / (valor0 * 0.85 ** ((dia0 - contratacao) / 365.25))   # deprecia desde a contratação
         cpc30 = cpc_sem[:, max(0, w - 4):w].sum(1)
         ok_rec = ok_sem[:, max(0, w - 2):w + 1].sum(1) > 0
         queb26 = queb_sem[:, max(0, w - 26):w].sum(1) > 0
         regime = dia0 >= DIA_REGIME
         f_dias = -0.9 if dias_atraso < 90 else (0.0 if dias_atraso <= 180 else (0.45 if dias_atraso <= 400 else 0.15))
-        l_ea = (-11.75 + 1.4 * f_dias + (1.5 + 0.35 * regime) * np.clip(ltv, 0, 2.5)
+        l_ea = (-9.65 + 1.4 * f_dias + (1.5 + 0.35 * regime) * np.clip(ltv, 0, 2.5)
                 + 1.3 * ((ltv > 1.1) & (idade_v > 7)) + EFEITO_BUREAU_EA[bureau] - 1.3 * pct_pago
                 + 0.35 * np.minimum(cpc30, 3) + 0.25 * (cpc30 > 0) * (bureau >= 3) + 0.6 * queb26
                 - 0.8 * (insucessos > 0) + fragil)
@@ -197,11 +198,11 @@ def _simular(rng, n, entrada, bureau, contratos, cont, quebra):
 def gerar(n_contratos: int, saida: Path, seed: int = 42) -> dict[str, pd.DataFrame]:
     rng = np.random.default_rng(seed)
     n = n_contratos
-    contratos, entrada, bureau, _ = _contratos(rng, n)
+    contratos, entrada, bureau, contratacao = _contratos(rng, n)
     contatavel = rng.beta(2, 3, n)
     cont = _contatos_potenciais(rng, entrada, contatavel)
     quebra = rng.random(len(cont)) < 0.6
-    dia_saida, motivo, decisoes = _simular(rng, n, entrada, bureau, contratos, cont, quebra)
+    dia_saida, motivo, decisoes = _simular(rng, n, entrada, bureau, contratacao, contratos, cont, quebra)
 
     # ---------- indicações: no 1º CPC entre a decisão e a data sorteada; sem CPC, o cliente retorna (CPC novo) ----------
     dec = pd.DataFrame(decisoes, columns=["i", "dia_ind", "dia_desf", "form"])

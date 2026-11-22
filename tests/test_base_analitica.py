@@ -65,3 +65,13 @@ def test_colunas_e_safras(carteira_pequena):
     s = safras()
     assert s[0] == PRIMEIRA_SAFRA and all((b - a).days == 28 for a, b in zip(s, s[1:]))
     assert s[-1] <= pd.Timestamp("2026-10-01")
+
+
+def test_ltv_deprecia_so_desde_a_contratacao(carteira_pequena):
+    t = _sem_cache(carteira_pequena)
+    D = pd.Timestamp("2026-03-02")
+    b = montar_base(D, t).set_index("id_contrato")
+    c = t["contratos"].set_index("id_contrato").loc[b.index]
+    anos = (D - c["data_contratacao"]).dt.days / 365.25
+    esperado = b["divida_total"] / (c["valor_veiculo_inicial"] * 0.85 ** anos)
+    assert np.allclose(b["ltv_atual"], esperado)

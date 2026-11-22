@@ -21,7 +21,7 @@ TOL_PR_AUC = 0.005
 
 
 def _pp(x: float) -> str:
-    return f"{x * 100:+.1f}".replace(".", ",")
+    return f"{x * 100:+.1f}".replace(".", ",").replace("-", "−")
 
 
 def _dec(x: float, c: int = 3) -> str:

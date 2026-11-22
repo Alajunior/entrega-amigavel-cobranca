@@ -77,7 +77,9 @@ def montar_base(data_ref, tabelas: dict) -> pd.DataFrame:
     b["divida_total"] = np.round(b["valor_parcela"] * (b["plano"] - b["parcelas_pagas"]), 2)
     b["pct_pago"] = b["parcelas_pagas"] / b["plano"]
     b["idade_veiculo"] = np.clip(_ano(D) - b["ano_veiculo"], 0, None)
-    b["ltv_atual"] = b["divida_total"] / (b["valor_veiculo_inicial"] * 0.85 ** b["idade_veiculo"])
+    # o valor do carro na contratação já reflete a idade dele: deprecia só o tempo desde então (15% ao ano)
+    anos_contrato = (D - b["data_contratacao"]).dt.days / 365.25
+    b["ltv_atual"] = b["divida_total"] / (b["valor_veiculo_inicial"] * 0.85 ** anos_contrato)
     b["uf_grupo"] = b["uf"].map(REGIAO)
 
     ids = b["id_contrato"]
