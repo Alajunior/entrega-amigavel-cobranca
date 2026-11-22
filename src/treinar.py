@@ -70,4 +70,5 @@ def main(pasta: Path = PASTA, relatorios: Path = RAIZ / "relatorios") -> dict:
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8")         # console do Windows (cp1252) não tem o sinal de menos
     main(Path(sys.argv[1]) if len(sys.argv) > 1 else PASTA)
