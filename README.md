@@ -162,14 +162,14 @@ A pergunta da operação é simples: **o operador ofereceu a Entrega Amigável p
 2. **Voz e telefone** (`src/audio/sintetizar.py`). As vozes neurais pt-BR do edge-tts, com velocidade e tom variados, viram 5 personas de cliente e 4 de operador. O operador vai no canal esquerdo e o cliente no direito. Cada canal passa pela linha telefônica: 8 kHz, faixa de 300 a 3.400 Hz, lei µ, ruído e 3% de pacotes perdidos. O canal do operador ainda recebe a conversa das posições vizinhas da central. Saem 60 MP3 de 55 a 97 s, com 16 MB no total.
 3. **Transcrição** (`src/audio/transcrever.py`). faster-whisper large-v3-turbo transcreve cada canal separado, com timestamp por palavra. Uma pausa de 1 s abre um balão novo. A limpeza tira o eco do prompt e os loops de repetição. A CPU levou 34 minutos para as 60 ligações.
 
-**O ruído foi calibrado, não chutado.** Com o telefone limpo (SNR de 10 a 25 dB), o Whisper errava só 5,5% das palavras e acertava todas as ofertas, e assim a regra tolerante não teria o que provar. Testei quatro níveis de degradação numa amostra separada. Com a central nos dois canais, o Whisper inventava falas a partir do fundo. Com a central só no operador, o erro ficou em 31%, como numa ligação real. Mesmo assim ele acertava "entrega amigável" porque o termo estava no prompt. Com um prompt genérico de cobrança, o mesmo que serviria a qualquer carteira, apareceram "entrega ligada" e "entrega migada".
+**O ruído foi calibrado, não chutado.** Com o telefone limpo (SNR de 10 a 25 dB), o Whisper errava só 5,5% das palavras e acertava todas as ofertas, e assim a regra tolerante não teria o que provar. Testei quatro níveis de degradação numa rodada de calibração com 18 das 60 ligações: mesmos roteiros e vozes, outro sorteio de ruído. Com a central nos dois canais, o Whisper inventava falas a partir do fundo. Com a central só no operador, o erro ficou em 31%, como numa ligação real. Mesmo assim ele acertava "entrega amigável" porque o termo estava no prompt. Com um prompt genérico de cobrança, o mesmo que serviria a qualquer carteira, apareceram "entrega ligada" e "entrega migada".
 
 **Resultados contra o gabarito**
 
 | | Resultado |
 |---|---|
-| Erro por palavra do Whisper (WER) | operador **30,6%** (central ruidosa), cliente **11,6%** |
-| Acerto da regra de oferta | **91,7%** (55 de 60) |
+| Erro por palavra do Whisper (WER) | operador **30,6%** (central ruidosa), cliente **11,6%**; parte é só formatação: o roteiro diz "doze de março" e o Whisper escreve "12 de março" |
+| Acerto da regra de oferta | **91,7%** (55 de 60); **88,3%** sem as 2 grafias aprendidas na calibração |
 | OFERECEU | 28 de 33 reconhecidas, **nenhum falso positivo** |
 | SÓ O CLIENTE FALOU · NÃO OFERECEU | 9 de 9 · 18 de 18 |
 | Alertas (todos com precisão de 100%) | desconto em % 4 de 4, quitação sem ressalva 5 de 6, nome limpo 2 de 3, ameaça de bloqueio 2 de 5 |
@@ -184,7 +184,7 @@ A pergunta da operação é simples: **o operador ofereceu a Entrega Amigável p
 
 A tolerância recuperou **4 ligações**: duas "entrega ligada" na fala do operador e duas "entrega amigada" do cliente. Ela não criou nenhum falso positivo. Com o texto perfeito as duas empatam, então a distância é o custo da transcrição, e não da regra.
 
-**Onde a regra errou, e por que eu não corrigi.** Em 3 ofertas a frase sumiu da transcrição: com a central ao fundo, o Whisper simplesmente não a escreveu. Em outras 2, "amigável" virou **"viável"**, uma palavra real. Nos alertas, "penhorar" virou "melhorar" duas vezes. Colocar "entrega viável" no mapa agora subiria o acerto, mas esse erro foi visto no conjunto de teste. Ajustar a regra a ele seria medir com a régua que acabou de ser cortada sob medida. No ciclo real, a grafia entra no mapa e a próxima rodada de ligações mede de novo. As duas grafias que entraram ("migada", "amigada") vieram da rodada de calibração, com outro ruído e outros sorteios.
+**Onde a regra errou, e por que eu não corrigi.** Em 2 ofertas a frase sumiu da transcrição: com a central ao fundo, o Whisper simplesmente não a escreveu. Em 1, virou "entrega migarro". Em outras 2, "amigável" virou **"viável"**, uma palavra real. Nos alertas, "penhorar" virou "melhorar" duas vezes. Colocar "entrega viável" no mapa agora subiria o acerto, mas esse erro foi visto no conjunto de teste. Ajustar a regra a ele seria medir com a régua que acabou de ser cortada sob medida. No ciclo real, a grafia entra no mapa e a próxima rodada de ligações mede de novo. As duas grafias que entraram ("migada", "amigada") vieram da rodada de calibração. Só que essa rodada usou os mesmos roteiros e as mesmas vozes, com outro ruído, então ela não é independente do teste. As duas respondem por 2 das 4 ligações recuperadas. Sem elas, o acerto cai para **88,3%**, e o recall de OFERECEU não muda, porque esses dois ganhos são do lado do cliente. Os dois números ficam aqui de propósito.
 
 **O que a operação leva daqui**
 

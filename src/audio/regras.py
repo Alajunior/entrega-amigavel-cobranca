@@ -14,11 +14,11 @@ import unicodedata
 ANCORAS = ("entrega", "entregar", "devolucao", "devolver")
 VERBOS_DEVOLUCAO = ANCORAS + ("devolve", "devolvendo", "entregando")
 OBJETOS = ("veiculo", "carro", "bem", "automovel")
-DETERMINANTES = ("o", "seu", "esse", "este")
+DETERMINANTES = ("o", "a", "seu", "sua", "esse", "este")   # até dois seguidos: "o seu carro"
 RARAS = ("migavel", "amigaval", "anigavel", "ligavel", "amigavo", "amigaveu",
          "migada", "amigada")                # estas duas apareceram na rodada de calibração do ruído
 COMUNS = ("amiga", "amigo", "ligada", "brigado", "amigas")
-CONTEXTO_LOJA = ("loja", "concessionaria", "revenda", "vendedor")
+CONTEXTO_LOJA = ("loja", "lojas", "concessionaria", "concessionarias", "revenda", "revendas", "vendedor")
 PARA_CLIENTE = ("para o senhor", "para a senhora", "para voce", "pra voce")
 NAO_E_VEICULO = ("boleto", "boletos", "documento", "documentos", "segunda", "comprovante", "carne")
 VOCAB_PRODUTO = ("saldo remanescente", "quitativa")
@@ -29,12 +29,13 @@ _PCT = _NUM + r" ?(%|por cento)"
 _RE_ALERTA = {
     "ameaca_bloqueio": re.compile(r"\b(bloque\w*|penhor\w*)( \w+){0,3} (cpf|conta|contas|salario|bens|nome)\b"),
     "desconto_percentual": re.compile(rf"\b{_PCT} de desconto\b|\bdesconto de (ate )?{_PCT}"),
-    "quitacao_sem_ressalva": re.compile(r"\b(?<!nao )(zer\w*|encerr\w*|acab\w* com|liquid\w*)( \w+){0,3} divida\b"
-                                        r"|\bdivida( \w+){0,2} (zer\w*|encerr\w*|acab\w*)"),
+    "quitacao_sem_ressalva": re.compile(r"\b(zer(a|ar|ou|ando|ada|ado)|encerr\w*|acab\w* com|liquid\w*)( \w+){0,3} divida\b"
+                                        r"|\bdivida( \w+){0,2} (zer(a|ar|ou|ando|ada|ado|o)|encerr\w*|acab\w*)\b"),
     "nome_limpo": re.compile(r"\bnome( \w+){0,2} limpo\b|\blimp\w* (o )?(seu |sua )?nome\b"),
 }
 _RESSALVA = re.compile(r"saldo remanescente|pode ficar saldo|fica um saldo|pode sobrar|sobrar saldo|nao zera|nao quita")
 _ANCORA_EA = re.compile(r"^(entreg|devol|amigav)")
+_NEGACAO = {"nao", "ninguem", "nunca", "jamais", "nem"}   # "ninguém vai bloquear a sua conta" é tranquilizar
 JANELA_NOME_LIMPO = 45
 
 
@@ -73,9 +74,11 @@ def _excluida(toks: list[str], i: int, devolucao: bool = False) -> bool:
     antes, depois = toks[max(0, i - 6):i], " ".join(toks[i + 1:i + 9])
     if any(t in CONTEXTO_LOJA for t in antes) or "me" in toks[max(0, i - 1):i]:
         return True
+    if not devolucao:                     # "entrega amigável segunda-feira" é oferta; o boleto só exclui a devolução
+        return False
     if any(t in NAO_E_VEICULO for t in toks[i + 1:i + 4]):
         return True
-    return devolucao and any(p in depois for p in PARA_CLIENTE)
+    return any(p in depois for p in PARA_CLIENTE)
 
 
 def achar_mencoes(texto: str, tolerante: bool = True) -> list[dict]:
@@ -93,11 +96,13 @@ def achar_mencoes(texto: str, tolerante: bool = True) -> list[dict]:
             if alvo:
                 achadas.append({"tipo": "explicita", "trecho": _trecho(toks, i), "pos": i, "n": alvo[0] + 2})
                 continue
-        if _e_ancora(tok, tolerante, VERBOS_DEVOLUCAO) and not _excluida(toks, i, devolucao=True):
-            seg = toks[i + 1:i + 3]
-            if seg and (seg[0] in OBJETOS or (seg[0] in DETERMINANTES and len(seg) > 1 and seg[1] in OBJETOS)):
-                achadas.append({"tipo": "devolucao", "trecho": _trecho(toks, i), "pos": i,
-                                "n": 2 if seg[0] in OBJETOS else 3})
+        # devolução: verbo exato (a tolerância de 1 letra transformaria "devolveu", "devolvi" em oferta)
+        if tok in VERBOS_DEVOLUCAO and not _excluida(toks, i, devolucao=True):
+            j = i + 1
+            while j < min(i + 3, len(toks)) and toks[j] in DETERMINANTES:
+                j += 1
+            if j < len(toks) and toks[j] in OBJETOS:
+                achadas.append({"tipo": "devolucao", "trecho": _trecho(toks, i), "pos": i, "n": j - i + 1})
     norm = " ".join(toks)
     for termo in VOCAB_TOLERANTE if tolerante else VOCAB_PRODUTO:
         for m in re.finditer(rf"\b{termo}\b", norm):
@@ -108,12 +113,13 @@ def achar_mencoes(texto: str, tolerante: bool = True) -> list[dict]:
 
 def classificar_oferta(turnos: list[dict], tolerante: bool = True) -> dict:
     """OFERECEU se o operador mencionou; senão SÓ O CLIENTE FALOU se o cliente mencionou; senão NÃO OFERECEU.
-    Sem texto nenhum (canal vazio, VAD cortou tudo) → INCONCLUSIVO: não dá para afirmar que não houve oferta."""
+    Canal do operador sem texto (VAD cortou tudo, ruído) → INCONCLUSIVO, mesmo que o cliente tenha falado:
+    ninguém ouviu o operador, então não dá para afirmar que ele não ofertou."""
     por_lado = {"operador": [], "cliente": []}
     tem_texto = False
     for t in turnos:
         texto = t.get("texto") or ""
-        tem_texto = tem_texto or bool(texto.strip())
+        tem_texto = tem_texto or (t.get("lado") == "operador" and bool(texto.strip()))
         por_lado.setdefault(t.get("lado"), []).extend(achar_mencoes(texto, tolerante))
     r = {"oferta": "NÃO OFERECEU", "tipo": None, "quem": None, "trecho": "",
          "mencoes_operador": len(por_lado["operador"]), "mencoes_cliente": len(por_lado["cliente"])}
@@ -128,6 +134,12 @@ def classificar_oferta(turnos: list[dict], tolerante: bool = True) -> dict:
     return r
 
 
+def _negado(norm: str, m: re.Match) -> bool:
+    """Negação nas 4 palavras antes do trecho ou dentro dele ("não vamos penhorar", "a dívida não vai zerar")."""
+    antes = norm[:m.start()].split()[-4:]
+    return bool(_NEGACAO & set(antes + m.group(0).split()))
+
+
 def alertas_operador(turnos: list[dict]) -> list[dict]:
     """Alertas de conduta na fala do operador (a do cliente não conta), no máximo um por tipo.
     Cada alerta diz onde está: `turno` (índice na lista), `pos` e `n` (palavras do texto normalizado do turno)."""
@@ -135,7 +147,7 @@ def alertas_operador(turnos: list[dict]) -> list[dict]:
     falas = [(k, normalizar(t.get("texto"))) for k, t in enumerate(turnos) if t.get("lado") == "operador"]
     for k, norm in falas:
         for alerta in ("ameaca_bloqueio", "desconto_percentual", "quitacao_sem_ressalva"):
-            m = _RE_ALERTA[alerta].search(norm)
+            m = next((m for m in _RE_ALERTA[alerta].finditer(norm) if not _negado(norm, m)), None)
             if alerta in achados or not m:
                 continue
             if alerta == "quitacao_sem_ressalva" and _RESSALVA.search(norm):
@@ -148,7 +160,7 @@ def alertas_operador(turnos: list[dict]) -> list[dict]:
     ancoras = [i for i, t in enumerate(toks) if _ANCORA_EA.match(t)]
     for m in _RE_ALERTA["nome_limpo"].finditer(texto):
         i = texto[:m.start()].count(" ")
-        if any(abs(i - a) <= JANELA_NOME_LIMPO for a in ancoras):
+        if not _negado(texto, m) and any(abs(i - a) <= JANELA_NOME_LIMPO for a in ancoras):
             achados["nome_limpo"] = {"trecho": _trecho(toks, i), "turno": onde[i][0], "pos": onde[i][1],
                                      "n": len(m.group(0).split())}
             break

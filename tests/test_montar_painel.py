@@ -148,3 +148,19 @@ def test_ligacoes_ausente_sem_dados(tmp_path):
     raiz = _pasta_ligacoes(tmp_path)
     (raiz / "dados" / "ligacoes" / "transcricoes.jsonl").unlink()
     assert _ligacoes(raiz) is None
+
+
+def test_mp3_sem_transcricao_mantem_o_player(tmp_path):
+    """Transcrição interrompida: o áudio existe, então o player fica; só a auditoria é que não aconteceu."""
+    from src.montar_painel import _ligacoes
+    L = _ligacoes(_pasta_ligacoes(tmp_path, com_mp3=("LA", "LB", "LC", "LD")))
+    ld = next(x for x in L["lista"] if x["id_ligacao"] == "LD")
+    assert ld["audio"] == "audio/LD.mp3" and ld["oferta_regra"] == "SEM ÁUDIO" and ld["turnos"] == []
+
+
+def test_texto_do_payload_nao_fecha_o_script():
+    """Texto de transcrição é dado não confiável: '</script>' dentro dele não pode encerrar o <script> do painel."""
+    from src.montar_painel import montar_html
+    html = montar_html({"meta": {}, "ligacoes": {"lista": [{"trecho": "fim</script><script>alert(1)</script>"}]}})
+    dados = html.split("/*__INICIO_DADOS__*/")[1].split("/*__FIM_DADOS__*/")[0]
+    assert "</script>" not in dados and r"<\/script>" in dados

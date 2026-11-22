@@ -1038,8 +1038,9 @@ function abrirLig(id) {
   $("ligCab").innerHTML = `${selo}<span>Regra ${otag(x.oferta_regra)}${x.tipo ? ` <span class="muted">(${x.tipo === "explicita" ? "explícita" : "devolução do veículo"})</span>` : ""}</span>` +
     `<span>Gabarito ${otag(x.oferta_gabarito)}</span><span>Operador <b>${esc(x.operador)}</b></span><span>Tabulou <b>${esc(x.tabulacao || "—")}</b></span>` +
     `<span>Alertas da regra: ${al}</span><span class="muted">gabarito: ${alG}</span>` + (ok(x.wer) ? `<span class="muted">WER ${pctAbs(x.wer, 0)}</span>` : "");
-  $("ligPlayer").innerHTML = x.audio ? `<audio id="ligAudio" controls preload="none" src="${esc(x.audio)}"></audio>`
-    : `<div class="semaudio">🔇 Sem áudio para esta ligação: o arquivo não existe, então ela fica fora da auditoria (o resto do card continua valendo).</div>`;
+  $("ligPlayer").innerHTML = (x.audio ? `<audio id="ligAudio" controls preload="none" src="${esc(x.audio)}"></audio>` : "") +
+    (!x.audio ? `<div class="semaudio">🔇 Sem áudio para esta ligação: o arquivo não existe, então ela fica fora da auditoria (o resto do card continua valendo).</div>`
+      : !x.turnos.length ? `<div class="semaudio">📝 Sem transcrição: o áudio existe, mas a ligação ainda não foi transcrita e fica fora da auditoria.</div>` : "");
   const porTurno = {}; x.marcas.forEach(m => (porTurno[m.turno] = porTurno[m.turno] || []).push(m));
   $("ligBaloes").innerHTML = x.turnos.map((t, k) => `<div class="bal ${t.lado}" data-ini="${t.inicio}" tabindex="0" role="button" aria-label="Ouvir a partir de ${mmss(t.inicio)}">` +
     `<small>${t.lado === "operador" ? "Operador" : "Cliente"} · ${mmss(t.inicio)}</small>${textoMarcado(t, porTurno[k] || [])}</div>`).join("") ||

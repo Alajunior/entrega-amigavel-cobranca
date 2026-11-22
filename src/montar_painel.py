@@ -296,7 +296,7 @@ def _ligacoes(raiz: Path) -> dict | None:
                       "tipo": row["tipo_regra"], "quem": row["quem"], "trecho": row["trecho"],
                       "alertas_regra": row["alertas_regra"], "alertas_gabarito": row["alertas_gabarito"],
                       "wer": round(sum(wers) / len(wers), 3) if wers else None,
-                      "audio": f"audio/{row['id_ligacao']}.mp3" if not row["sem_audio"] else None,
+                      "audio": f"audio/{row['id_ligacao']}.mp3" if audio.get(row["id_ligacao"]) else None,
                       "turnos": [{k: t[k] for k in ("lado", "inicio", "fim", "texto")} for t in turnos],
                       "marcas": _marcas(turnos)})
     n = len(aud)
@@ -352,7 +352,8 @@ def montar_dados(tabelas: dict, hoje=HOJE, inicio=INICIO_PAINEL, cache=None, rel
 
 
 def montar_html(dados: dict) -> str:
-    js = json.dumps(dados, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
+    # "</" vira "<\/" (JSON válido): texto de transcrição com "</script>" não pode fechar o <script> do painel
+    js = json.dumps(dados, ensure_ascii=False, allow_nan=False, separators=(",", ":")).replace("</", r"<\/")
     html = TEMPLATE.read_text(encoding="utf-8")
     assert html.count(MARCADOR) == 1, "o template precisa ter o marcador de dados exatamente uma vez"
     return (html.replace(MARCADOR, "/*__INICIO_DADOS__*/" + js + "/*__FIM_DADOS__*/")
