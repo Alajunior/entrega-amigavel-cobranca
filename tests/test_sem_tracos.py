@@ -32,8 +32,9 @@ def texto_de(caminho: Path) -> str:
     try:
         return caminho.read_text(encoding="utf-8")
     except UnicodeDecodeError:   # binário (png): só trechos com cara de texto (letras, dígitos, espaço e . _ @ : / -)
-        # o ruído dos bytes comprimidos forma sequências "legíveis" ao acaso; pontuação solta quebra o trecho
-        return "\n".join(t.decode() for t in re.findall(rb"[A-Za-z0-9 ._@:/-]{6,}", caminho.read_bytes()))
+        # o ruído dos bytes comprimidos forma sequências "legíveis" ao acaso: só trechos de 10+ caracteres contam
+        # (metadado de verdade é longo; 60 MP3 têm milhares de trechos curtos aleatórios)
+        return "\n".join(t.decode() for t in re.findall(rb"[A-Za-z0-9 ._@:/-]{10,}", caminho.read_bytes()))
 
 
 def achar_tracos(padroes: list[re.Pattern], textos: dict[str, str]) -> list[str]:
@@ -97,3 +98,13 @@ def test_binario_ignora_sigla_solta_no_ruido_e_pega_texto(tmp_path):
     meta.write_bytes(b"\x89PNG\x00\xffSoftware: Empresa Exemplo XY v1\x00\xfe")
     assert achar_tracos(compilar(["Empresa Exemplo"]), {"b.png": texto_de(meta)})
     assert achar_tracos(compilar(["XY"]), {"b.png": texto_de(meta)})
+
+
+def test_binario_ignora_sigla_em_trecho_curto_de_ruido(tmp_path):
+    """Áudio comprimido tem muitos bytes "legíveis" ao acaso; uma sigla num trecho de 6 letras é ruído, não metadado."""
+    a = tmp_path / "a.mp3"
+    a.write_bytes(b"\xff\xfb\x90\x00q XY.k\x00\xfe\x01" * 3)
+    assert not achar_tracos(compilar(["XY"]), {"a.mp3": texto_de(a)})
+    b = tmp_path / "b.mp3"
+    b.write_bytes(b"\xff\xfbID3 encoder XY build\x00")
+    assert achar_tracos(compilar(["XY"]), {"b.mp3": texto_de(b)})
