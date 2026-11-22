@@ -1,0 +1,4324 @@
+[
+ {
+  "id_ligacao": "L00812608",
+  "data": "2026-10-20",
+  "operador": "OP-14",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Larissa, falo da Carteira Exemplo. Por favor, a senhora Renata Costa?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Primeiro de outubro de setenta e nove."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com quarenta dias em aberto, num total de trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito? Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00659726",
+  "data": "2026-10-21",
+  "operador": "OP-21",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Fernanda, da Carteira Exemplo. É a senhora Renata Barbosa que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse mês está apertado, tive uns gastos com saúde."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E o que acontece com o que eu já paguei?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que a senhora deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana. E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01243776",
+  "data": "2026-10-21",
+  "operador": "OP-22",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Aline, da Carteira Exemplo. Eu falo com a senhora Elisa Pereira?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quatro, sete, um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com quarenta dias de atraso, somando oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Posso fazer a entrega da segunda via por e-mail. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "pegadinha_boleto": [
+     "Posso fazer a entrega da segunda via por e-mail."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01298091",
+  "data": "2026-10-21",
+  "operador": "OP-01",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde! Meu nome é Beatriz, falo da Carteira Exemplo. Por favor, o senhor Davi Rocha?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ele, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são cento e vinte dias de atraso e o total está em trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Não tenho esse dinheiro agora. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L00590600",
+  "data": "2026-10-22",
+  "operador": "OP-03",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Felipe, da Carteira Exemplo. Eu falo com a senhora Patrícia Martins?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com cento e vinte dias de atraso, somando trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que a senhora deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou pensar e converso com a minha família."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01227634",
+  "data": "2026-10-23",
+  "operador": "OP-16",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Diego, da Carteira Exemplo. É a senhora Carla Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são quarenta dias de atraso e o total está em oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Se não está dando para pagar, existe a possibilidade de entregar o carro para a gente e parar as parcelas. E com a entrega o seu nome fica limpo na hora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [
+    "nome_limpo"
+   ],
+   "frases": {
+    "oferta": [
+     "Se não está dando para pagar, existe a possibilidade de entregar o carro para a gente e parar as parcelas."
+    ],
+    "nome_limpo": [
+     "E com a entrega o seu nome fica limpo na hora."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01608302",
+  "data": "2026-10-23",
+  "operador": "OP-22",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Aline, da Carteira Exemplo. Eu falo com o senhor Paulo Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ele, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com cento e vinte dias de atraso, somando vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída."
+   },
+   {
+    "lado": "cliente",
+    "texto": "A concessionária fez a entrega do carro com dois meses de atraso, sabia?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, isso a gente pode registrar no seu cadastro."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E se eu devolver o carro? Não dá para fazer isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Vou anotar aqui, mas o que está disponível agora é o pagamento das parcelas em atraso. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver se consigo até sexta. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "pegadinha_loja": [
+     "A concessionária fez a entrega do carro com dois meses de atraso, sabia?"
+    ],
+    "cliente_pede": [
+     "E se eu devolver o carro? Não dá para fazer isso?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00472663",
+  "data": "2026-10-26",
+  "operador": "OP-02",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Larissa, da Carteira Exemplo. Eu falo com o senhor Ricardo Costa?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com cento e vinte dias de atraso, somando dezoito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Escuta só. Do jeito que está, a gente pode penhorar os seus bens. Isso encerra a dívida inteira, o senhor não deve mais nada."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Posso fazer a entrega da segunda via por e-mail. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [
+    "ameaca_bloqueio",
+    "quitacao_sem_ressalva"
+   ],
+   "frases": {
+    "ameaca_bloqueio": [
+     "Do jeito que está, a gente pode penhorar os seus bens."
+    ],
+    "quitacao_sem_ressalva": [
+     "Isso encerra a dívida inteira, o senhor não deve mais nada."
+    ],
+    "pegadinha_boleto": [
+     "Posso fazer a entrega da segunda via por e-mail."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00854944",
+  "data": "2026-10-26",
+  "operador": "OP-09",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Fernanda, da Carteira Exemplo. Eu falo com a senhora Sônia Martins?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com setenta dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou pensar e converso com a minha família."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01117977",
+  "data": "2026-10-26",
+  "operador": "OP-22",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Aline, da Carteira Exemplo. É a senhora Juliana Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com noventa dias de atraso, somando vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Consigo parcelar o atraso em quatro vezes, com a primeira para a semana que vem."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Não tenho esse dinheiro agora. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L01152270",
+  "data": "2026-10-26",
+  "operador": "OP-16",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Diego, da Carteira Exemplo. Eu falo com a senhora Elisa Pereira?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são quarenta dias de atraso e o total está em trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Não tenho esse dinheiro agora. E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L00217508",
+  "data": "2026-10-27",
+  "operador": "OP-05",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Vanessa, da Carteira Exemplo. É a senhora Ana Pereira que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com quarenta dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês vão bloquear minha conta?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Não, não é assim que funciona; o que a gente quer é encontrar uma saída. Se a senhora pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver se consigo até sexta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "pegadinha_alerta_cliente": [
+     "Vocês vão bloquear minha conta?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01282302",
+  "data": "2026-10-27",
+  "operador": "OP-15",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Felipe, da Carteira Exemplo. É a senhora Elisa Rocha que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quatro, sete, um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são quarenta dias de atraso e o total está em quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Consigo parcelar o atraso em quatro vezes, com a primeira para a semana que vem."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L00145030",
+  "data": "2026-10-28",
+  "operador": "OP-09",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Fernanda, da Carteira Exemplo. É o senhor Bruno Silva que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Primeiro de outubro de setenta e nove."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são cento e vinte dias de atraso e o total está em oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Se não pagar até sexta, vão bloquear o seu CPF."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [
+    "ameaca_bloqueio"
+   ],
+   "frases": {
+    "oferta": [
+     "Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+    ],
+    "ameaca_bloqueio": [
+     "Se não pagar até sexta, vão bloquear o seu CPF."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00196650",
+  "data": "2026-10-28",
+  "operador": "OP-07",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Lucas, da Carteira Exemplo. É a senhora Marta Rocha que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com quarenta dias de atraso, somando trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois. Devolvendo o carro, a senhora já sai com o nome limpo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E o que acontece com o que eu já paguei?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito? Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [
+    "nome_limpo"
+   ],
+   "frases": {
+    "oferta": [
+     "Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+    ],
+    "nome_limpo": [
+     "Devolvendo o carro, a senhora já sai com o nome limpo."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00730230",
+  "data": "2026-10-28",
+  "operador": "OP-13",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Beatriz, falo da Carteira Exemplo. Por favor, o senhor Marcos Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com duzentos dias de atraso, somando oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Isso eu não consigo ver por aqui agora; hoje a proposta que eu tenho para o senhor é o acordo. Consigo parcelar o atraso em seis vezes, com a primeira para a semana que vem."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "O desconto depende do valor que o senhor consegue pagar."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "cliente_pede": [
+     "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00750254",
+  "data": "2026-10-28",
+  "operador": "OP-18",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Camila, da Carteira Exemplo. É o senhor Bruno Souza que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são cento e vinte dias de atraso e o total está em oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse mês está apertado, tive uns gastos com saúde."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer. Uma alternativa para o senhor é a entrega amigável do veículo, sem custo de remoção."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que o senhor deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Preciso do carro para trabalhar, não sei se consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Uma alternativa para o senhor é a entrega amigável do veículo, sem custo de remoção."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01131840",
+  "data": "2026-10-28",
+  "operador": "OP-21",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Fernanda, da Carteira Exemplo. É o senhor Davi Silva que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, o senhor pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Dois, nove, cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são noventa dias de atraso e o total está em vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês vão bloquear minha conta?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Não, não é assim que funciona; o que a gente quer é encontrar uma saída. Uma saída é o senhor devolver o veículo; o valor da venda abate a dívida e, se sobrar, fica um saldo remanescente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que o senhor deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá, vou pensar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Olha, vou ser sincero com o senhor. Para hoje eu libero 70% de desconto no total."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Entendi. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [
+    "desconto_percentual"
+   ],
+   "frases": {
+    "pegadinha_alerta_cliente": [
+     "Vocês vão bloquear minha conta?"
+    ],
+    "oferta": [
+     "Uma saída é o senhor devolver o veículo; o valor da venda abate a dívida e, se sobrar, fica um saldo remanescente."
+    ],
+    "desconto_percentual": [
+     "Para hoje eu libero 70% de desconto no total."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01474548",
+  "data": "2026-10-28",
+  "operador": "OP-01",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Beatriz, da Carteira Exemplo. É o senhor Bruno Rocha que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com cento e vinte dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quando a loja me entregou o carro, ele já veio com defeito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, vou deixar anotado aqui. Uma alternativa para o senhor é a entrega amigável do veículo, sem custo de remoção."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. A entrega do boleto é pelo aplicativo, tudo bem? Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "pegadinha_loja": [
+     "Quando a loja me entregou o carro, ele já veio com defeito."
+    ],
+    "oferta": [
+     "Uma alternativa para o senhor é a entrega amigável do veículo, sem custo de remoção."
+    ],
+    "pegadinha_boleto": [
+     "A entrega do boleto é pelo aplicativo, tudo bem?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00373969",
+  "data": "2026-10-29",
+  "operador": "OP-06",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Camila, da Carteira Exemplo. É o senhor Paulo Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, o senhor pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Dois, nove, cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são noventa dias de atraso e o total está em vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O senhor leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00526150",
+  "data": "2026-10-29",
+  "operador": "OP-18",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Camila, da Carteira Exemplo. É a senhora Patrícia Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com duzentos dias de atraso, somando trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Uma saída é a senhora devolver o veículo; o valor da venda abate a dívida e, se sobrar, fica um saldo remanescente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E o que acontece com o que eu já paguei?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Preciso do carro para trabalhar, não sei se consigo. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Uma saída é a senhora devolver o veículo; o valor da venda abate a dívida e, se sobrar, fica um saldo remanescente."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01464417",
+  "data": "2026-10-29",
+  "operador": "OP-22",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Aline, falo da Carteira Exemplo. Por favor, a senhora Ana Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de dezoito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que a senhora deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito? Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Vou te entregar o boleto por mensagem agora mesmo. Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    ],
+    "pegadinha_boleto": [
+     "Vou te entregar o boleto por mensagem agora mesmo."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01618436",
+  "data": "2026-10-29",
+  "operador": "OP-24",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Rafael, da Carteira Exemplo. Eu falo com a senhora Carla Martins?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Vou anotar aqui, mas o que está disponível agora é o pagamento das parcelas em atraso. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Não tenho esse dinheiro agora. E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "cliente_pede": [
+     "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00322768",
+  "data": "2026-10-30",
+  "operador": "OP-18",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Camila, da Carteira Exemplo. É o senhor Ricardo Rocha que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, o senhor pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Dois, nove, cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com setenta dias de atraso, somando oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O senhor leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00491223",
+  "data": "2026-10-30",
+  "operador": "OP-14",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde! Meu nome é Larissa, falo da Carteira Exemplo. Por favor, a senhora Sônia Souza?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são duzentos dias de atraso e o total está em trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L00598140",
+  "data": "2026-10-30",
+  "operador": "OP-04",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde! Meu nome é Diego, falo da Carteira Exemplo. Por favor, a senhora Sônia Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Dois, nove, cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são noventa dias de atraso e o total está em oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver se consigo até sexta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Ninguém vai bloquear nada agora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá, vou pensar. Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L00989488",
+  "data": "2026-10-30",
+  "operador": "OP-24",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Rafael, da Carteira Exemplo. Eu falo com a senhora Juliana Pereira?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com setenta dias de atraso, somando dezoito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu vi que dá para fazer a entrega amigável, isso vale para o meu caso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Esse assunto é com outro setor; o que eu posso fazer hoje é parcelar o atraso. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Do jeito que está, a gente pode penhorar os seus bens."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá, vou pensar. Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [
+    "ameaca_bloqueio"
+   ],
+   "frases": {
+    "cliente_pede": [
+     "Eu vi que dá para fazer a entrega amigável, isso vale para o meu caso?"
+    ],
+    "ameaca_bloqueio": [
+     "Do jeito que está, a gente pode penhorar os seus bens."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01290935",
+  "data": "2026-10-30",
+  "operador": "OP-12",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Rafael, da Carteira Exemplo. É a senhora Ana Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com quarenta dias em aberto, num total de doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E o que acontece com o que eu já paguei?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou pensar e converso com a minha família."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01493130",
+  "data": "2026-10-30",
+  "operador": "OP-10",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde! Meu nome é Aline, falo da Carteira Exemplo. Por favor, a senhora Ana Martins?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quatro, sete, um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Com isso acaba com a dívida de vez."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo. E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [
+    "quitacao_sem_ressalva"
+   ],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+    ],
+    "quitacao_sem_ressalva": [
+     "Com isso acaba com a dívida de vez."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00855497",
+  "data": "2026-11-04",
+  "operador": "OP-07",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Lucas, da Carteira Exemplo. É a senhora Patrícia Martins que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com cento e vinte dias de atraso, somando vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo. Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L01225888",
+  "data": "2026-11-05",
+  "operador": "OP-13",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Beatriz, da Carteira Exemplo. Eu falo com o senhor Ricardo Souza?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com quarenta dias de atraso, somando doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu queria entregar o veículo, como faço?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Isso eu não consigo ver por aqui agora; hoje a proposta que eu tenho para o senhor é o acordo. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver se consigo até sexta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "cliente_pede": [
+     "Eu queria entregar o veículo, como faço?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00890042",
+  "data": "2026-11-06",
+  "operador": "OP-22",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Aline, da Carteira Exemplo. É o senhor Ricardo Silva que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigada, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com duzentos dias de atraso, somando quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega do boleto é pelo aplicativo, tudo bem? Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "pegadinha_boleto": [
+     "A entrega do boleto é pelo aplicativo, tudo bem?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01020357",
+  "data": "2026-11-06",
+  "operador": "OP-08",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Gustavo, da Carteira Exemplo. É a senhora Marta Barbosa que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com setenta dias de atraso, somando dezoito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Consigo parcelar o atraso em três vezes, com a primeira para a semana que vem."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L01387448",
+  "data": "2026-11-06",
+  "operador": "OP-11",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Leandro, da Carteira Exemplo. É a senhora Marta Martins que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com setenta dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Se não está dando para pagar, existe a possibilidade de entregar o carro para a gente e parar as parcelas."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Preciso do carro para trabalhar, não sei se consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Se não está dando para pagar, existe a possibilidade de entregar o carro para a gente e parar as parcelas."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00295496",
+  "data": "2026-11-09",
+  "operador": "OP-16",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Diego, falo da Carteira Exemplo. Por favor, a senhora Juliana Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu vi que dá para fazer a entrega amigável, isso vale para o meu caso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Vou anotar aqui, mas o que está disponível agora é o pagamento das parcelas em atraso. Se a senhora pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver se consigo até sexta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "cliente_pede": [
+     "Eu vi que dá para fazer a entrega amigável, isso vale para o meu caso?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00917365",
+  "data": "2026-11-10",
+  "operador": "OP-09",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Fernanda, da Carteira Exemplo. Eu falo com a senhora Ana Barbosa?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quatro, sete, um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com setenta dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Se a senhora pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "O desconto depende do valor que a senhora consegue pagar."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L00202694",
+  "data": "2026-11-11",
+  "operador": "OP-15",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Felipe, da Carteira Exemplo. É a senhora Carla Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vão bloquear o meu salário por causa disso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Não, não é assim que funciona; o que a gente quer é encontrar uma saída."
+   },
+   {
+    "lado": "cliente",
+    "texto": "A concessionária fez a entrega do carro com dois meses de atraso, sabia?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, isso a gente pode registrar no seu cadastro. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "Olha, vou ser sincero com a senhora. Tem um desconto de 30% para quitar à vista. Fazendo isso, a sua dívida zera e não fica mais nada."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [
+    "desconto_percentual",
+    "quitacao_sem_ressalva"
+   ],
+   "frases": {
+    "pegadinha_alerta_cliente": [
+     "Vão bloquear o meu salário por causa disso?"
+    ],
+    "pegadinha_loja": [
+     "A concessionária fez a entrega do carro com dois meses de atraso, sabia?"
+    ],
+    "oferta": [
+     "Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois."
+    ],
+    "desconto_percentual": [
+     "Tem um desconto de 30% para quitar à vista."
+    ],
+    "quitacao_sem_ressalva": [
+     "Fazendo isso, a sua dívida zera e não fica mais nada."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00402530",
+  "data": "2026-11-11",
+  "operador": "OP-20",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Gustavo, da Carteira Exemplo. Eu falo com a senhora Carla Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com cento e vinte dias de atraso, somando quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vão bloquear o meu salário por causa disso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Fique tranquilo que não, a ideia aqui é resolver da melhor forma. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Preciso do carro para trabalhar, não sei se consigo. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "pegadinha_alerta_cliente": [
+     "Vão bloquear o meu salário por causa disso?"
+    ],
+    "oferta": [
+     "A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00254780",
+  "data": "2026-11-12",
+  "operador": "OP-13",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Beatriz, da Carteira Exemplo. É o senhor Sérgio Barbosa que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, o senhor pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quatro, sete, um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com noventa dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que o senhor deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01295357",
+  "data": "2026-11-12",
+  "operador": "OP-24",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Rafael, da Carteira Exemplo. É a senhora Renata Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com cento e vinte dias de atraso, somando oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse mês está apertado, tive uns gastos com saúde."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Uma alternativa para a senhora é a entrega amigável do veículo, sem custo de remoção."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Nunca tinha ouvido falar. Explica melhor?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Preciso do carro para trabalhar, não sei se consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Do jeito que está, a gente pode penhorar os seus bens."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [
+    "ameaca_bloqueio"
+   ],
+   "frases": {
+    "oferta": [
+     "Uma alternativa para a senhora é a entrega amigável do veículo, sem custo de remoção."
+    ],
+    "ameaca_bloqueio": [
+     "Do jeito que está, a gente pode penhorar os seus bens."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01325670",
+  "data": "2026-11-12",
+  "operador": "OP-12",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Rafael, da Carteira Exemplo. Eu falo com a senhora Marta Costa?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são setenta dias de atraso e o total está em oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse mês está apertado, tive uns gastos com saúde."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Uma saída é a senhora devolver o veículo; o valor da venda abate a dívida e, se sobrar, fica um saldo remanescente. E com a entrega o seu nome fica limpo na hora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "devolucao",
+   "alertas": [
+    "nome_limpo"
+   ],
+   "frases": {
+    "oferta": [
+     "Uma saída é a senhora devolver o veículo; o valor da venda abate a dívida e, se sobrar, fica um saldo remanescente."
+    ],
+    "nome_limpo": [
+     "E com a entrega o seu nome fica limpo na hora."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00521107",
+  "data": "2026-11-16",
+  "operador": "OP-05",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Vanessa, da Carteira Exemplo. Eu falo com a senhora Carla Pereira?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com setenta dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E o que acontece com o que eu já paguei?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Escuta só. Isso encerra a dívida inteira, a senhora não deve mais nada. Se não pagar até sexta, vão bloquear o seu CPF."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Entendi."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [
+    "ameaca_bloqueio",
+    "quitacao_sem_ressalva"
+   ],
+   "frases": {
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ],
+    "quitacao_sem_ressalva": [
+     "Isso encerra a dívida inteira, a senhora não deve mais nada."
+    ],
+    "ameaca_bloqueio": [
+     "Se não pagar até sexta, vão bloquear o seu CPF."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00925958",
+  "data": "2026-11-16",
+  "operador": "OP-14",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Larissa, falo da Carteira Exemplo. Por favor, o senhor Sérgio Rocha?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são duzentos dias de atraso e o total está em quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L01564277",
+  "data": "2026-11-16",
+  "operador": "OP-04",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Diego, da Carteira Exemplo. É a senhora Ana Costa que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com quarenta dias em aberto, num total de trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "A concessionária fez a entrega do carro com dois meses de atraso, sabia?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, vou deixar anotado aqui. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou pensar e converso com a minha família. Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "pegadinha_loja": [
+     "A concessionária fez a entrega do carro com dois meses de atraso, sabia?"
+    ],
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00406646",
+  "data": "2026-11-18",
+  "operador": "OP-07",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Lucas, falo da Carteira Exemplo. Por favor, a senhora Renata Martins?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com noventa dias em aberto, num total de doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00843623",
+  "data": "2026-11-18",
+  "operador": "OP-16",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Diego, da Carteira Exemplo. Eu falo com a senhora Ana Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são noventa dias de atraso e o total está em doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito? Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01035750",
+  "data": "2026-11-18",
+  "operador": "OP-10",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde! Meu nome é Aline, falo da Carteira Exemplo. Por favor, a senhora Renata Souza?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são noventa dias de atraso e o total está em trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer. Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou pensar e converso com a minha família. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00455005",
+  "data": "2026-11-19",
+  "operador": "OP-09",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_davi",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Fernanda, da Carteira Exemplo. Eu falo com o senhor Sérgio Souza?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Primeiro de outubro de setenta e nove."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são quarenta dias de atraso e o total está em doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse mês está apertado, tive uns gastos com saúde."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Ninguém vai bloquear nada agora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Entendi."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Tem um desconto de 50% para quitar à vista."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigado, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [
+    "desconto_percentual"
+   ],
+   "frases": {
+    "desconto_percentual": [
+     "Tem um desconto de 50% para quitar à vista."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01377359",
+  "data": "2026-11-19",
+  "operador": "OP-08",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Gustavo, falo da Carteira Exemplo. Por favor, a senhora Marta Silva?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Primeiro de outubro de setenta e nove."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são setenta dias de atraso e o total está em quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Consigo parcelar o atraso em três vezes, com a primeira para a semana que vem."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Me manda o valor certinho que eu vejo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Com isso acaba com a dívida de vez."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [
+    "quitacao_sem_ressalva"
+   ],
+   "frases": {
+    "quitacao_sem_ressalva": [
+     "Com isso acaba com a dívida de vez."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00377906",
+  "data": "2026-11-23",
+  "operador": "OP-06",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Camila, da Carteira Exemplo. É o senhor Davi Costa que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com quarenta dias em aberto, num total de dezoito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída. Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E o que acontece com o que eu já paguei?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O senhor leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo. E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01275531",
+  "data": "2026-11-23",
+  "operador": "OP-12",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, aqui é Rafael, da Carteira Exemplo. Eu falo com a senhora Juliana Costa?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Primeiro de outubro de setenta e nove."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são setenta dias de atraso e o total está em doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. Se a senhora pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "O desconto depende do valor que a senhora consegue pagar."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo. Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Então fica combinado assim. Obrigado pela atenção e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {}
+  }
+ },
+ {
+  "id_ligacao": "L01508114",
+  "data": "2026-11-24",
+  "operador": "OP-15",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Felipe, da Carteira Exemplo. É a senhora Juliana Martins que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são cento e vinte dias de atraso e o total está em trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E se eu devolver o carro? Não dá para fazer isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Vou anotar aqui, mas o que está disponível agora é o pagamento das parcelas em atraso. Consigo parcelar o atraso em três vezes, com a primeira para a semana que vem."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Ninguém vai bloquear nada agora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver. Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "cliente_pede": [
+     "E se eu devolver o carro? Não dá para fazer isso?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00374154",
+  "data": "2026-11-25",
+  "operador": "OP-15",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_elisa",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Felipe, da Carteira Exemplo. É a senhora Renata Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quatro, sete, um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Obrigado, confirmado. Estou ligando sobre o financiamento do seu veículo, que está com duzentos dias de atraso, somando doze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quando a loja me entregou o carro, ele já veio com defeito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, isso a gente pode registrar no seu cadastro. Uma alternativa para a senhora é a entrega amigável do veículo, sem custo de remoção."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito? Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, até mais."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "pegadinha_loja": [
+     "Quando a loja me entregou o carro, ele já veio com defeito."
+    ],
+    "oferta": [
+     "Uma alternativa para a senhora é a entrega amigável do veículo, sem custo de remoção."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00485800",
+  "data": "2026-11-26",
+  "operador": "OP-07",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Lucas, da Carteira Exemplo. É a senhora Patrícia Costa que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são cento e vinte dias de atraso e o total está em vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso. Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A senhora leva o carro no dia combinado, ele vai para avaliação e o valor entra direto no contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Com isso acaba com a dívida de vez."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá, vou pensar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [
+    "quitacao_sem_ressalva"
+   ],
+   "frases": {
+    "oferta": [
+     "Temos a opção da entrega amigável: a senhora leva o carro até o pátio e a gente cuida do resto."
+    ],
+    "quitacao_sem_ressalva": [
+     "Com isso acaba com a dívida de vez."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01191860",
+  "data": "2026-11-26",
+  "operador": "OP-09",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, aqui é Fernanda, da Carteira Exemplo. Eu falo com o senhor Paulo Lima?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ele, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Quinze de maio de noventa e um."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com noventa dias em aberto, num total de dezoito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu sei, perdi o emprego e está bem difícil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendi. Vamos olhar juntos o que cabe no seu bolso."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu ouvi dizer que vocês podem penhorar meus bens, é verdade?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Não, não é assim que funciona; o que a gente quer é encontrar uma saída."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Vou anotar aqui, mas o que está disponível agora é o pagamento das parcelas em atraso. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "pegadinha_alerta_cliente": [
+     "Eu ouvi dizer que vocês podem penhorar meus bens, é verdade?"
+    ],
+    "cliente_pede": [
+     "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01303135",
+  "data": "2026-11-27",
+  "operador": "OP-21",
+  "persona_operador": "op_francisca",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde! Meu nome é Fernanda, falo da Carteira Exemplo. Por favor, a senhora Marta Silva?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sou eu, quem fala?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com quarenta dias em aberto, num total de quinze mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso eu até consigo."
+   },
+   {
+    "lado": "operador",
+    "texto": "Pensa com carinho. Fechando hoje eu consigo 60% de desconto."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "NÃO OFERECEU",
+   "tipo": null,
+   "alertas": [
+    "desconto_percentual"
+   ],
+   "frases": {
+    "desconto_percentual": [
+     "Fechando hoje eu consigo 60% de desconto."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00017546",
+  "data": "2026-11-30",
+  "operador": "OP-22",
+  "persona_operador": "op_thalita",
+  "persona_cliente": "cli_bruno",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Aline, da Carteira Exemplo. É o senhor Davi Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Só para confirmar o cadastro, qual é a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Doze de março de oitenta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigada. O motivo da ligação é o contrato do seu carro: são cento e vinte dias de atraso e o total está em oito mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Eu paguei uma parcela semana passada, não caiu?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para o senhor. Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou pensar e converso com a minha família."
+   },
+   {
+    "lado": "operador",
+    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá bom, até logo."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "Hoje eu consigo abrir uma proposta de entrega amigável para o seu contrato."
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L00109119",
+  "data": "2026-11-30",
+  "operador": "OP-03",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia, tudo bem? Aqui é Felipe, da Carteira Exemplo. É a senhora Elisa Lima que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Sim, sou eu."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com cento e vinte dias em aberto, num total de vinte e dois mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pois é, eu sei que está atrasado, mas a renda caiu muito."
+   },
+   {
+    "lado": "operador",
+    "texto": "Eu compreendo, vamos ver o que dá para fazer. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Como funciona isso?"
+   },
+   {
+    "lado": "operador",
+    "texto": "O carro passa por uma avaliação, o valor da venda abate o que a senhora deve e o processo termina sem ação judicial."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Faz sentido, vou ver isso essa semana."
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega do boleto é pelo aplicativo, tudo bem? Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    ],
+    "pegadinha_boleto": [
+     "A entrega do boleto é pelo aplicativo, tudo bem?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01520638",
+  "data": "2026-11-30",
+  "operador": "OP-12",
+  "persona_operador": "op_antonio",
+  "persona_cliente": "cli_carla",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Boa tarde, tudo bem? Aqui é Rafael, da Carteira Exemplo. É a senhora Juliana Souza que está falando?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "É ela, pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Antes de continuar, a senhora pode me confirmar os três primeiros números do seu documento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Oito, três, seis."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, cadastro confirmado. O financiamento do seu veículo está com duzentos dias em aberto, num total de trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Vou anotar aqui, mas o que está disponível agora é o pagamento das parcelas em atraso. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vou ver se consigo até sexta."
+   },
+   {
+    "lado": "operador",
+    "texto": "Ninguém vai bloquear nada agora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Hum, tá certo. Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "SÓ O CLIENTE FALOU",
+   "tipo": null,
+   "alertas": [],
+   "frases": {
+    "cliente_pede": [
+     "Um amigo meu fez a entrega amigável, eu posso fazer também?"
+    ]
+   }
+  }
+ },
+ {
+  "id_ligacao": "L01611583",
+  "data": "2026-11-30",
+  "operador": "OP-15",
+  "persona_operador": "op_antonio_grave",
+  "persona_cliente": "cli_ana",
+  "turnos": [
+   {
+    "lado": "operador",
+    "texto": "Bom dia! Meu nome é Felipe, falo da Carteira Exemplo. Por favor, a senhora Sônia Costa?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Isso, sou eu mesmo. Pode falar."
+   },
+   {
+    "lado": "operador",
+    "texto": "Para sua segurança, pode me confirmar a sua data de nascimento?"
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vinte e três de julho de oitenta e cinco."
+   },
+   {
+    "lado": "operador",
+    "texto": "Perfeito, obrigado. O motivo da ligação é o contrato do seu carro: são setenta dias de atraso e o total está em trinta mil reais."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Estou tentando organizar, mas não está fácil."
+   },
+   {
+    "lado": "operador",
+    "texto": "Certo, deixa eu verificar aqui as opções para a senhora. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Mas e se sobrar dívida?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A gente agenda a vistoria, o valor apurado abate o saldo do contrato e o restante a gente parcela."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Pode me mandar isso por escrito?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A entrega não zera a dívida automaticamente, pode ficar saldo."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Tá, vou pensar. Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Obrigada, tchau."
+   }
+  ],
+  "gabarito": {
+   "oferta": "OFERECEU",
+   "tipo": "explicita",
+   "alertas": [],
+   "frases": {
+    "oferta": [
+     "A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    ]
+   }
+  }
+ }
+]
