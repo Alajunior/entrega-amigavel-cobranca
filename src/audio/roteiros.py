@@ -65,7 +65,7 @@ SITUACAO = ["{Obg_op}, confirmado. Estou ligando sobre o financiamento do seu ve
 OBJECAO = ["Eu sei, perdi o emprego e está bem difícil.", "Esse mês está apertado, tive uns gastos com saúde.",
            "Eu paguei uma parcela semana passada, não caiu?", "Estou tentando organizar, mas não está fácil.",
            "Pois é, eu sei que está atrasado, mas a renda caiu muito."]
-EMPATIA = ["Entendo, {sr}, por isso estou ligando, para achar uma saída.",
+EMPATIA = ["Entendo, {voc}, por isso estou ligando, para achar uma saída.",
            "Eu compreendo, vamos ver o que dá para fazer.",
            "Certo, deixa eu verificar aqui as opções para {sr}.",
            "Entendi. Vamos olhar juntos o que cabe no seu bolso."]
@@ -104,7 +104,7 @@ EXTRA = [("E esse valor tem juros?", "Tem sim, mas no acordo os juros caem basta
          ("Qual é a data de vencimento?", "A data a gente escolhe junto, do jeito que ficar melhor para {sr}."),
          ("Esse número é de vocês mesmo?", "É sim, pode salvar este contato para falar com a gente.")]
 FECHO = ["Então fica combinado assim. {Obg_op} pela atenção e tenha {boa}.",
-         "Combinado, {sr}. Qualquer dúvida é só retornar neste número. Tenha {boa}.",
+         "Combinado, {voc}. Qualquer dúvida é só retornar neste número. Tenha {boa}.",
          "Certo, fico no aguardo do seu retorno. {Obg_op} e tenha {boa}."]
 FECHO_CLI = ["{Obg_cli}, tchau.", "Tá bom, até logo.", "{Obg_cli}, até mais."]
 
@@ -134,10 +134,10 @@ PEGADINHA_BOLETO = ["Vou te entregar o boleto por mensagem agora mesmo.", "A ent
 PEGADINHA_ALERTA_CLI = ["Vocês vão bloquear minha conta?", "Eu ouvi dizer que vocês podem penhorar meus bens, é verdade?",
                         "Vão bloquear o meu salário por causa disso?"]
 PEGADINHA_ALERTA_RESP = ["Não, não é assim que funciona; o que a gente quer é encontrar uma saída.",
-                         "Fique tranquilo que não, a ideia aqui é resolver da melhor forma."]
+                         "Fique {tranq} que não, a ideia aqui é resolver da melhor forma."]
 VALORES = ["oito mil", "doze mil", "quinze mil", "dezoito mil", "vinte e dois mil", "trinta mil"]
 ATRASOS = ["quarenta", "setenta", "noventa", "cento e vinte", "duzentos"]
-PALAVRAS_MIN, PALAVRAS_MAX = 110, 300           # ~51 a ~138 s a 130 palavras por minuto
+PALAVRAS_MIN, PALAVRAS_MAX = 150, 320           # a voz neural fala ~165 palavras/min: ~55 a ~120 s de áudio
 
 
 def _persona_operador(operador: str) -> str:
@@ -165,7 +165,8 @@ def gerar_roteiro(lig: dict, rng: np.random.Generator) -> dict:
     sub = {"op": _nome_operador(lig["operador"]),
            "nome": f"{rng.choice(_NOMES_CLI[g_cli])} {rng.choice(_SOBRENOMES)}",
            "sr": "o senhor" if g_cli == "M" else "a senhora", "Sr": "O senhor" if g_cli == "M" else "A senhora",
-           "ele": "É ele" if g_cli == "M" else "É ela",
+           "ele": "É ele" if g_cli == "M" else "É ela", "voc": "senhor" if g_cli == "M" else "senhora",
+           "tranq": "tranquilo" if g_cli == "M" else "tranquila",
            "obg_op": "obrigado" if g_op == "M" else "obrigada", "Obg_op": "Obrigado" if g_op == "M" else "Obrigada",
            "Obg_cli": "Obrigado" if g_cli == "M" else "Obrigada",
            "saud": "Bom dia" if manha else "Boa tarde", "boa": "um bom dia" if manha else "uma boa tarde",
@@ -228,7 +229,7 @@ def gerar_roteiro(lig: dict, rng: np.random.Generator) -> dict:
         fala("cliente", f(ALERTA_REACAO))
 
     extras = list(rng.permutation(len(EXTRA)))
-    n_extra = int(rng.integers(0, 3))
+    n_extra = int(rng.integers(0, 4))
 
     def palavras():
         return sum(len(t["texto"].split()) for t in turnos) + sum(len(x.split()) for x in fecho)
@@ -248,6 +249,8 @@ def gerar_roteiro(lig: dict, rng: np.random.Generator) -> dict:
     fala("cliente", fecho[2])
 
     return {"id_ligacao": lig["id_ligacao"], "data": lig["data"], "operador": lig["operador"],
+            "id_contrato": int(lig.get("id_contrato", 0)), "desfecho": lig.get("desfecho", ""),
+            "tabulacao": lig.get("tabulacao", ""),
             "persona_operador": p_op, "persona_cliente": p_cli, "turnos": turnos,
             "gabarito": {"oferta": oferta, "tipo": tipo, "alertas": [a for a in ALERTAS if a in alertas],
                          "frases": frases}}

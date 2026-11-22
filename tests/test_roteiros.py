@@ -129,6 +129,14 @@ def test_personas_distintas_e_conhecidas(roteiros):
     assert all(len(v) == 1 for v in por_op.values())
 
 
+def test_roteiro_carrega_contrato_e_tabulacao(universo, roteiros):
+    ct = universo[0]["contatos"].set_index("id_ligacao")
+    for r in roteiros:
+        assert r["id_contrato"] == ct.loc[r["id_ligacao"], "id_contrato"]
+        assert r["tabulacao"] == ct.loc[r["id_ligacao"], "tabulacao"]
+        assert r["desfecho"] == ct.loc[r["id_ligacao"], "desfecho"]
+
+
 def test_mesma_seed_mesmos_roteiros(universo, roteiros):
     t, esc = universo
     assert montar_roteiros(t, esc, n=60, seed=42) == roteiros

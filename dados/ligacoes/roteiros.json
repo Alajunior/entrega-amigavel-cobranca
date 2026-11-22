@@ -3,6 +3,9 @@
   "id_ligacao": "L00812608",
   "data": "2026-10-20",
   "operador": "OP-14",
+  "id_contrato": 59713,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -48,7 +51,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -70,6 +81,9 @@
   "id_ligacao": "L00659726",
   "data": "2026-10-21",
   "operador": "OP-21",
+  "id_contrato": 48657,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -115,7 +129,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -137,6 +159,9 @@
   "id_ligacao": "L01243776",
   "data": "2026-10-21",
   "operador": "OP-22",
+  "id_contrato": 91289,
+  "desfecho": "ACORDO",
+  "tabulacao": "ACORDO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -174,7 +199,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Posso fazer a entrega da segunda via por e-mail. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Posso fazer a entrega da segunda via por e-mail. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -196,6 +229,9 @@
   "id_ligacao": "L01298091",
   "data": "2026-10-21",
   "operador": "OP-01",
+  "id_contrato": 95399,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -233,7 +269,23 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -251,6 +303,9 @@
   "id_ligacao": "L00590600",
   "data": "2026-10-22",
   "operador": "OP-03",
+  "id_contrato": 43505,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "ACORDO",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -326,6 +381,9 @@
   "id_ligacao": "L01227634",
   "data": "2026-10-23",
   "operador": "OP-16",
+  "id_contrato": 90184,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -398,6 +456,9 @@
   "id_ligacao": "L01608302",
   "data": "2026-10-23",
   "operador": "OP-22",
+  "id_contrato": 117993,
+  "desfecho": "RENEGOCIACAO",
+  "tabulacao": "RENEGOCIACAO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -427,7 +488,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída."
+    "texto": "Entendo, senhor, por isso estou ligando, para achar uma saída."
    },
    {
     "lado": "cliente",
@@ -451,7 +512,7 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -476,6 +537,9 @@
   "id_ligacao": "L00472663",
   "data": "2026-10-26",
   "operador": "OP-02",
+  "id_contrato": 34905,
+  "desfecho": "ACORDO",
+  "tabulacao": "ACORDO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -505,7 +569,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+    "texto": "Entendo, senhor, por isso estou ligando, para achar uma saída. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
    },
    {
     "lado": "cliente",
@@ -521,7 +585,15 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Posso fazer a entrega da segunda via por e-mail. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Posso fazer a entrega da segunda via por e-mail. Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -552,6 +624,9 @@
   "id_ligacao": "L00854944",
   "data": "2026-10-26",
   "operador": "OP-09",
+  "id_contrato": 62860,
+  "desfecho": "EA INDICADA",
+  "tabulacao": "EA INDICADA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -605,7 +680,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -627,6 +702,9 @@
   "id_ligacao": "L01117977",
   "data": "2026-10-26",
   "operador": "OP-22",
+  "id_contrato": 82158,
+  "desfecho": "ALEGA PAGAMENTO",
+  "tabulacao": "ALEGA PAGAMENTO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -656,7 +734,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Consigo parcelar o atraso em quatro vezes, com a primeira para a semana que vem."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Consigo parcelar o atraso em quatro vezes, com a primeira para a semana que vem."
    },
    {
     "lado": "cliente",
@@ -664,7 +742,23 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -682,6 +776,9 @@
   "id_ligacao": "L01152270",
   "data": "2026-10-26",
   "operador": "OP-16",
+  "id_contrato": 84586,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -711,7 +808,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
    },
    {
     "lado": "cliente",
@@ -727,7 +824,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -745,6 +850,9 @@
   "id_ligacao": "L00217508",
   "data": "2026-10-27",
   "operador": "OP-05",
+  "id_contrato": 16004,
+  "desfecho": "ACAO CONTRA",
+  "tabulacao": "ACAO CONTRA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -786,11 +894,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Vou ver se consigo até sexta."
+    "texto": "Vou ver se consigo até sexta. Esse número é de vocês mesmo?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -812,6 +920,9 @@
   "id_ligacao": "L01282302",
   "data": "2026-10-27",
   "operador": "OP-15",
+  "id_contrato": 94175,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -845,11 +956,19 @@
    },
    {
     "lado": "cliente",
-    "texto": "Isso eu até consigo."
+    "texto": "Isso eu até consigo. E esse valor tem juros?"
    },
    {
     "lado": "operador",
-    "texto": "Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -867,6 +986,9 @@
   "id_ligacao": "L00145030",
   "data": "2026-10-28",
   "operador": "OP-09",
+  "id_contrato": 10654,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -955,6 +1077,9 @@
   "id_ligacao": "L00196650",
   "data": "2026-10-28",
   "operador": "OP-07",
+  "id_contrato": 14465,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -984,7 +1109,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois. Devolvendo o carro, a senhora já sai com o nome limpo."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Tem também a opção de devolver o carro de forma voluntária, e o saldo remanescente a gente negocia depois. Devolvendo o carro, a senhora já sai com o nome limpo."
    },
    {
     "lado": "cliente",
@@ -1000,7 +1125,7 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1027,6 +1152,9 @@
   "id_ligacao": "L00730230",
   "data": "2026-10-28",
   "operador": "OP-13",
+  "id_contrato": 53851,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -1102,6 +1230,9 @@
   "id_ligacao": "L00750254",
   "data": "2026-10-28",
   "operador": "OP-18",
+  "id_contrato": 55266,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RENEGOCIACAO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -1143,11 +1274,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Preciso do carro para trabalhar, não sei se consigo."
+    "texto": "Preciso do carro para trabalhar, não sei se consigo. Vocês aceitam pagamento por pix?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+    "texto": "Aceitamos, o código vai junto com a proposta. Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1169,6 +1300,9 @@
   "id_ligacao": "L01131840",
   "data": "2026-10-28",
   "operador": "OP-21",
+  "id_contrato": 83157,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -1238,7 +1372,7 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1268,6 +1402,9 @@
   "id_ligacao": "L01474548",
   "data": "2026-10-28",
   "operador": "OP-01",
+  "id_contrato": 108243,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -1321,7 +1458,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. A entrega do boleto é pelo aplicativo, tudo bem? Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. A entrega do boleto é pelo aplicativo, tudo bem? Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1349,6 +1494,9 @@
   "id_ligacao": "L00373969",
   "data": "2026-10-29",
   "operador": "OP-06",
+  "id_contrato": 27585,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -1416,6 +1564,9 @@
   "id_ligacao": "L00526150",
   "data": "2026-10-29",
   "operador": "OP-18",
+  "id_contrato": 38694,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -1461,7 +1612,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -1483,6 +1642,9 @@
   "id_ligacao": "L01464417",
   "data": "2026-10-29",
   "operador": "OP-22",
+  "id_contrato": 107540,
+  "desfecho": "EA INDICADA",
+  "tabulacao": "EA INDICADA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -1536,7 +1698,15 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Vou te entregar o boleto por mensagem agora mesmo. Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Vou te entregar o boleto por mensagem agora mesmo. Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -1561,6 +1731,9 @@
   "id_ligacao": "L01618436",
   "data": "2026-10-29",
   "operador": "OP-24",
+  "id_contrato": 118747,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -1606,7 +1779,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1628,6 +1809,9 @@
   "id_ligacao": "L00322768",
   "data": "2026-10-30",
   "operador": "OP-18",
+  "id_contrato": 23856,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -1695,6 +1879,9 @@
   "id_ligacao": "L00491223",
   "data": "2026-10-30",
   "operador": "OP-14",
+  "id_contrato": 36168,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -1728,11 +1915,27 @@
    },
    {
     "lado": "cliente",
-    "texto": "Isso eu até consigo."
+    "texto": "Isso eu até consigo. E esse valor tem juros?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1750,6 +1953,9 @@
   "id_ligacao": "L00598140",
   "data": "2026-10-30",
   "operador": "OP-04",
+  "id_contrato": 44062,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -1779,7 +1985,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
    },
    {
     "lado": "cliente",
@@ -1803,7 +2009,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -1821,6 +2035,9 @@
   "id_ligacao": "L00989488",
   "data": "2026-10-30",
   "operador": "OP-24",
+  "id_contrato": 72639,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -1850,7 +2067,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída."
    },
    {
     "lado": "cliente",
@@ -1882,7 +2099,15 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -1909,6 +2134,9 @@
   "id_ligacao": "L01290935",
   "data": "2026-10-30",
   "operador": "OP-12",
+  "id_contrato": 94825,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -1938,7 +2166,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
    },
    {
     "lado": "cliente",
@@ -1984,6 +2212,9 @@
   "id_ligacao": "L01493130",
   "data": "2026-10-30",
   "operador": "OP-10",
+  "id_contrato": 109585,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -2037,7 +2268,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -2064,6 +2303,9 @@
   "id_ligacao": "L00855497",
   "data": "2026-11-04",
   "operador": "OP-07",
+  "id_contrato": 62897,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -2101,7 +2343,23 @@
    },
    {
     "lado": "operador",
-    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -2119,6 +2377,9 @@
   "id_ligacao": "L01225888",
   "data": "2026-11-05",
   "operador": "OP-13",
+  "id_contrato": 90059,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -2160,11 +2421,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Vou ver se consigo até sexta."
+    "texto": "Vou ver se consigo até sexta. Qual é a data de vencimento?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Certo, fico no aguardo do seu retorno. Obrigada e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2186,6 +2447,9 @@
   "id_ligacao": "L00890042",
   "data": "2026-11-06",
   "operador": "OP-22",
+  "id_contrato": 65335,
+  "desfecho": "ACORDO",
+  "tabulacao": "ACORDO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -2219,11 +2483,19 @@
    },
    {
     "lado": "cliente",
-    "texto": "Me manda o valor certinho que eu vejo."
+    "texto": "Me manda o valor certinho que eu vejo. Qual é a data de vencimento?"
    },
    {
     "lado": "operador",
-    "texto": "A entrega do boleto é pelo aplicativo, tudo bem? Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. A entrega do boleto é pelo aplicativo, tudo bem? Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2245,6 +2517,9 @@
   "id_ligacao": "L01020357",
   "data": "2026-11-06",
   "operador": "OP-08",
+  "id_contrato": 74976,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -2278,11 +2553,19 @@
    },
    {
     "lado": "cliente",
-    "texto": "Me manda o valor certinho que eu vejo."
+    "texto": "Me manda o valor certinho que eu vejo. Esse número é de vocês mesmo?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2300,6 +2583,9 @@
   "id_ligacao": "L01387448",
   "data": "2026-11-06",
   "operador": "OP-11",
+  "id_contrato": 101948,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -2341,11 +2627,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Preciso do carro para trabalhar, não sei se consigo."
+    "texto": "Preciso do carro para trabalhar, não sei se consigo. Vocês aceitam pagamento por pix?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+    "texto": "Aceitamos, o código vai junto com a proposta. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2367,6 +2653,9 @@
   "id_ligacao": "L00295496",
   "data": "2026-11-09",
   "operador": "OP-16",
+  "id_contrato": 21826,
+  "desfecho": "ALEGA PAGAMENTO",
+  "tabulacao": "ALEGA PAGAMENTO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -2396,7 +2685,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída."
    },
    {
     "lado": "cliente",
@@ -2408,11 +2697,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Vou ver se consigo até sexta."
+    "texto": "Vou ver se consigo até sexta. E esse valor tem juros?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2434,6 +2723,9 @@
   "id_ligacao": "L00917365",
   "data": "2026-11-10",
   "operador": "OP-09",
+  "id_contrato": 67397,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -2475,11 +2767,19 @@
    },
    {
     "lado": "cliente",
-    "texto": "Hum, tá certo."
+    "texto": "Hum, tá certo. E esse valor tem juros?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -2497,6 +2797,9 @@
   "id_ligacao": "L00202694",
   "data": "2026-11-11",
   "operador": "OP-15",
+  "id_contrato": 14917,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -2562,11 +2865,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Vou ver."
+    "texto": "Vou ver. E esse valor tem juros?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -2603,6 +2906,9 @@
   "id_ligacao": "L00402530",
   "data": "2026-11-11",
   "operador": "OP-20",
+  "id_contrato": 29644,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -2640,7 +2946,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Fique tranquilo que não, a ideia aqui é resolver da melhor forma. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
+    "texto": "Fique tranquila que não, a ideia aqui é resolver da melhor forma. A senhora já ouviu falar da entrega amigável? É quando a senhora devolve o carro de forma voluntária."
    },
    {
     "lado": "cliente",
@@ -2656,7 +2962,15 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2681,6 +2995,9 @@
   "id_ligacao": "L00254780",
   "data": "2026-11-12",
   "operador": "OP-13",
+  "id_contrato": 18776,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -2742,7 +3059,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -2764,6 +3089,9 @@
   "id_ligacao": "L01295357",
   "data": "2026-11-12",
   "operador": "OP-24",
+  "id_contrato": 95181,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -2793,7 +3121,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Uma alternativa para a senhora é a entrega amigável do veículo, sem custo de remoção."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Uma alternativa para a senhora é a entrega amigável do veículo, sem custo de remoção."
    },
    {
     "lado": "cliente",
@@ -2813,11 +3141,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Hum, tá certo."
+    "texto": "Hum, tá certo. Esse número é de vocês mesmo?"
    },
    {
     "lado": "operador",
-    "texto": "Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -2844,6 +3172,9 @@
   "id_ligacao": "L01325670",
   "data": "2026-11-12",
   "operador": "OP-12",
+  "id_contrato": 97381,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -2885,11 +3216,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Faz sentido, vou ver isso essa semana."
+    "texto": "Faz sentido, vou ver isso essa semana. Vocês aceitam pagamento por pix?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -2916,6 +3247,9 @@
   "id_ligacao": "L00521107",
   "data": "2026-11-16",
   "operador": "OP-05",
+  "id_contrato": 38354,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -3000,6 +3334,9 @@
   "id_ligacao": "L00925958",
   "data": "2026-11-16",
   "operador": "OP-14",
+  "id_contrato": 68021,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -3029,15 +3366,23 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
+    "texto": "Entendo, senhor, por isso estou ligando, para achar uma saída. Se o senhor pagar as duas parcelas mais antigas, o contrato volta a ficar em dia."
    },
    {
     "lado": "cliente",
-    "texto": "Me manda o valor certinho que eu vejo."
+    "texto": "Me manda o valor certinho que eu vejo. Vocês aceitam pagamento por pix?"
    },
    {
     "lado": "operador",
-    "texto": "Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para o senhor. Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3055,6 +3400,9 @@
   "id_ligacao": "L01564277",
   "data": "2026-11-16",
   "operador": "OP-04",
+  "id_contrato": 114774,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -3108,7 +3456,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Certo, fico no aguardo do seu retorno. Obrigado e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -3133,6 +3489,9 @@
   "id_ligacao": "L00406646",
   "data": "2026-11-18",
   "operador": "OP-07",
+  "id_contrato": 29973,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "ACORDO",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -3174,11 +3533,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Faz sentido, vou ver isso essa semana."
+    "texto": "Faz sentido, vou ver isso essa semana. Esse número é de vocês mesmo?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3200,6 +3559,9 @@
   "id_ligacao": "L00843623",
   "data": "2026-11-18",
   "operador": "OP-16",
+  "id_contrato": 62014,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -3245,7 +3607,15 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -3267,6 +3637,9 @@
   "id_ligacao": "L01035750",
   "data": "2026-11-18",
   "operador": "OP-10",
+  "id_contrato": 76122,
+  "desfecho": "EA INDICADA",
+  "tabulacao": "EA INDICADA",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -3320,7 +3693,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigada e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -3342,6 +3723,9 @@
   "id_ligacao": "L00455005",
   "data": "2026-11-19",
   "operador": "OP-09",
+  "id_contrato": 33600,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_davi",
   "turnos": [
@@ -3391,11 +3775,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Hum, tá certo."
+    "texto": "Hum, tá certo. Vocês aceitam pagamento por pix?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
+    "texto": "Aceitamos, o código vai junto com a proposta. Então fica combinado assim. Obrigada pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3419,6 +3803,9 @@
   "id_ligacao": "L01377359",
   "data": "2026-11-19",
   "operador": "OP-08",
+  "id_contrato": 101192,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -3448,7 +3835,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Consigo parcelar o atraso em três vezes, com a primeira para a semana que vem."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Consigo parcelar o atraso em três vezes, com a primeira para a semana que vem."
    },
    {
     "lado": "cliente",
@@ -3460,11 +3847,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Hum, tá certo."
+    "texto": "Hum, tá certo. Vocês aceitam pagamento por pix?"
    },
    {
     "lado": "operador",
-    "texto": "Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3488,6 +3875,9 @@
   "id_ligacao": "L00377906",
   "data": "2026-11-23",
   "operador": "OP-06",
+  "id_contrato": 27886,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "ACORDO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -3517,7 +3907,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, o senhor, por isso estou ligando, para achar uma saída. Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
+    "texto": "Entendo, senhor, por isso estou ligando, para achar uma saída. Temos a opção da entrega amigável: o senhor leva o carro até o pátio e a gente cuida do resto."
    },
    {
     "lado": "cliente",
@@ -3541,7 +3931,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3563,6 +3953,9 @@
   "id_ligacao": "L01275531",
   "data": "2026-11-23",
   "operador": "OP-12",
+  "id_contrato": 93649,
+  "desfecho": "ALEGA PAGAMENTO",
+  "tabulacao": "ALEGA PAGAMENTO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -3616,7 +4009,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Então fica combinado assim. Obrigado pela atenção e tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Então fica combinado assim. Obrigado pela atenção e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -3634,6 +4035,9 @@
   "id_ligacao": "L01508114",
   "data": "2026-11-24",
   "operador": "OP-15",
+  "id_contrato": 110636,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -3695,7 +4099,15 @@
    },
    {
     "lado": "operador",
-    "texto": "É sim, pode salvar este contato para falar com a gente. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "É sim, pode salvar este contato para falar com a gente."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Qual é a data de vencimento?"
+   },
+   {
+    "lado": "operador",
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3717,6 +4129,9 @@
   "id_ligacao": "L00374154",
   "data": "2026-11-25",
   "operador": "OP-15",
+  "id_contrato": 27595,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_elisa",
   "turnos": [
@@ -3746,7 +4161,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída."
    },
    {
     "lado": "cliente",
@@ -3770,7 +4185,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Aceitamos, o código vai junto com a proposta. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
+    "texto": "Aceitamos, o código vai junto com a proposta."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Certo, fico no aguardo do seu retorno. Obrigado e tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3795,6 +4218,9 @@
   "id_ligacao": "L00485800",
   "data": "2026-11-26",
   "operador": "OP-07",
+  "id_contrato": 35789,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -3875,6 +4301,9 @@
   "id_ligacao": "L01191860",
   "data": "2026-11-26",
   "operador": "OP-09",
+  "id_contrato": 87501,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -3928,7 +4357,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Combinado, o senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
+    "texto": "Combinado, senhor. Qualquer dúvida é só retornar neste número. Tenha um bom dia."
    },
    {
     "lado": "cliente",
@@ -3953,6 +4382,9 @@
   "id_ligacao": "L01303135",
   "data": "2026-11-27",
   "operador": "OP-21",
+  "id_contrato": 95772,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_francisca",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -3982,7 +4414,7 @@
    },
    {
     "lado": "operador",
-    "texto": "Entendo, a senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
+    "texto": "Entendo, senhora, por isso estou ligando, para achar uma saída. Para regularizar, a gente pode fazer um acordo com entrada pequena e o restante parcelado."
    },
    {
     "lado": "cliente",
@@ -3994,11 +4426,19 @@
    },
    {
     "lado": "cliente",
-    "texto": "Vou ver."
+    "texto": "Vou ver. Qual é a data de vencimento?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Vocês aceitam pagamento por pix?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Aceitamos, o código vai junto com a proposta. Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -4022,6 +4462,9 @@
   "id_ligacao": "L00017546",
   "data": "2026-11-30",
   "operador": "OP-22",
+  "id_contrato": 1337,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_thalita",
   "persona_cliente": "cli_bruno",
   "turnos": [
@@ -4063,11 +4506,11 @@
    },
    {
     "lado": "cliente",
-    "texto": "Vou pensar e converso com a minha família."
+    "texto": "Vou pensar e converso com a minha família. Esse número é de vocês mesmo?"
    },
    {
     "lado": "operador",
-    "texto": "Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
+    "texto": "É sim, pode salvar este contato para falar com a gente. Então fica combinado assim. Obrigada pela atenção e tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -4089,6 +4532,9 @@
   "id_ligacao": "L00109119",
   "data": "2026-11-30",
   "operador": "OP-03",
+  "id_contrato": 8057,
+  "desfecho": "EA INDICADA",
+  "tabulacao": "EA INDICADA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -4159,6 +4605,9 @@
   "id_ligacao": "L01520638",
   "data": "2026-11-30",
   "operador": "OP-12",
+  "id_contrato": 111593,
+  "desfecho": "SEM DESFECHO",
+  "tabulacao": "SEM DESFECHO",
   "persona_operador": "op_antonio",
   "persona_cliente": "cli_carla",
   "turnos": [
@@ -4220,7 +4669,15 @@
    },
    {
     "lado": "operador",
-    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora. Combinado, a senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
+    "texto": "A data a gente escolhe junto, do jeito que ficar melhor para a senhora."
+   },
+   {
+    "lado": "cliente",
+    "texto": "E esse valor tem juros?"
+   },
+   {
+    "lado": "operador",
+    "texto": "Tem sim, mas no acordo os juros caem bastante. Combinado, senhora. Qualquer dúvida é só retornar neste número. Tenha uma boa tarde."
    },
    {
     "lado": "cliente",
@@ -4242,6 +4699,9 @@
   "id_ligacao": "L01611583",
   "data": "2026-11-30",
   "operador": "OP-15",
+  "id_contrato": 118249,
+  "desfecho": "RECUSA EA",
+  "tabulacao": "RECUSA EA",
   "persona_operador": "op_antonio_grave",
   "persona_cliente": "cli_ana",
   "turnos": [
@@ -4303,7 +4763,15 @@
    },
    {
     "lado": "operador",
-    "texto": "Tem sim, mas no acordo os juros caem bastante. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
+    "texto": "Tem sim, mas no acordo os juros caem bastante."
+   },
+   {
+    "lado": "cliente",
+    "texto": "Esse número é de vocês mesmo?"
+   },
+   {
+    "lado": "operador",
+    "texto": "É sim, pode salvar este contato para falar com a gente. Então fica combinado assim. Obrigado pela atenção e tenha um bom dia."
    },
    {
     "lado": "cliente",
