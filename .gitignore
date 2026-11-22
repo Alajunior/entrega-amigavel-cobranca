@@ -1,0 +1,9 @@
+.superpowers/
+dados/carteira_exemplo/
+dados/escoragem/
+dados/publicado/
+modelos/
+.env
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
