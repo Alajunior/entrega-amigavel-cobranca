@@ -1,0 +1,52 @@
+{
+ "roteiros": [
+  {"id_ligacao": "LA", "data": "2026-11-20", "operador": "OP-01", "id_contrato": 1, "desfecho": "RECUSA EA",
+   "tabulacao": "RECUSA EA",
+   "turnos": [{"lado": "operador", "texto": "Bom dia, aqui é da Carteira Exemplo."},
+              {"lado": "cliente", "texto": "Sim, sou eu."},
+              {"lado": "operador", "texto": "Temos a entrega amigável para o seu contrato. Fechando hoje eu consigo 40% de desconto."},
+              {"lado": "cliente", "texto": "Vou pensar."}],
+   "gabarito": {"oferta": "OFERECEU", "tipo": "explicita", "alertas": ["desconto_percentual"],
+                "frases": {"oferta": ["Temos a entrega amigável para o seu contrato."],
+                           "desconto_percentual": ["Fechando hoje eu consigo 40% de desconto."]}}},
+  {"id_ligacao": "LB", "data": "2026-11-21", "operador": "OP-01", "id_contrato": 2, "desfecho": "SEM DESFECHO",
+   "tabulacao": "SEM DESFECHO",
+   "turnos": [{"lado": "operador", "texto": "Consigo parcelar o atraso em três vezes."},
+              {"lado": "cliente", "texto": "Vou ver se consigo até sexta."}],
+   "gabarito": {"oferta": "NÃO OFERECEU", "tipo": null, "alertas": [], "frases": {}}},
+  {"id_ligacao": "LC", "data": "2026-11-23", "operador": "OP-02", "id_contrato": 3, "desfecho": "SEM DESFECHO",
+   "tabulacao": "SEM DESFECHO",
+   "turnos": [{"lado": "cliente", "texto": "E se eu devolver o carro? Não dá para fazer isso?"},
+              {"lado": "operador", "texto": "Esse assunto é com outro setor."}],
+   "gabarito": {"oferta": "SÓ O CLIENTE FALOU", "tipo": null, "alertas": [],
+                "frases": {"cliente_pede": ["E se eu devolver o carro? Não dá para fazer isso?"]}}},
+  {"id_ligacao": "LD", "data": "2026-11-24", "operador": "OP-02", "id_contrato": 4, "desfecho": "EA INDICADA",
+   "tabulacao": "ACORDO",
+   "turnos": [{"lado": "operador", "texto": "Uma saída é o senhor devolver o veículo. Com isso acaba com a dívida de vez."},
+              {"lado": "cliente", "texto": "Como funciona isso?"}],
+   "gabarito": {"oferta": "OFERECEU", "tipo": "devolucao", "alertas": ["quitacao_sem_ressalva"],
+                "frases": {"oferta": ["Uma saída é o senhor devolver o veículo."],
+                           "quitacao_sem_ressalva": ["Com isso acaba com a dívida de vez."]}}},
+  {"id_ligacao": "LE", "data": "2026-11-25", "operador": "OP-02", "id_contrato": 5, "desfecho": "RECUSA EA",
+   "tabulacao": "RECUSA EA",
+   "turnos": [{"lado": "operador", "texto": "Hoje eu consigo abrir uma proposta de entrega amigável."},
+              {"lado": "cliente", "texto": "Não quero."}],
+   "gabarito": {"oferta": "OFERECEU", "tipo": "explicita", "alertas": [], "frases": {"oferta": ["Hoje eu consigo abrir uma proposta de entrega amigável."]}}}
+ ],
+ "transcricoes": {
+  "LA": {"id_ligacao": "LA", "turnos": [
+    {"lado": "operador", "inicio": 0.3, "fim": 2.1, "texto": "Bom dia, aqui é da carteira exemplo."},
+    {"lado": "cliente", "inicio": 2.6, "fim": 3.2, "texto": "Sim, sou eu."},
+    {"lado": "operador", "inicio": 3.8, "fim": 8.0, "texto": "Temos a entrega a migável para o seu contrato. Fechando hoje eu consigo 40% de desconto."},
+    {"lado": "cliente", "inicio": 8.5, "fim": 9.1, "texto": "Vou pensar."}]},
+  "LB": {"id_ligacao": "LB", "turnos": [
+    {"lado": "operador", "inicio": 0.3, "fim": 2.4, "texto": "Consigo parcelar o atraso em três vezes."},
+    {"lado": "cliente", "inicio": 3.0, "fim": 4.4, "texto": "Vou ver se consigo até sexta."}]},
+  "LC": {"id_ligacao": "LC", "turnos": [
+    {"lado": "cliente", "inicio": 0.3, "fim": 2.9, "texto": "E se eu devolver o carro, não dá para fazer isso?"},
+    {"lado": "operador", "inicio": 3.4, "fim": 4.9, "texto": "Esse assunto é com outro setor."}]},
+  "LE": {"id_ligacao": "LE", "turnos": [
+    {"lado": "operador", "inicio": 0.3, "fim": 3.0, "texto": "Hoje eu consigo abrir uma proposta de entrega amigável."},
+    {"lado": "cliente", "inicio": 3.5, "fim": 4.0, "texto": "Não quero."}]}
+ }
+}
