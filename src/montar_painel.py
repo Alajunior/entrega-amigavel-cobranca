@@ -18,6 +18,9 @@ import numpy as np
 import pandas as pd
 
 from src.apto import apto_ea, proximo_passo
+from src.audio.medir import (ablacao, avaliar, cruzamento_tabulacao, matriz_confusao, metricas_alertas,
+                             ranking_operador)
+from src.audio.regras import achar_mencoes, alertas_operador, normalizar
 from src.base_analitica import ALVO, CAT, NUM, carregar, montar_base
 from src.candidatos import bases_das_safras
 from src.config import CANAIS, CLASSES, FASES, FAIXAS, FAIXAS_ATRASO, HOJE, INICIO_PAINEL, JANELA, fase_de
@@ -246,7 +249,71 @@ def _modelo(relatorios: Path, esc, cortes, esc_c, esc_s) -> dict:
     return m
 
 
-def montar_dados(tabelas: dict, hoje=HOJE, inicio=INICIO_PAINEL, cache=None, relatorios=RAIZ / "relatorios") -> dict:
+def _token_para_palavra(texto: str) -> list[int]:
+    """Índice da palavra original (separada por espaço) de cada palavra do texto normalizado das regras."""
+    return [k for k, w in enumerate(texto.split()) for _ in normalizar(w).split()]
+
+
+def _marcas(turnos: list[dict]) -> list[dict]:
+    """Palavras que dispararam a regra, por turno, em índices de palavra do texto original (para o destaque)."""
+    out = []
+    for k, t in enumerate(turnos):
+        mapa = _token_para_palavra(t["texto"])
+        for m in achar_mencoes(t["texto"]):
+            if m["pos"] < len(mapa):
+                fim = mapa[min(m["pos"] + m["n"], len(mapa)) - 1]
+                out.append({"turno": k, "tipo": "oferta", "ini": mapa[m["pos"]], "n": fim - mapa[m["pos"]] + 1})
+    for a in alertas_operador(turnos):
+        mapa = _token_para_palavra(turnos[a["turno"]]["texto"])
+        if a["pos"] < len(mapa):
+            fim = mapa[min(a["pos"] + a["n"], len(mapa)) - 1]
+            out.append({"turno": a["turno"], "tipo": a["alerta"], "ini": mapa[a["pos"]], "n": fim - mapa[a["pos"]] + 1})
+    return out
+
+
+def _ligacoes(raiz: Path) -> dict | None:
+    """Aba Auditoria de ligações. A regra é reaplicada sobre o texto salvo (sem retranscrever). Ligação cujo MP3
+    não existe vira SEM ÁUDIO (player some, resto do card fica). Sem roteiros ou transcrições → None (aba some)."""
+    raiz = Path(raiz)
+    arq_r, arq_t = raiz / "dados" / "ligacoes" / "roteiros.json", raiz / "dados" / "ligacoes" / "transcricoes.jsonl"
+    if not arq_r.exists() or not arq_t.exists():
+        return None
+    roteiros = json.loads(arq_r.read_text(encoding="utf-8"))
+    audio = {i: (raiz / "docs" / "audio" / f"{i}.mp3").exists() for i in (r["id_ligacao"] for r in roteiros)}
+    trs = {r["id_ligacao"]: r for r in (json.loads(x) for x in arq_t.read_text(encoding="utf-8").splitlines()
+                                        if x.strip()) if audio.get(r["id_ligacao"])}
+    if not roteiros or not trs:
+        return None
+    df = avaliar(roteiros, trs)
+    aud = df[~df["sem_audio"]]
+    lista = []
+    for row in df.to_dict("records"):
+        turnos = trs[row["id_ligacao"]]["turnos"] if not row["sem_audio"] else []
+        wers = [w for w in (row["wer_operador"], row["wer_cliente"]) if w is not None]
+        lista.append({"id_ligacao": row["id_ligacao"], "data": row["data"], "operador": row["operador"],
+                      "tabulacao": row["tabulacao"], "oferta_regra": row["oferta_regra"],
+                      "oferta_gabarito": row["oferta_gabarito"], "acerto": bool(row["acerto_oferta"]),
+                      "tipo": row["tipo_regra"], "quem": row["quem"], "trecho": row["trecho"],
+                      "alertas_regra": row["alertas_regra"], "alertas_gabarito": row["alertas_gabarito"],
+                      "wer": round(sum(wers) / len(wers), 3) if wers else None,
+                      "audio": f"audio/{row['id_ligacao']}.mp3" if not row["sem_audio"] else None,
+                      "turnos": [{k: t[k] for k in ("lado", "inicio", "fim", "texto")} for t in turnos],
+                      "marcas": _marcas(turnos)})
+    n = len(aud)
+    resumo = {"ligacoes": int(len(df)), "auditadas": int(n), "sem_audio": int(df["sem_audio"].sum()),
+              "taxa_oferta": float((aud["oferta_regra"] == "OFERECEU").mean()) if n else None,
+              "com_alerta": int((aud["alertas_regra"].map(len) > 0).sum()),
+              "alertas": int(aud["alertas_regra"].map(len).sum()),
+              "acerto": float(aud["acerto_oferta"].mean()) if n else None,
+              "wer_operador": float(pd.to_numeric(aud["wer_operador"]).mean()) if n else None,
+              "wer_cliente": float(pd.to_numeric(aud["wer_cliente"]).mean()) if n else None}
+    return _limpo({"resumo": resumo, "lista": lista, "confusao": matriz_confusao(df), "alertas": metricas_alertas(df),
+                   "ablacao": ablacao(roteiros, trs), "tabulacao": cruzamento_tabulacao(df).to_dict("records"),
+                   "operadores": ranking_operador(df).to_dict("records")})
+
+
+def montar_dados(tabelas: dict, hoje=HOJE, inicio=INICIO_PAINEL, cache=None, relatorios=RAIZ / "relatorios",
+                raiz_ligacoes=RAIZ) -> dict:
     hoje, inicio, relatorios = pd.Timestamp(hoje), pd.Timestamp(inicio), Path(relatorios)
     t = {k: v for k, v in tabelas.items() if not k.startswith("_")}
     escada = json.loads((relatorios / "escada.json").read_text(encoding="utf-8"))
@@ -278,6 +345,9 @@ def montar_dados(tabelas: dict, hoje=HOJE, inicio=INICIO_PAINEL, cache=None, rel
     perfil = _perfil(bases, hoje)
     if perfil:
         dados["perfil"] = perfil
+    lig = _ligacoes(raiz_ligacoes)
+    if lig:
+        dados["ligacoes"] = lig
     return _limpo(dados)
 
 

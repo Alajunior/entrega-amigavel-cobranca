@@ -97,3 +97,54 @@ def test_fluxo_so_puxa_os_dias_nao_uteis_logo_antes_do_inicio(inicio, fora, dent
 def test_eventos_levam_o_dia_util_dos_cards(dados):
     assert all("dia" in e and e["dia"] >= dados["meta"]["dias"][0] for e in dados["eventos"])
     assert all(e["dia"] >= e["data"] for e in dados["eventos"])
+
+
+# ---------------- aba Auditoria de ligações ----------------
+
+def _pasta_ligacoes(tmp_path, com_mp3=("LA", "LB", "LC")):
+    from pathlib import Path
+    fix = json.loads((Path(__file__).parent / "dados_ligacoes_fixture.json").read_text(encoding="utf-8"))
+    lig = tmp_path / "dados" / "ligacoes"
+    lig.mkdir(parents=True)
+    (lig / "roteiros.json").write_text(json.dumps(fix["roteiros"], ensure_ascii=False), encoding="utf-8")
+    (lig / "transcricoes.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
+                                                    for r in fix["transcricoes"].values()), encoding="utf-8")
+    audio = tmp_path / "docs" / "audio"
+    audio.mkdir(parents=True)
+    for i in com_mp3:
+        (audio / f"{i}.mp3").write_bytes(b"ID3")
+    return tmp_path
+
+
+def test_payload_tem_ligacoes_quando_ha_dados(tmp_path):
+    from src.montar_painel import _ligacoes
+    L = _ligacoes(_pasta_ligacoes(tmp_path))
+    assert {"resumo", "lista", "confusao", "alertas", "ablacao", "tabulacao", "operadores"} <= set(L)
+    assert L["resumo"]["auditadas"] == 3 and L["resumo"]["sem_audio"] == 2
+    la = next(x for x in L["lista"] if x["id_ligacao"] == "LA")
+    assert la["audio"] == "audio/LA.mp3" and la["oferta_regra"] == "OFERECEU" and la["acerto"]
+    assert la["turnos"][2]["texto"].startswith("Temos a entrega a migável") and la["turnos"][2]["inicio"] == 3.8
+    marcas = {(m["turno"], m["tipo"]) for m in la["marcas"]}
+    assert (2, "oferta") in marcas and (2, "desconto_percentual") in marcas
+    m = next(m for m in la["marcas"] if m["tipo"] == "oferta")
+    palavras = la["turnos"][2]["texto"].split()
+    assert palavras[m["ini"]:m["ini"] + m["n"]] == ["entrega", "a", "migável"]
+    json.dumps(L, allow_nan=False)
+
+
+def test_ligacao_sem_mp3_vira_sem_audio(tmp_path):
+    from src.montar_painel import _ligacoes
+    L = _ligacoes(_pasta_ligacoes(tmp_path))
+    le = next(x for x in L["lista"] if x["id_ligacao"] == "LE")     # transcrição existe, MP3 sumiu
+    assert le["audio"] is None and le["oferta_regra"] == "SEM ÁUDIO" and le["turnos"] == []
+    assert le["oferta_gabarito"] == "OFERECEU" and le["operador"] == "OP-02" and le["tabulacao"] == "RECUSA EA"
+    ld = next(x for x in L["lista"] if x["id_ligacao"] == "LD")     # sem transcrição
+    assert ld["audio"] is None and ld["oferta_regra"] == "SEM ÁUDIO" and ld["wer"] is None
+
+
+def test_ligacoes_ausente_sem_dados(tmp_path):
+    from src.montar_painel import _ligacoes
+    assert _ligacoes(tmp_path) is None
+    raiz = _pasta_ligacoes(tmp_path)
+    (raiz / "dados" / "ligacoes" / "transcricoes.jsonl").unlink()
+    assert _ligacoes(raiz) is None

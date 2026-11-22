@@ -225,6 +225,47 @@ footer{margin-top:24px;padding-top:14px;border-top:1px solid rgba(var(--ac-rgb),
 @media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}.kpi .v{font-size:18px}.tabs button{padding:9px 14px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.kpi.up{animation:none;box-shadow:0 0 0 1px rgba(91,229,154,.25),0 0 14px rgba(91,229,154,.20)}}
 
+/* =================== Auditoria de ligações =================== */
+.lfil{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;margin-bottom:10px}
+.lfil label{display:flex;flex-direction:column;gap:3px;min-width:0}
+.t tr.lrow{cursor:pointer}
+.t tr.lrow:focus-visible td{outline:2px solid var(--ac);outline-offset:-2px}
+.otag{display:inline-block;padding:2px 9px;border-radius:999px;font:800 10.5px Inter;letter-spacing:.02em;white-space:nowrap;border:1px solid}
+.otag.of{color:var(--pos);border-color:rgba(91,229,154,.5);background:rgba(91,229,154,.12)}
+.otag.so{color:var(--warn);border-color:rgba(255,159,67,.5);background:rgba(255,159,67,.12)}
+.otag.nao{color:var(--t3);border-color:var(--bd-i);background:rgba(255,255,255,.03)}
+.otag.inc{color:var(--flat);border-color:rgba(154,147,200,.4);background:rgba(154,147,200,.10);font-style:italic}
+body[data-theme="light"] .otag.so{color:#9a4b00}
+.ok-t{color:var(--pos);font-weight:800}.no-t{color:var(--neg);font-weight:800}
+.lcab{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:10px;font-size:12.5px;color:var(--t3)}
+.lcab b{color:var(--strong)}
+.selo{font:800 11.5px Inter;padding:4px 11px;border-radius:999px}
+.selo.sim{background:rgba(91,229,154,.16);color:var(--pos);border:1px solid rgba(91,229,154,.45)}
+.selo.nao{background:rgba(255,107,129,.16);color:var(--neg);border:1px solid rgba(255,107,129,.55)}
+.selo.na{background:rgba(154,147,200,.12);color:var(--flat);border:1px solid rgba(154,147,200,.35)}
+#ligAudio{width:100%;margin:4px 0 10px}
+.semaudio{padding:12px;border:1px dashed var(--bd-i);border-radius:10px;color:var(--t2);font-size:13px;margin:4px 0 10px}
+.baloes{display:flex;flex-direction:column;gap:8px;max-height:430px;overflow:auto;padding:4px 6px 4px 2px}
+.bal{max-width:84%;padding:8px 12px;border-radius:14px;font-size:13.5px;line-height:1.5;cursor:pointer;border:1px solid var(--bd);transition:background .2s,box-shadow .2s}
+.bal small{display:block;font:700 10.5px 'JetBrains Mono',monospace;color:var(--t2);margin-bottom:2px}
+.bal.operador{align-self:flex-start;background:rgba(var(--ac-rgb),.09);border-bottom-left-radius:4px}
+.bal.cliente{align-self:flex-end;background:rgba(255,255,255,.05);border-bottom-right-radius:4px}
+body[data-theme="light"] .bal.cliente{background:#f1f5f9}
+.bal.atual{box-shadow:0 0 0 2px var(--ac);background:rgba(var(--ac-rgb),.18)}
+.bal:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+mark{border-radius:4px;padding:0 2px;color:inherit}
+mark.of{background:rgba(91,229,154,.28);box-shadow:inset 0 -2px 0 var(--pos)}
+mark.al{background:rgba(255,107,129,.26);box-shadow:inset 0 -2px 0 var(--neg)}
+.humano{margin-top:12px;padding-top:12px;border-top:1px solid var(--bd)}
+.humano textarea{width:100%;box-sizing:border-box;min-height:52px;margin-top:8px;font:13px Inter;color:var(--text);background:var(--inp);border:1px solid var(--bd-i);border-radius:9px;padding:7px 10px;resize:vertical}
+.mtx td{text-align:center!important}
+.mtx td:first-child{text-align:left!important}
+.mtx td.dg{font-weight:800;color:var(--strong);box-shadow:inset 0 0 0 1px rgba(var(--ac-rgb),.55)}
+.ganho{font-size:12.5px;color:var(--t3);margin-top:10px;line-height:1.7}
+.ganho a{color:var(--ac);font-weight:700;text-decoration:none}.ganho a:hover{text-decoration:underline}
+.ganho code{font:600 12px 'JetBrains Mono',monospace;color:var(--acs)}
+@media(max-width:560px){.bal{max-width:94%}.lfil label{flex:1 1 140px}.lfil select{min-width:0;width:100%}}
+
 /* =================== Entrega Amigável: classes (rampa ordinal de um tom, validada para daltonismo) =================== */
 body{--cl-a:#cde2fb;--cl-m:#6da7ec;--cl-b:#256abf}
 body[data-theme="light"]{--cl-a:#104281;--cl-m:#2a78d6;--cl-b:#86b6ef}
@@ -268,7 +309,7 @@ body[data-theme="light"] .btn{background:#f1f5f9;color:#334155;border-color:#cbd
     <button data-tema="midnight">Midnight</button><button data-tema="dark">Dark</button><button data-tema="light">Light</button></div>
 </header>
 
-<div class="glass cmdbar">
+<div class="glass cmdbar" id="globais">
   <span class="lb">Fase (atraso)</span><span class="cbx" id="fases"></span>
   <span class="lb">Canal</span>
   <div class="seg" id="segCanal"><button data-canal="todos" class="on">Todos</button><button data-canal="discador">Discador</button><button data-canal="digital">Digital</button></div>
@@ -447,7 +488,71 @@ body[data-theme="light"] .btn{background:#f1f5f9;color:#334155;border-color:#cbd
   </div>
 </section>
 
-<section id="v-ligacoes" class="oculto"></section>
+<section id="v-ligacoes" class="oculto">
+  <div class="glass">
+    <div class="ctitle">🎧 Auditoria de ligações <span class="muted" id="ligSub"></span>
+      <button class="hbtn" data-h="h-lig">ⓘ ajuda</button></div>
+    <div class="help" id="h-lig">Ligações <b>sintéticas</b> de clientes ALTO: o roteiro (com gabarito) virou voz neural, passou por uma linha
+      telefônica simulada (8 kHz, ruído) e foi transcrito pelo Whisper, cada canal separado. A <b>regra</b> lê só a transcrição, como
+      leria uma ligação real, e decide se o operador <b>ofereceu</b> a Entrega Amigável, se <b>só o cliente falou</b> nela ou se <b>não houve oferta</b>.
+      Os <b>alertas</b> (ameaça de bloqueio, desconto em %, quitação sem ressalva, promessa de nome limpo) valem só na fala do operador.
+      O gabarito é o que o roteiro mandou dizer: a diferença entre os dois é o custo real da transcrição.</div>
+    <div class="tiles" id="ligTiles"></div>
+  </div>
+  <div class="g2">
+    <div class="glass">
+      <div class="ctitle">📞 Ligações <span class="muted" id="ligConta"></span>
+        <button class="hbtn" id="ligCsv">⬇ suas marcações (CSV)</button></div>
+      <div class="lfil">
+        <label><span class="lb">Oferta (regra)</span><select id="fOferta"></select></label>
+        <label><span class="lb">Alerta</span><select id="fAlerta"></select></label>
+        <label><span class="lb">Operador</span><select id="fOper"></select></label>
+        <label><span class="lb">Regra × gabarito</span><select id="fAcerto"><option value="todas">Todas</option>
+          <option value="acerto">Acertos</option><option value="erro">Erros</option></select></label>
+      </div>
+      <div class="tblwrap" id="ligTab"></div>
+    </div>
+    <div class="glass" id="ligCard">
+      <div class="ctitle">🗣 Ligação <span class="muted" id="ligId"></span></div>
+      <div class="lcab" id="ligCab"></div>
+      <div id="ligPlayer"></div>
+      <div class="baloes" id="ligBaloes" aria-label="Transcrição em balões; clique num balão para ouvir o trecho"></div>
+      <div class="humano">
+        <div class="linha" style="margin:0"><span class="lb">Sua escuta</span>
+          <div class="seg" id="segHumano"><button data-hm="ofereceu">Ofereceu</button><button data-hm="nao">Não ofereceu</button>
+            <button data-hm="duvida">Dúvida</button></div></div>
+        <textarea id="ligObs" placeholder="Observação (fica salva só neste navegador)"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="g2e">
+    <div class="glass">
+      <div class="ctitle">🧮 Regra × gabarito <span class="muted">linhas: o que o roteiro mandou dizer · colunas: o que a regra achou</span></div>
+      <div class="tblwrap" id="ligMtx"></div>
+      <div class="ctitle" style="margin-top:16px">🚨 Alertas <span class="muted">precisão e recall contra o gabarito</span></div>
+      <div class="tblwrap" id="ligAl"></div>
+    </div>
+    <div class="glass">
+      <div class="ctitle">🔧 Ablação: regex simples × regras tolerantes <span class="muted">recall de OFERECEU</span>
+        <button class="hbtn" data-h="h-abl">ⓘ ajuda</button></div>
+      <div class="help" id="h-abl">A regex <b>simples</b> só reconhece "entrega amigável" escrito certo. As regras <b>tolerantes</b> aceitam os erros
+        típicos do Whisper ("entrega a migável", "entrga amigável") sem abrir porta a falso positivo. No texto perfeito do roteiro as duas
+        empatam; no texto do Whisper, a distância entre elas é o que a tolerância rende.</div>
+      <div class="chart h240"><canvas id="ablGraf"></canvas></div>
+      <div class="ganho" id="ligGanho"></div>
+    </div>
+  </div>
+  <div class="g2e">
+    <div class="glass">
+      <div class="ctitle">🏷 Oferta × tabulação <span class="muted">ofereceu e tabulou outra coisa = tabulação a revisar</span></div>
+      <div class="tblwrap" id="ligTabul"></div>
+    </div>
+    <div class="glass">
+      <div class="ctitle">👤 Por operador <span class="muted">ligações auditadas, taxa de oferta e alertas</span></div>
+      <div class="tblwrap" id="ligOper"></div>
+    </div>
+  </div>
+</section>
 
 <footer>entrega amigável · carteira exemplo de veículos · dados sintéticos · projeto de portfólio</footer>
 </div>
@@ -878,8 +983,151 @@ function renderTempo() {
 }
 function renderModelo() { renderTiles(); renderCurvas(); renderEscada(); renderVaz(); renderBt(); renderOrd(); renderEst(); renderCortes(); renderImp(); renderTempo(); }
 
+/* ======================= Auditoria de ligações ======================= */
+const L = D.ligacoes || null;
+const NOMES_AL = {ameaca_bloqueio: "Ameaça de bloqueio", desconto_percentual: "Desconto em %", quitacao_sem_ressalva: "Quitação sem ressalva", nome_limpo: "Nome limpo"};
+const OF_CLS = {"OFERECEU": "of", "SÓ O CLIENTE FALOU": "so", "NÃO OFERECEU": "nao", "INCONCLUSIVO": "inc", "SEM ÁUDIO": "inc"};
+const otag = o => `<span class="otag ${OF_CLS[o] || "inc"}">${esc(o)}</span>`;
+const mmss = s => !ok(s) ? "—" : Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+const CHAVE_HM = "ea_marcacoes_v1";
+const marcacoes = () => { try { return JSON.parse(store.get(CHAVE_HM) || "{}") || {}; } catch (e) { return {}; } };
+const gravarMarcacao = (id, campo, valor) => { const m = marcacoes(); m[id] = Object.assign(m[id] || {}, {[campo]: valor}); store.set(CHAVE_HM, JSON.stringify(m)); };
+const HM_NOME = {ofereceu: "Ofereceu", nao: "Não ofereceu", duvida: "Dúvida"};
+function ligFiltradas() {
+  const fo = $("fOferta").value, fa = $("fAlerta").value, fop = $("fOper").value, fac = $("fAcerto").value;
+  return L.lista.filter(x => (fo === "todas" || x.oferta_regra === fo)
+    && (fa === "todos" || (fa === "algum" ? x.alertas_regra.length > 0 : x.alertas_regra.includes(fa)))
+    && (fop === "todos" || x.operador === fop)
+    && (fac === "todas" || (x.oferta_regra !== "SEM ÁUDIO" && (fac === "acerto") === x.acerto)));
+}
+function renderLigTiles() {
+  const r = L.resumo, ab = L.ablacao.whisper;
+  const ganho = ok(ab.tolerante.recall_oferta) && ok(ab.simples.recall_oferta) ? ab.tolerante.recall_oferta - ab.simples.recall_oferta : null;
+  $("ligSub").textContent = `${r.auditadas} de ${r.ligacoes} ligações com áudio e transcrição` + (r.sem_audio ? ` · ${r.sem_audio} sem áudio` : "");
+  const tiles = [["Ligações auditadas", int(r.auditadas), `de ${int(r.ligacoes)} sorteadas`], ["Taxa de oferta (regra)", pctAbs(r.taxa_oferta), "o operador ofereceu a EA"],
+    ["Acerto da regra", pctAbs(r.acerto), "contra o gabarito do roteiro"], ["Ligações com alerta", int(r.com_alerta), `${int(r.alertas)} alertas no total`],
+    ["WER do operador", pctAbs(r.wer_operador), "erro por palavra do Whisper"], ["WER do cliente", pctAbs(r.wer_cliente), "erro por palavra do Whisper"],
+    ["Ganho da tolerância", pp(ganho), "recall de OFERECEU no texto do Whisper"]];
+  $("ligTiles").innerHTML = tiles.map(([l, v, s]) => `<div class="tile"><div class="tl">${l}</div><div class="tv">${v}</div><div class="ts">${s}</div></div>`).join("");
+}
+function renderLigTab() {
+  const v = ligFiltradas(), hm = marcacoes();
+  $("ligConta").textContent = `${v.length} de ${L.lista.length}`;
+  $("ligTab").innerHTML = `<table class="t"><thead><tr><th class="tx">Data</th><th class="tx">Operador</th><th class="tx">Regra</th><th class="tx">Gabarito</th><th class="tx">Bate?</th><th class="tx">Alertas</th><th>WER</th><th class="tx">Sua escuta</th></tr></thead><tbody>` +
+    v.map(x => `<tr class="lrow${x.id_ligacao === S.lig ? " sel" : ""}" data-lig="${x.id_ligacao}" tabindex="0"><td class="tx">${dBR(x.data)}</td><td class="tx">${esc(x.operador)}</td><td class="tx">${otag(x.oferta_regra)}</td>` +
+      `<td class="tx">${otag(x.oferta_gabarito)}</td><td class="tx">${x.oferta_regra === "SEM ÁUDIO" ? "—" : x.acerto ? '<span class="ok-t">✓</span>' : '<span class="no-t">✗</span>'}</td>` +
+      `<td class="tx">${x.alertas_regra.map(a => `<span class="mot">${NOMES_AL[a]}</span>`).join("") || "—"}</td><td>${pctAbs(x.wer, 0)}</td><td class="tx">${HM_NOME[(hm[x.id_ligacao] || {}).m] || "—"}</td></tr>`).join("") +
+    (v.length ? "" : `<tr><td class="tx" colspan="8">Nenhuma ligação com esses filtros.</td></tr>`) + "</tbody></table>";
+  QS("#ligTab [data-lig]").forEach(tr => { tr.onclick = () => abrirLig(tr.dataset.lig);
+    tr.onkeydown = ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrirLig(tr.dataset.lig); } }; });
+}
+function textoMarcado(t, marcas) {
+  const pal = t.texto.split(" "), ab = {}, fe = {};
+  marcas.forEach(m => { const c = m.tipo === "oferta" ? "of" : "al";
+    (ab[m.ini] = ab[m.ini] || []).push(`<mark class="${c}" title="${m.tipo === "oferta" ? "disparou a regra de oferta" : NOMES_AL[m.tipo]}">`);
+    const f = Math.min(m.ini + m.n, pal.length) - 1; fe[f] = (fe[f] || 0) + 1; });
+  return pal.map((w, i) => (ab[i] || []).join("") + esc(w) + "</mark>".repeat(fe[i] || 0)).join(" ");
+}
+function abrirLig(id) {
+  const x = L.lista.find(y => y.id_ligacao === id); if (!x) return;
+  S.lig = id; QS("#ligTab [data-lig]").forEach(tr => tr.classList.toggle("sel", tr.dataset.lig === id));
+  $("ligId").textContent = `${x.id_ligacao} · ${dBRY(x.data)}`;
+  const selo = x.oferta_regra === "SEM ÁUDIO" ? `<span class="selo na">sem áudio: não auditada</span>` : x.acerto ? `<span class="selo sim">regra = gabarito ✓</span>` : `<span class="selo nao">regra ≠ gabarito ✗</span>`;
+  const al = x.alertas_regra.length ? x.alertas_regra.map(a => `<span class="mot">${NOMES_AL[a]}</span>`).join("") : "nenhum";
+  const alG = x.alertas_gabarito.length ? x.alertas_gabarito.map(a => NOMES_AL[a]).join(", ") : "nenhum";
+  $("ligCab").innerHTML = `${selo}<span>Regra ${otag(x.oferta_regra)}${x.tipo ? ` <span class="muted">(${x.tipo === "explicita" ? "explícita" : "devolução do veículo"})</span>` : ""}</span>` +
+    `<span>Gabarito ${otag(x.oferta_gabarito)}</span><span>Operador <b>${esc(x.operador)}</b></span><span>Tabulou <b>${esc(x.tabulacao || "—")}</b></span>` +
+    `<span>Alertas da regra: ${al}</span><span class="muted">gabarito: ${alG}</span>` + (ok(x.wer) ? `<span class="muted">WER ${pctAbs(x.wer, 0)}</span>` : "");
+  $("ligPlayer").innerHTML = x.audio ? `<audio id="ligAudio" controls preload="none" src="${esc(x.audio)}"></audio>`
+    : `<div class="semaudio">🔇 Sem áudio para esta ligação: o arquivo não existe, então ela fica fora da auditoria (o resto do card continua valendo).</div>`;
+  const porTurno = {}; x.marcas.forEach(m => (porTurno[m.turno] = porTurno[m.turno] || []).push(m));
+  $("ligBaloes").innerHTML = x.turnos.map((t, k) => `<div class="bal ${t.lado}" data-ini="${t.inicio}" tabindex="0" role="button" aria-label="Ouvir a partir de ${mmss(t.inicio)}">` +
+    `<small>${t.lado === "operador" ? "Operador" : "Cliente"} · ${mmss(t.inicio)}</small>${textoMarcado(t, porTurno[k] || [])}</div>`).join("") ||
+    `<div class="muted">Sem transcrição.</div>`;
+  $("ligBaloes").scrollTop = 0;
+  const au = $("ligAudio");
+  QS("#ligBaloes .bal").forEach(b => { const ir = () => { if (!au) return; const t = +b.dataset.ini; marcarAtual(t);
+    pronto(au).then(() => { au.currentTime = t; au.play().catch(() => {}); }); };
+    b.onclick = ir; b.onkeydown = ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); ir(); } }; });
+  if (au) au.ontimeupdate = () => marcarAtual(au.currentTime);
+  const hm = marcacoes()[id] || {};
+  QS("#segHumano [data-hm]").forEach(b => b.classList.toggle("on", b.dataset.hm === hm.m));
+  $("ligObs").value = hm.obs || "";
+}
+// servidor sem "Accept-Ranges" deixa o MP3 sem trecho buscável (o clique no balão voltaria ao início):
+// nesse caso o arquivo é baixado uma vez como blob, que sempre aceita busca
+function pronto(au) {
+  const buscavel = () => au.seekable.length > 0 && au.seekable.end(0) > 0;
+  if (buscavel() || au.dataset.blob) return Promise.resolve();
+  return fetch(au.currentSrc || au.src).then(r => r.ok ? r.blob() : Promise.reject()).then(bl => new Promise(ok => {
+    au.dataset.blob = "1"; au.src = URL.createObjectURL(bl); au.addEventListener("loadedmetadata", ok, {once: true}); au.load();
+  })).catch(() => {});
+}
+function marcarAtual(t) {
+  const bs = QS("#ligBaloes .bal"); let atual = null;
+  bs.forEach(b => { if (+b.dataset.ini <= t + 0.05) atual = b; });
+  bs.forEach(b => b.classList.toggle("atual", b === atual));
+  if (atual) { const c = $("ligBaloes"), top = atual.offsetTop - c.offsetTop;
+    if (top < c.scrollTop || top + atual.offsetHeight > c.scrollTop + c.clientHeight) c.scrollTop = top - 8; }
+}
+function renderLigMtx() {
+  const m = L.confusao, mx = Math.max(1, ...m.valores.flat()), jSem = m.colunas.indexOf("SEM ÁUDIO");
+  $("ligMtx").innerHTML = `<table class="t mtx"><thead><tr><th class="tx">Gabarito ↓ · Regra →</th>${m.colunas.map(c => `<th>${esc(c)}</th>`).join("")}<th>Acerto</th></tr></thead><tbody>` +
+    m.linhas.map((l, i) => { const tot = m.valores[i].reduce((a, b) => a + b, 0) - (jSem >= 0 ? m.valores[i][jSem] : 0);
+      return `<tr><td class="tx">${otag(l)}</td>` + m.valores[i].map((v, j) => { const dg = m.colunas[j] === l;
+        return `<td class="${dg ? "dg" : ""}" style="background:rgba(var(--ac-rgb),${v ? (0.06 + 0.4 * v / mx).toFixed(2) : 0})">${v || "·"}</td>`; }).join("") +
+        `<td>${pctAbs(seguro(m.valores[i][m.colunas.indexOf(l)], tot), 0)}</td></tr>`; }).join("") + "</tbody></table>";
+  $("ligAl").innerHTML = `<table class="t"><thead><tr><th class="tx">Alerta</th><th>Acertou</th><th>Alarme falso</th><th>Deixou passar</th><th>Precisão</th><th>Recall</th></tr></thead><tbody>` +
+    Object.entries(L.alertas).map(([a, v]) => `<tr><td class="tx">${NOMES_AL[a] || a}</td><td>${v.vp}</td><td>${v.fp}</td><td>${v.fn}</td><td>${pctAbs(v.precisao, 0)}</td><td>${pctAbs(v.recall, 0)}</td></tr>`).join("") + "</tbody></table>";
+}
+function renderLigAbl() {
+  const a = L.ablacao, rot = ["Texto do Whisper", "Texto perfeito (roteiro)"], fontes = ["whisper", "roteiro"];
+  mk("ablGraf", {type: "bar", data: {labels: rot, datasets: [
+    {label: "Regex simples", data: fontes.map(f => a[f].simples.recall_oferta), backgroundColor: css("--fx-p"), borderRadius: 4, borderSkipped: "start"},
+    {label: "Regras tolerantes", data: fontes.map(f => a[f].tolerante.recall_oferta), backgroundColor: css("--fx-o"), borderRadius: 4, borderSkipped: "start"}]},
+    options: {plugins: {legend: leg, tooltip: {callbacks: {label: c => `${c.dataset.label}: ${pctAbs(c.raw)} das ofertas reconhecidas`}}},
+      scales: {y: Object.assign({min: 0, max: 1}, eixoPct)}}});
+  const g = a.ganhos || [];
+  const quem = id => { const x = L.lista.find(y => y.id_ligacao === id) || {}; return x.oferta_regra === "OFERECEU" ? "operador ofereceu" : "cliente pediu"; };
+  $("ligGanho").innerHTML = g.length ? `<b>${g.length}</b> ${g.length === 1 ? "ligação recuperada" : "ligações recuperadas"} pela tolerância (a regex simples dizia NÃO OFERECEU):` +
+    `<ul style="margin:6px 0 0;padding-left:18px">` + g.slice(0, 6).map(x => `<li><a href="#" data-ir="${x.id_ligacao}">${x.id_ligacao}</a> · ${quem(x.id_ligacao)}: <code>…${esc(x.trecho)}…</code></li>`).join("") + "</ul>"
+    : "A tolerância não mudou nenhuma decisão nestas ligações.";
+  QS("#ligGanho [data-ir]").forEach(el => el.onclick = ev => { ev.preventDefault(); abrirLig(el.dataset.ir); $("ligCard").scrollIntoView({behavior: RM ? "auto" : "smooth", block: "start"}); });
+}
+function renderLigTabul() {
+  $("ligTabul").innerHTML = `<table class="t"><thead><tr><th class="tx">Regra</th><th class="tx">Tabulação do operador</th><th>Ligações</th><th class="tx">Leitura</th></tr></thead><tbody>` +
+    L.tabulacao.map(x => `<tr class="${x.divergente ? "sel" : ""}"><td class="tx">${otag(x.oferta_regra)}</td><td class="tx">${esc(x.tabulacao)}</td><td>${x.ligacoes}</td>` +
+      `<td class="tx">${x.divergente ? '<span class="warn-t">⚠ ofereceu e tabulou outra coisa</span>' : "—"}</td></tr>`).join("") + "</tbody></table>";
+  $("ligOper").innerHTML = `<table class="t"><thead><tr><th class="tx">Operador</th><th>Ligações</th><th>Taxa de oferta</th><th>Alertas</th><th>Acerto da regra</th></tr></thead><tbody>` +
+    L.operadores.map(x => `<tr><td class="tx">${esc(x.operador)}</td><td>${x.ligacoes}</td><td>${pctAbs(x.taxa_oferta, 0)}</td><td class="${x.alertas ? "ruim" : ""}">${x.alertas}</td><td>${pctAbs(x.acerto, 0)}</td></tr>`).join("") + "</tbody></table>";
+}
+function baixarMarcacoes() {
+  const hm = marcacoes(), cols = ["id_ligacao", "data", "operador", "oferta_regra", "oferta_gabarito", "sua_escuta", "observacao"];
+  const linhas = [cols.join(";"), ...L.lista.filter(x => hm[x.id_ligacao] && (hm[x.id_ligacao].m || hm[x.id_ligacao].obs)).map(x => [x.id_ligacao, x.data, x.operador,
+    x.oferta_regra, x.oferta_gabarito, HM_NOME[hm[x.id_ligacao].m] || "", hm[x.id_ligacao].obs || ""].map(v => String(v).replace(/[;\r\n]+/g, " ")).join(";"))];
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + linhas.join("\r\n")], {type: "text/csv;charset=utf-8"}));
+  a.download = "marcacoes_auditoria_ligacoes.csv"; a.click(); URL.revokeObjectURL(a.href);
+}
+function iniciarLig() {
+  if (!L) return;
+  const ofs = ["OFERECEU", "SÓ O CLIENTE FALOU", "NÃO OFERECEU", "INCONCLUSIVO", "SEM ÁUDIO"].filter(o => L.lista.some(x => x.oferta_regra === o));
+  $("fOferta").innerHTML = `<option value="todas">Todas</option>` + ofs.map(o => `<option>${o}</option>`).join("");
+  $("fAlerta").innerHTML = `<option value="todos">Todos</option><option value="algum">Com algum alerta</option>` + Object.keys(NOMES_AL).map(a => `<option value="${a}">${NOMES_AL[a]}</option>`).join("");
+  $("fOper").innerHTML = `<option value="todos">Todos</option>` + [...new Set(L.lista.map(x => x.operador))].sort().map(o => `<option>${esc(o)}</option>`).join("");
+  ["fOferta", "fAlerta", "fOper", "fAcerto"].forEach(id => $(id).onchange = renderLigTab);
+  QS("#segHumano [data-hm]").forEach(b => b.onclick = () => { if (!S.lig) return; const atual = (marcacoes()[S.lig] || {}).m;
+    const novo = atual === b.dataset.hm ? "" : b.dataset.hm; gravarMarcacao(S.lig, "m", novo);
+    QS("#segHumano [data-hm]").forEach(x => x.classList.toggle("on", x.dataset.hm === novo)); renderLigTab(); });
+  $("ligObs").oninput = () => { if (S.lig) gravarMarcacao(S.lig, "obs", $("ligObs").value); };
+  $("ligCsv").onclick = baixarMarcacoes;
+  const gs = L.ablacao.ganhos || [], g = gs.find(x => (L.lista.find(y => y.id_ligacao === x.id_ligacao) || {}).oferta_regra === "OFERECEU") || gs[0];
+  S.lig = g ? g.id_ligacao : (L.lista.find(x => x.audio) || L.lista[0]).id_ligacao;
+}
+function renderLig() { if (!L) return; renderLigTiles(); renderLigTab(); abrirLig(S.lig); renderLigMtx(); renderLigAbl(); renderLigTabul(); }
+
 /* ======================= controles ======================= */
-function render() { if (S.aba === "oper") renderOper(); else if (S.aba === "modelo") renderModelo(); }
+function render() { if (S.aba === "oper") renderOper(); else if (S.aba === "modelo") renderModelo(); else if (S.aba === "ligacoes") renderLig(); }
 function opcoesDias(sel, valor) { sel.innerHTML = DIAS.map((d, i) => `<option value="${i}">${dBRY(d)}</option>`).join(""); sel.value = valor; }
 function aplicarModo(m) {
   S.modo = m; QS("#segModo [data-modo]").forEach(b => b.classList.toggle("on", b.dataset.modo === m));
@@ -895,6 +1143,7 @@ function aplicarAba(a) {
   if (a === "ligacoes" && !D.ligacoes) a = "oper";
   S.aba = a; QS("[data-aba]").forEach(b => { b.classList.toggle("on", b.dataset.aba === a); b.setAttribute("aria-selected", b.dataset.aba === a); });
   mostrar("v-oper", a === "oper"); mostrar("v-modelo", a === "modelo"); mostrar("v-ligacoes", a === "ligacoes");
+  mostrar("globais", a !== "ligacoes");   // fase, canal e atribuição não se aplicam à auditoria
   destruir(); render();
 }
 function seg(id, attr, fn) { QS(`#${id} [data-${attr}]`).forEach(b => b.onclick = () => {
@@ -941,6 +1190,7 @@ function iniciar() {
   $("baixar").onclick = baixarCsv;
   $("vigSel").onchange = ev => { S.vig = ev.target.value; renderCortes(); };
   mostrar("tabLig", !!D.ligacoes);
+  iniciarLig();
   aplicarModo("per");
   const qs = location.search + location.hash;
   aplicarAba(/aba=modelo/.test(qs) ? "modelo" : /aba=ligacoes/.test(qs) ? "ligacoes" : "oper");
