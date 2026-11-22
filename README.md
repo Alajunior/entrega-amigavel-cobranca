@@ -78,7 +78,7 @@ O mesmo contrato aparece em várias safras. Numa validação cruzada **aleatóri
 | Modelo | AUC aleatória | AUC por contrato | Diferença | PR-AUC aleatória | PR-AUC por contrato |
 |---|---|---|---|---|---|
 | Logística | 0,842 | 0,839 | +0,004 | 0,041 | 0,039 |
-| LightGBM | **0,878** | **0,841** | **+0,037** | **0,059** | **0,043** |
+| LightGBM | **0,878** | **0,841** | **+0,036** | **0,059** | **0,043** |
 
 Na validação aleatória, o LightGBM parecia bem melhor que a logística. Agrupado por contrato, ele empata. O projeto real fazia a validação cruzada sem agrupar; aqui isso vira um card do painel.
 
