@@ -41,6 +41,10 @@ def _pp(x: float, c: int = 1) -> str:
     return f"{x:.{c}f}".replace(".", ",")
 
 
+def _sinal(x: float) -> str:
+    return "+" if x >= 0 else "−"
+
+
 def _pts(x: float) -> str:
     return "ponto" if abs(x) < 2 else "pontos"
 
@@ -54,8 +58,11 @@ def conclusoes(df: pd.DataFrame) -> list[dict]:
     perda = (p["mensal"] - p["congelado"]) * 100
     if perda >= 1:
         t_ret = f"Sem retreino, o modelo perde {_pp(perda)} {_pts(perda)} depois de jun/2026"
+    elif perda <= -1:
+        t_ret = f"Depois de jun/2026, o retreino mensal ficou {_sinal(perda)}{_pp(abs(perda))} {_pts(perda)} atrás do congelado"
     else:
-        t_ret = f"Sem retreino, a perda depois de jun/2026 foi de só {_pp(perda)} {_pts(perda)}"
+        t_ret = (f"Sem retreino, o resultado depois de jun/2026 praticamente não muda "
+                 f"({_sinal(perda)}{_pp(abs(perda))} {_pts(perda)})")
     out = [
         {"titulo": f"Com {cap}% do estoque, o modelo alcança {_pp(media['mensal'] * 100, 0)}% das entregas",
          "texto": f"A régua sem modelo (deve mais do que o carro vale, depois o maior atraso) alcança "
@@ -64,7 +71,7 @@ def conclusoes(df: pd.DataFrame) -> list[dict]:
         {"titulo": t_ret,
          "texto": f"De jun/2026 em diante (mudança de perfil da carteira), o retreino mensal alcançou "
                   f"{_pp(p['mensal'] * 100)}% das entregas contra {_pp(p['congelado'] * 100)}% do modelo congelado.",
-         "numero": f"{'+' if perda >= 0 else '−'}{_pp(abs(perda))} pp"},
+         "numero": f"{_sinal(perda)}{_pp(abs(perda))} pp"},
     ]
     if "sombra" in media.index:
         d = (media["sombra"] - media["mensal"]) * 100

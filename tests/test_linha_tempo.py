@@ -31,3 +31,12 @@ def test_conclusoes_saem_dos_numeros():
     assert t1[0]["titulo"].startswith("Com 10% do estoque, o modelo alcança 100% das entregas")
     assert t1[1]["titulo"] != t2[1]["titulo"] and "50,0 pontos" in t1[1]["titulo"]
     assert all({"titulo", "texto", "numero"} <= set(x) for x in t1)
+    assert "praticamente não muda" in t2[1]["titulo"] and "-" not in t2[1]["titulo"]
+
+
+def test_conclusao_com_perda_negativa_usa_sinal_de_menos():
+    m, c = _escs()
+    c3 = c.assign(score=-c["id_contrato"].astype(float))
+    m3 = m.assign(score=np.where(m["id_contrato"] == 9, -1000.0, -m["id_contrato"]))   # mensal perde 1 de 10
+    t = conclusoes(cenarios_mensais(m3, c3, capacidade=0.10))
+    assert "−10,0 pontos" in t[1]["titulo"] and t[1]["numero"] == "−10,0 pp"
