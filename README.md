@@ -31,11 +31,11 @@ Cada card tem um botão **ⓘ** com o "como ler". Há três temas (Midnight, Dar
 - **Foto do dia D:** os contratos ativos em D, com as variáveis calculadas só com o que se sabia **antes** de D. Contato do próprio dia não entra, e acordo só conta como "quebrado" 30 dias depois de feito.
 - **Alvo `ea_60d`:** 1 se a primeira formalização de EA cai em **(D, D+60]**. A janela fixa corrige um problema do projeto real, que usava janela aberta e deixava as safras recentes com rótulo cortado.
 - **Foto madura:** D + 60 ≤ hoje (30/11/2026). Antes disso o alvo é desconhecido (NaN), nunca zero.
-- **Taxa base:** 0,55% nas safras maduras, subindo de 0,49% para 0,73% com a mudança de perfil da carteira em jun/2026.
+- **Taxa base:** 0,53% nas safras maduras, subindo de 0,47% para 0,73% com a mudança de perfil da carteira em jun/2026.
 
 ## A carteira sintética
 
-`dados/gerar_carteira.py` gera 120 mil contratos de financiamento de veículos entre jan/2025 e nov/2026 (seed 42, ~10 s). Isso dá ~28 mil contratos em estoque por dia útil, ~580 CPC, ~6,5 indicações e ~3,8 formalizações por dia útil.
+`dados/gerar_carteira.py` gera 120 mil contratos de financiamento de veículos entre jan/2025 e nov/2026 (seed 42, ~10 s). Isso dá ~29 mil contratos em estoque por dia útil, ~630 CPC, ~6 indicações e ~3,8 formalizações por dia útil. A operação não abre no domingo; o plantão de sábado (~30% de um dia útil) entra na segunda.
 
 - O contrato entra na carteira com 31 dias de atraso. Ele sai por pagamento, busca e apreensão, EA formalizada ou ao passar de 720 dias.
 - **Simulação semanal com riscos concorrentes.** O risco latente de EA (não salvo) sobe com:
@@ -54,18 +54,18 @@ Os números abaixo saem de `relatorios/` e do painel, gerados com a base complet
 
 ### 1. Escada de candidatos: a logística vence, e o LightGBM não ganha o suficiente para publicar
 
-A pilha fora do tempo (OOT) são as 6 últimas safras maduras: 168 mil fotos e 1.063 entregas (taxa de 0,63%). O treino usa só as safras cujo alvo fechou antes da 1ª safra OOT.
+A pilha fora do tempo (OOT) são as 6 últimas safras maduras: 172 mil fotos e 1.140 entregas (taxa de 0,66%). O treino usa só as safras cujo alvo fechou antes da 1ª safra OOT.
 
 | | PR-AUC | AUC | Precisão no top 10% | Recall no top 10% | Lift |
 |---|---|---|---|---|---|
-| Régua (dívida ÷ carro, depois maior atraso) | 0,018 | 0,772 | 2,0% | 31% | 3,1× |
-| **Logística (publicada)** | **0,040** | **0,837** | **3,2%** | **51%** | **5,1×** |
-| LightGBM | 0,041 | 0,839 | 3,3% | 52% | 5,2× |
+| Régua (dívida ÷ carro, depois maior atraso) | 0,018 | 0,772 | 2,1% | 31% | 3,1× |
+| **Logística (publicada)** | **0,055** | **0,845** | **3,7%** | **56%** | **5,6×** |
+| LightGBM | 0,058 | 0,845 | 3,7% | 56% | 5,6× |
 
 O **gate** compara cada desafiante com o campeão na captura de entregas nos 10% de maior score. O intervalo de confiança de 95% vem de um bootstrap por **contrato** (1.000 reamostras) e precisa ter limite inferior acima de zero, sem piorar a PR-AUC.
 
-- **Logística contra régua:** **+19,9 pp** (IC +15,9 a +24,0). Passou.
-- **LightGBM contra logística:** +0,8 pp (IC −1,8 a +3,5). Não passou, então a logística publica e não há modelo em sombra.
+- **Logística contra régua:** **+24,8 pp** (IC +21,0 a +28,6). Passou.
+- **LightGBM contra logística:** +0,0 pp (IC −2,5 a +2,8). Não passou, então a logística publica e não há modelo em sombra.
 
 O painel mostraria o duelo publicado × sombra se o LightGBM tivesse passado.
 
@@ -77,8 +77,8 @@ O mesmo contrato aparece em várias safras. Numa validação cruzada **aleatóri
 
 | Modelo | AUC aleatória | AUC por contrato | Diferença | PR-AUC aleatória | PR-AUC por contrato |
 |---|---|---|---|---|---|
-| Logística | 0,844 | 0,842 | +0,001 | 0,037 | 0,038 |
-| LightGBM | **0,874** | **0,839** | **+0,035** | **0,052** | **0,037** |
+| Logística | 0,842 | 0,839 | +0,004 | 0,041 | 0,039 |
+| LightGBM | **0,878** | **0,841** | **+0,037** | **0,059** | **0,043** |
 
 Na validação aleatória, o LightGBM parecia bem melhor que a logística. Agrupado por contrato, ele empata. O projeto real fazia a validação cruzada sem agrupar; aqui isso vira um card do painel.
 
@@ -86,7 +86,7 @@ Na validação aleatória, o LightGBM parecia bem melhor que a logística. Agrup
 
 - **ALTO** = score a partir do qual estão **80%** das entregas; **MEDIO** = 95%. O critério é a captura, não um limiar de 0,5.
 - **Os cortes saem de 3 safras que o modelo não viu no treino.** No projeto real, eles saíam das predições do próprio treino, e o ALTO acabava menor do que o previsto.
-- **Cada fase tem o próprio corte.** Fase com menos de 30 entregas na calibração usa o global. Na vigência de 02/11/2026, a fase 0031–0090 tinha 11 e usou o corte global.
+- **Cada fase tem o próprio corte.** Fase com menos de 30 entregas na calibração usa o global. Na vigência de 02/11/2026, a fase 0031–0090 tinha 28 e usou o corte global.
 - **Cada retreino mensal acrescenta uma vigência** (12 no período). Reescorar um dia antigo usa a regra daquele dia.
 
 ### 4. Backtest de produção: a classe publicada se comportou
@@ -95,17 +95,17 @@ Compara a classe publicada em cada dia útil maduro com a formalização real no
 
 | Classe | % do estoque | Taxa de entrega em 60 dias | Lift | % das entregas |
 |---|---|---|---|---|
-| ALTO | 27,7% | 1,63% | 2,80× | **77,5%** |
-| MEDIO | 28,3% | 0,32% | 0,55× | 15,7% |
-| BAIXO | 44,0% | 0,09% | 0,16× | 6,9% |
+| ALTO | 28,2% | 1,57% | 2,80× | **78,8%** |
+| MEDIO | 28,2% | 0,30% | 0,54× | 15,2% |
+| BAIXO | 43,6% | 0,08% | 0,14× | 6,0% |
 
-Nas 44 semanas maduras, **nenhuma inversão**: em todas, a ordem foi ALTO > MEDIO > BAIXO. O ALTO capturou 77,5% das entregas, perto dos 80% previstos na calibração.
+Nas 44 semanas maduras, **nenhuma inversão**: 43 na ordem ALTO > MEDIO > BAIXO e 1 sem entregas suficientes para comparar. O ALTO capturou 78,8% das entregas, perto dos 80% previstos na calibração.
 
 ### 5. Linha do tempo para a diretoria
 
 ![Linha do tempo](docs/painel_tempo.png)
 
-Ligando para **10% do estoque** por dia, o modelo alcança **51%** das entregas, contra **31%** da régua sem modelo (média dos meses maduros). Depois da mudança de perfil de jun/2026, o retreino mensal ganhou **+1,1 pp** do modelo congelado. A logística é estável, e o retreino é barato. Os títulos dessas conclusões são calculados a partir dos números, não escritos à mão.
+Ligando para **10% do estoque** por dia, o modelo alcança **55%** das entregas, contra **31%** da régua sem modelo (média dos meses maduros). Depois da mudança de perfil de jun/2026, o retreino mensal ganhou **+1,1 pp** do modelo congelado. A logística é estável, e o retreino é barato. Os títulos dessas conclusões são calculados a partir dos números, não escritos à mão.
 
 Como o dado é sintético, a entrega não depende de quem foi acionado. Os simuladores medem a **qualidade da ordem**, não o efeito causal da ligação, e o painel avisa isso.
 
@@ -113,13 +113,13 @@ Como o dado é sintético, a entrega não depende de quem foi acionado. Os simul
 
 Na logística, a contribuição de cada variável é exata, sem SHAP: coeficiente × (valor − média do treino), em log-odds. Fora do tempo, as variáveis que mais movem a chance são:
 
-1. fase de cobrança;
-2. **dívida ÷ valor do carro**;
-3. parte do plano já paga;
-4. contato certo em 30 dias;
-5. bureau.
+1. **dívida ÷ valor do carro**;
+2. fase de cobrança;
+3. contato certo em 30 dias;
+4. bureau;
+5. parte do plano já paga.
 
-Na mediana, quem formaliza deve 1,30× o valor do carro (a base deve 0,97×), pagou 17% do plano (contra 29%), está com 326 dias de atraso (contra 216) e teve contato certo há 17 dias (contra 29).
+Na mediana, quem formaliza deve 1,30× o valor do carro (a base deve 0,98×), pagou 17% do plano (contra 29%), está com 324 dias de atraso (contra 217) e teve contato certo há 18 dias (contra 36).
 
 ### 7. Regra APTO_EA: o score diz quem, a regra diz se pode ofertar agora
 
@@ -131,7 +131,7 @@ As regras são aplicadas nesta ordem, olhando só o que se sabia antes do dia:
 4. **A PARTIR DE dd/mm:** ainda não tem 90 dias de atraso.
 5. **SIM:** nenhuma das anteriores.
 
-Nos 200 ALTO de hoje: 148 SIM, 33 NÃO, 14 EM ANDAMENTO e 5 VERIFICAR.
+Nos 200 ALTO de hoje: 144 SIM, 32 NÃO e 24 EM ANDAMENTO.
 
 ### 8. Travas de produção: melhor não publicar do que publicar errado
 
@@ -154,7 +154,7 @@ pip install -r requirements.txt
 python dados/gerar_carteira.py      # carteira sintética de 120 mil contratos (~10 s)
 python -m src.treinar               # escada com gate, teste de vazamento e importância em relatorios/ (~1 min)
 python -m src.montar_painel         # escoragem diária em 3 modos, agregados e docs/index.html (~3 min; cache em dados/escoragem/)
-python -m pytest                    # 63 testes
+python -m pytest                    # 69 testes
 ```
 
 Para ver o painel, sirva a pasta `docs/` (por exemplo `python -m http.server --directory docs`). A cada push na `main`, a CI gera uma base pequena, roda o treino e os testes, e publica `docs/` no GitHub Pages.
@@ -181,7 +181,7 @@ src/montar_painel.py         monta o payload (atribuição as-of) e grava o HTML
 src/painel.html              o painel (HTML, CSS e JS puro; Chart.js; fundo em canvas)
 docs/                        o painel publicado e as imagens deste README
 relatorios/                  escada.json, vazamento.json, importancia.csv
-tests/                       63 testes: futuro, alvo, gate, cortes, vigência, travas, APTO, as-of, payload, guarda de publicação
+tests/                       69 testes: futuro, alvo, gate, cortes, vigência, travas, APTO, as-of, payload, guarda de publicação
 ```
 
 ## Fase 2 (em construção): auditoria de ligações

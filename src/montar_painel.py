@@ -77,6 +77,12 @@ def dia_util_seguinte(dias: pd.DatetimeIndex, datas: pd.Series) -> pd.Series:
     return pd.Series(out, index=getattr(datas, "index", None))
 
 
+def inicio_janela(dias) -> pd.Timestamp:
+    """Primeiro dia que conta para o período: os dias NÃO úteis logo antes do 1º dia útil (vão para ele), nunca um
+    dia útil anterior (esse pertence a outro período)."""
+    return pd.DatetimeIndex(dias)[0] - pd.offsets.BDay(1) + pd.Timedelta(days=1)
+
+
 def _asof(ev: pd.DataFrame, esc: pd.DataFrame, col: str) -> pd.DataFrame:
     """classe, faixa e fase do contrato na data do evento: última foto <= data; senão a primeira depois."""
     cols = ["classe", "faixa_atraso", "fase"]
@@ -105,7 +111,7 @@ def classe_asof(eventos: pd.DataFrame, esc: pd.DataFrame, col_data: str) -> pd.S
 def agregar_fluxo(contatos: pd.DataFrame, eventos: pd.DataFrame, esc: pd.DataFrame, dias, hoje=HOJE) -> pd.DataFrame:
     """Contatos e eventos por (dia útil, faixa, canal, classe as-of), em contratos-dia."""
     dias = pd.DatetimeIndex(dias)
-    ini, hoje = dias[0] - pd.Timedelta(days=3), pd.Timestamp(hoje)
+    ini, hoje = inicio_janela(dias), pd.Timestamp(hoje)
     partes = []
 
     def parte(df, col, **metricas):
@@ -187,15 +193,20 @@ def _uf(t: dict, esc: pd.DataFrame, ev: pd.DataFrame) -> list[dict]:
              "formalizadas": int(form.get(u, 0))} for u in sorted(est.index)]
 
 
-def _eventos(ev: pd.DataFrame, esc: pd.DataFrame, ini, hoje) -> list[dict]:
-    linhas = []
+def _eventos(ev: pd.DataFrame, esc: pd.DataFrame, dias, hoje) -> list[dict]:
+    """Um registro por evento; "dia" é o dia útil em que o evento entra nos cards (fim de semana → segunda)."""
+    dias = pd.DatetimeIndex(dias)
+    ini, linhas = inicio_janela(dias), []
     for tipo, sub, col in (("indicacao", ev, "data_indicacao"),
                            ("formalizada", ev[ev["desfecho"] == "FORMALIZADA"], "data_desfecho"),
                            ("insucesso", ev[ev["desfecho"] == "INSUCESSO"], "data_desfecho")):
         sub = sub[(sub[col] >= ini) & (sub[col] <= hoje)]
         a = _asof(sub, esc, col)
-        for r, (_, x) in zip(sub.itertuples(), a.iterrows()):
-            linhas.append({"data": _iso(getattr(r, col)), "tipo": tipo, "id_contrato": int(r.id_contrato),
+        du = dia_util_seguinte(dias, sub[col])
+        for r, (_, x), d in zip(sub.itertuples(), a.iterrows(), du):
+            if pd.isna(d):
+                continue
+            linhas.append({"data": _iso(getattr(r, col)), "dia": _iso(d), "tipo": tipo, "id_contrato": int(r.id_contrato),
                            "classe": x["classe"], "fase": x["fase"] if isinstance(x["fase"], str) else None,
                            "canal": r.canal, "operador": r.operador,
                            "motivo": r.motivo_insucesso if tipo == "insucesso" else ""})
@@ -262,7 +273,7 @@ def montar_dados(tabelas: dict, hoje=HOJE, inicio=INICIO_PAINEL, cache=None, rel
              "fluxo": _colunar(fl, dias, {"faixa": FAIXAS, "canal": CANAIS, "classe": CLASSES}),
              "fila": _fila(t, bases, hoje), "uf": _uf(t, esc, ev[(ev["data_indicacao"] >= inicio)
                                                                  & (ev["data_indicacao"] <= hoje)]),
-             "eventos": _eventos(ev, esc, inicio, hoje),
+             "eventos": _eventos(ev, esc, pd.DatetimeIndex(dias), hoje),
              "modelo": _modelo(relatorios, esc, cortes, esc_c, esc_s)}
     perfil = _perfil(bases, hoje)
     if perfil:

@@ -48,8 +48,8 @@ def test_indicacao_nasce_de_cpc(carteira_pequena):
     assert m["data"].notna().all()
 
 
-def test_reindicacao_so_depois_de_insucesso(carteira_pequena):
-    e = carteira_pequena["eventos_ea"].sort_values(["id_contrato", "data_indicacao"])
+def test_reindicacao_so_depois_de_insucesso(tmp_path):
+    e = gerar(10000, tmp_path)["eventos_ea"].sort_values(["id_contrato", "data_indicacao"])   # base maior: há reindicações
     ant = e.groupby("id_contrato").shift(1)
     seg = ant["desfecho"].notna()
     assert (ant.loc[seg, "desfecho"] == "INSUCESSO").all()
@@ -60,3 +60,12 @@ def test_reindicacao_so_depois_de_insucesso(carteira_pequena):
 def test_sem_coluna_sexo(carteira_pequena):
     for df in carteira_pequena.values():
         assert not any("sexo" in col.lower() for col in df.columns)
+
+
+def test_fim_de_semana_tem_pouco_volume(carteira_pequena):
+    ct, e = carteira_pequena["contatos"], carteira_pequena["eventos_ea"]
+    dow = ct["data"].dt.weekday
+    assert (dow == 6).sum() == 0
+    assert (dow == 5).mean() < 0.08                              # sábado ~0,3 de um dia útil
+    assert (e["data_indicacao"].dt.weekday == 6).sum() == 0
+    assert (e["data_desfecho"].dropna().dt.weekday == 6).sum() == 0

@@ -1,20 +1,20 @@
 variavel,nome,media_abs
-fase,fase de cobrança,0.714329897391833
-ltv_atual,dívida ÷ valor do carro,0.7058870708066882
-pct_pago,parte do plano já paga,0.4082059932888255
-qtd_cpc_30d,contato certo em 30 dias,0.3791055485280135
-faixa_bureau,bureau,0.34747022231787544
-idade_veiculo,idade do carro,0.2462472894953878
-dias_atraso,dias de atraso,0.22208946536487817
-divida_total,dívida total,0.19840998110315383
-valor_parcela,valor da parcela,0.18681584804854034
-dias_desde_ult_cpc_nulo,nunca teve contato certo,0.12836511574597811
-acordos_quebrados_180d,acordo quebrado,0.1121874562984598
-dias_desde_ult_cpc,dias sem contato certo,0.0915693135890968
-canal_pref,canal de contato,0.0846454107157167
-valor_vencido,valor vencido,0.06837287025875109
-plano,prazo do plano,0.06306496954909573
-idade,idade,0.039268514153350295
-uf_grupo,região,0.03660202014702091
-insucessos_ea_antes,EA anterior sem sucesso,0.005434906095405322
-qtd_tentativas_30d,tentativas em 30 dias,0.000696858183174705
+ltv_atual,dívida ÷ valor do carro,0.7316518667856342
+fase,fase de cobrança,0.6682282781482599
+qtd_cpc_30d,contato certo em 30 dias,0.3255799566086614
+faixa_bureau,bureau,0.27211020152399146
+pct_pago,parte do plano já paga,0.2711005887901724
+canal_pref,canal de contato,0.23045630673815576
+idade_veiculo,idade do carro,0.2078515783595303
+dias_desde_ult_cpc,dias sem contato certo,0.19631391997540854
+dias_atraso,dias de atraso,0.18384968831606485
+dias_desde_ult_cpc_nulo,nunca teve contato certo,0.13172148505092304
+acordos_quebrados_180d,acordo quebrado,0.07654324769357272
+idade,idade,0.06767544893982963
+valor_parcela,valor da parcela,0.06308461492976684
+valor_vencido,valor vencido,0.06237289226451171
+uf_grupo,região,0.05628327985278146
+divida_total,dívida total,0.05355488183576299
+qtd_tentativas_30d,tentativas em 30 dias,0.0389189488068383
+insucessos_ea_antes,EA anterior sem sucesso,0.014987816201320489
+plano,prazo do plano,0.010069646842249725

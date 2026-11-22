@@ -287,7 +287,7 @@ body[data-theme="light"] .btn{background:#f1f5f9;color:#334155;border-color:#cbd
   <div class="glass">
     <div class="ctitle">🗓 Período em análise <span class="muted">comanda os indicadores e os cards desta aba</span>
       <button class="hbtn" data-h="h-per">ⓘ ajuda</button></div>
-    <div class="help" id="h-per"><b>Período × Período</b> compara dois intervalos de dias úteis; <b>Dia × Dia</b> compara dois dias; <b>Período único</b> mostra um intervalo sem comparação. As contagens são em <b>contratos-dia</b>: somar os dias de um período dá os contatos e eventos do período, não clientes únicos. Com ~4 formalizações por dia, o Dia × Dia oscila muito: para decidir, prefira o mês.</div>
+    <div class="help" id="h-per"><b>Período × Período</b> compara dois intervalos de dias úteis; <b>Dia × Dia</b> compara dois dias; <b>Período único</b> mostra um intervalo sem comparação. As contagens são em <b>contratos-dia</b>: somar os dias de um período dá os contatos e eventos do período, não clientes únicos. Com ~4 formalizações por dia, o Dia × Dia oscila muito: para decidir, prefira o mês. O que acontece no sábado (plantão) entra na segunda, por isso o Dia × Dia abre comparando com o mesmo dia da semana anterior.</div>
     <div class="linha"><div class="seg" id="segModo"><button data-modo="per" class="on">Período × Período</button><button data-modo="dia">Dia × Dia</button><button data-modo="uni">Período único</button></div></div>
     <div class="linha" id="ctlPer"><span class="ab a">A</span><select id="pA1"></select><span class="seta">→</span><select id="pA2"></select>
       <span class="ab c">B</span><select id="pB1"></select><span class="seta">→</span><select id="pB2"></select>
@@ -302,7 +302,7 @@ body[data-theme="light"] .btn{background:#f1f5f9;color:#334155;border-color:#cbd
   <div class="glass">
     <div class="ctitle">🧭 Comparação dinâmica <span class="muted" id="cmpSub"></span>
       <button class="hbtn" data-h="h-cmp">ⓘ ajuda</button></div>
-    <div class="help" id="h-cmp"><b>Conversão</b> = indicações ÷ CPC (de cada contato com a pessoa certa, quantos viraram indicação de EA). <b>Efetividade</b> = formalizadas ÷ indicações. Com "sucesso atribuído pela indicação", a formalização volta para o dia e a classe da indicação (coorte): indicações recentes ainda podem formalizar, por isso aparece <b>em maturação</b>. Cada evento leva a classe que o contrato tinha <b>no dia do evento</b>. Em cada célula: período A, a variação e o período B embaixo.</div>
+    <div class="help" id="h-cmp"><b>Conversão</b> = indicações ÷ CPC (de cada contato com a pessoa certa, quantos viraram indicação de EA). <b>Efetividade</b> = das indicações do período, quantas já formalizaram (sempre pela coorte da indicação, por isso nunca passa de 100%); indicações com menos de 60 dias ainda podem formalizar, e aparece <b>em maturação</b>. A contagem de <b>formalizadas</b> segue o filtro "sucesso atribuído por": pela data da formalização (caixa) ou de volta ao dia e à classe da indicação. Cada evento leva a classe que o contrato tinha <b>no dia do evento</b>. Em cada célula: período A, a variação e o período B embaixo.</div>
     <div class="linha"><div class="seg" id="segVisao"><button data-visao="classe" class="on">Por classe</button><button data-visao="funil">Funil operacional</button><button data-visao="fase">Por fase</button></div>
       <span class="lb" id="lbFaixa">Faixa de atraso</span><select id="faixaSel" aria-label="Faixa de atraso"></select></div>
     <div id="cmpTab" class="tblwrap"></div>
@@ -578,7 +578,8 @@ function agr(i1, i2) {
 function derivar(o, nd) {
   o.form = S.atrib === "ind" ? o.fpi : o.fpf;
   o.estMed = o.est / nd; o.divMed = o.div / nd;
-  o.conv = seguro(o.ind, o.cpc); o.efet = seguro(o.form, o.ind);
+  // efetividade é sempre a coorte da indicação (formalizadas DESTAS indicações): nunca passa de 100%
+  o.conv = seguro(o.ind, o.cpc); o.efet = seguro(o.fpi, o.ind);
   o.penet = seguro(o.trab, o.est); o.hit = seguro(o.alo, o.disc); o.pcpc = seguro(o.cpc, o.alo);
   o.indMil = seguro(o.ind * 1000, o.est); o.formMil = seguro(o.form * 1000, o.est);
 }
@@ -589,7 +590,8 @@ function periodos() {
   return {A: ord([v("u1"), v("u2")]), B: null};
 }
 const rotPer = p => p[0] === p[1] ? dBRY(DIAS[p[0]]) : `${dBR(DIAS[p[0]])} a ${dBRY(DIAS[p[1]])}`;
-const maturando = p => S.atrib === "ind" && DIAS.some((d, i) => i >= p[0] && i <= p[1] && !M.maduro_ind[i]);
+const imaturo = p => DIAS.some((d, i) => i >= p[0] && i <= p[1] && !M.maduro_ind[i]);
+const maturando = p => S.atrib === "ind" && imaturo(p);
 function delta(a, b) {
   const v = seguro(a, b); if (v == null) return {cls: "nd", txt: "—"};
   const x = v - 1; if (Math.abs(x) <= .001) return {cls: "flat", txt: pct(x)};
@@ -599,12 +601,12 @@ function delta(a, b) {
 /* ======================= KPIs ======================= */
 const KPIS = [["Base ativa (contratos méd.)", "estMed", int], ["Valor em risco (méd.)", "divMed", brlC], ["CPC", "cpc", int],
   ["Indicações", "ind", int], ["Formalizadas", "form", int], ["Conversão (ind ÷ CPC)", "conv", v => pctAbs(v, 1)],
-  ["Efetividade (form ÷ ind)", "efet", v => pctAbs(v, 1)]];
+  ["Efetividade (coorte)", "efet", v => pctAbs(v, 1)]];
 function renderKpis(A, B, p) {
-  const mat = maturando(p.A);
+  const mat = maturando(p.A), imat = imaturo(p.A) || (p.B && imaturo(p.B));
   $("kpis").innerHTML = KPIS.map(([nome, k, fmt]) => {
     const a = A.T[k], b = B ? B.T[k] : null;
-    const d = !B ? {cls: "nd", txt: "período único"} : (mat && ["form", "efet"].includes(k)) ? {cls: "nd", txt: "em maturação"} : delta(a, b);
+    const d = !B ? {cls: "nd", txt: "período único"} : (k === "efet" ? imat : mat && k === "form") ? {cls: "nd", txt: "em maturação"} : delta(a, b);
     const bdg = {up: "▲", down: "▼", flat: "→", nd: "•"}[d.cls];
     return `<div class="kpi ${d.cls}"><div class="h"><span class="l">${nome}</span><span class="bdg" aria-hidden="true">${bdg}</span></div>
       <div class="v">${a == null ? "—" : fmt(a)}</div>
@@ -623,7 +625,7 @@ const COLS_CL = [["Contratos méd.", "estMed", int], ["CPC", "cpc", int], ["Indi
   ["Conversão", "conv", v => pctAbs(v, 1)], ["Efetividade", "efet", v => pctAbs(v, 1)], ["Indic. / mil contratos-dia", "indMil", v => f2.format(v)],
   ["Form. / mil contratos-dia", "formMil", v => f2.format(v)]];
 function renderCmp(A, B, p) {
-  const mat = maturando(p.A);
+  const mat = maturando(p.A), imat = imaturo(p.A) || (p.B && imaturo(p.B));
   $("cmpSub").textContent = `A: ${rotPer(p.A)}` + (B ? ` · B: ${rotPer(p.B)}` : "");
   mostrar("lbFaixa", S.visao === "classe"); mostrar("faixaSel", S.visao === "classe");
   let html = "", lbl = [], sets = [];
@@ -631,15 +633,15 @@ function renderCmp(A, B, p) {
     const linhas = [...CL.map(c => [c, A.porCl[c], B ? B.porCl[c] : undefined]), ["__T", A.T, B ? B.T : undefined]];
     html = `<table class="t"><thead><tr><th>Classe</th><th>% estoque</th>${COLS_CL.map(c => `<th>${c[0]}</th>`).join("")}</tr></thead><tbody>` +
       linhas.map(([k, a, b]) => `<tr class="${k === "__T" ? "tot" : ""}"><td>${clNome(k)}</td><td>${pctAbs(seguro(a.est, A.T.est), 1)}</td>` +
-        COLS_CL.map(([, c, fmt]) => celula(a[c], b === undefined ? undefined : b[c], fmt, mat && ["form", "efet", "formMil"].includes(c))).join("") + "</tr>").join("") + "</tbody></table>";
+        COLS_CL.map(([, c, fmt]) => celula(a[c], b === undefined ? undefined : b[c], fmt, c === "efet" ? imat : mat && ["form", "formMil"].includes(c))).join("") + "</tr>").join("") + "</tbody></table>";
     lbl = CL; sets = [{label: "Conversão (ind ÷ CPC)", data: CL.map(c => A.porCl[c].conv), backgroundColor: CL.map(corCl), borderRadius: 4}];
   } else if (S.visao === "funil") {
     const et = [["Contratos (contratos-dia)", "est", null], ["Trabalhado", "trab", ["Penetração", "penet"]], ["Discagem", "disc", null],
       ["ALÔ", "alo", ["Hit rate (ALÔ ÷ discagem)", "hit"]], ["CPC", "cpc", ["% CPC (CPC ÷ ALÔ)", "pcpc"]],
-      ["Indicação", "ind", ["% Conversão (ind ÷ CPC)", "conv"]], ["Formalizada", "form", ["% Eficiência (form ÷ ind)", "efet"]]];
+      ["Indicação", "ind", ["% Conversão (ind ÷ CPC)", "conv"]], ["Formalizada", "form", ["% Eficiência (coorte da indicação)", "efet"]]];
     html = `<table class="t"><thead><tr><th>Etapa</th><th>Quantidade</th><th class="tx">Taxa da etapa</th><th>Valor</th>${CL.map(c => `<th>${c}</th>`).join("")}</tr></thead><tbody>` +
       et.map(([n, k, tx]) => `<tr><td>${n}</td>${celula(A.T[k], B ? B.T[k] : undefined, int, mat && k === "form")}<td class="tx">${tx ? tx[0] : ""}</td>` +
-        (tx ? celula(A.T[tx[1]], B ? B.T[tx[1]] : undefined, v => pctAbs(v, 1), mat && tx[1] === "efet") : "<td></td>") +
+        (tx ? celula(A.T[tx[1]], B ? B.T[tx[1]] : undefined, v => pctAbs(v, 1), tx[1] === "efet" && imat) : "<td></td>") +
         CL.map(c => `<td>${int(A.porCl[c][k])}</td>`).join("") + "</tr>").join("") + "</tbody></table>";
     lbl = et.slice(3).map(e => e[0]); sets = CL.map(c => ({label: c, data: et.slice(3).map(e => A.porCl[c][e[1]]), backgroundColor: corCl(c), borderRadius: 4}));
   } else {
@@ -743,7 +745,7 @@ function renderUf() {
 }
 function eventosFiltrados(p) {
   const d1 = DIAS[p.A[0]], d2 = DIAS[p.A[1]];
-  return (D.eventos || []).filter(e => e.data >= d1 && e.data <= d2 && (!e.fase || S.fases.has(e.fase)) &&
+  return (D.eventos || []).filter(e => (e.dia || e.data) >= d1 && (e.dia || e.data) <= d2 && (!e.fase || S.fases.has(e.fase)) &&
     (S.canal === "todos" || e.canal === S.canal) && (S.tipo === "todos" || e.tipo === S.tipo));
 }
 const TIPO = {indicacao: "Indicação", formalizada: "Formalizada", insucesso: "Insucesso"};
@@ -921,7 +923,7 @@ function iniciar() {
   // padrão: mês vigente contra o mês anterior
   const u = ND - 1, iM = inicioMes(u), fB = Math.max(0, iM - 1), iB = inicioMes(fB);
   opcoesDias($("pA1"), iM); opcoesDias($("pA2"), u); opcoesDias($("pB1"), iB); opcoesDias($("pB2"), fB);
-  opcoesDias($("dA"), u); opcoesDias($("dB"), Math.max(0, u - 1));
+  opcoesDias($("dA"), u); opcoesDias($("dB"), Math.max(0, u - 5));   // mesmo dia da semana anterior
   opcoesDias($("u1"), iM); opcoesDias($("u2"), u);
   ["dA", "dB", "pA1", "pA2", "pB1", "pB2", "u1", "u2"].forEach(id => $(id).onchange = () => render());
   QS("#segModo [data-modo]").forEach(b => b.onclick = () => { aplicarModo(b.dataset.modo); render(); });

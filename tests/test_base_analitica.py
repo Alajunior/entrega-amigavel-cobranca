@@ -75,3 +75,25 @@ def test_ltv_deprecia_so_desde_a_contratacao(carteira_pequena):
     anos = (D - c["data_contratacao"]).dt.days / 365.25
     esperado = b["divida_total"] / (c["valor_veiculo_inicial"] * 0.85 ** anos)
     assert np.allclose(b["ltv_atual"], esperado)
+
+
+def test_acordo_e_insucesso_so_contam_antes_de_D(carteira_pequena):
+    t = _sem_cache(carteira_pequena)
+    D = pd.Timestamp("2026-03-10")
+    alvo = montar_base(D, t)["id_contrato"].iloc[0]
+    def com(acordos=(), insucessos=()):
+        t2 = _sem_cache(t)
+        t2["acordos"] = pd.concat([t["acordos"], pd.DataFrame({"id_contrato": alvo, "data_acordo": pd.to_datetime(list(acordos)),
+                                                              "quebrado": True})], ignore_index=True)
+        ins = pd.DataFrame({"id_indicacao": -1, "id_contrato": alvo, "data_indicacao": pd.to_datetime(list(insucessos)) - pd.Timedelta(days=5),
+                            "canal": "discador", "operador": "OP-01", "desfecho": "INSUCESSO",
+                            "data_desfecho": pd.to_datetime(list(insucessos)), "motivo_insucesso": "DESISTENCIA"})
+        t2["eventos_ea"] = pd.concat([t["eventos_ea"], ins], ignore_index=True)
+        return montar_base(D, t2).set_index("id_contrato").loc[alvo]
+    base = com()
+    dia = pd.Timedelta(days=1)
+    assert com(acordos=[D - 31 * dia])["acordos_quebrados_180d"] == base["acordos_quebrados_180d"] + 1
+    assert com(acordos=[D - 29 * dia, D])["acordos_quebrados_180d"] == base["acordos_quebrados_180d"]   # quebra ainda invisível
+    assert com(acordos=[D - 181 * dia])["acordos_quebrados_180d"] == base["acordos_quebrados_180d"]
+    assert com(insucessos=[D])["insucessos_ea_antes"] == base["insucessos_ea_antes"]
+    assert com(insucessos=[D - dia])["insucessos_ea_antes"] == base["insucessos_ea_antes"] + 1

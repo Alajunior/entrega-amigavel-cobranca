@@ -71,3 +71,11 @@ def test_distribuicao_fora_e_codigo_6(ctx, tmp_path):
     r = escorar_dia_guardado("2026-11-16", ctx.t, adulterado, ctx.out)
     assert r["codigo"] == DISTRIBUICAO_FORA and r["distribuicao_ok"] is False
     assert not (ctx.out / "escoragem_20261116.csv").exists()
+
+
+def test_calibracao_sem_ea_e_codigo_6(ctx, tmp_path):
+    cortes = ctx.vig.cortes.assign(corte_alto=float("nan"), corte_medio=float("nan"))
+    sem_ea = tmp_path / "sem_ea"
+    salvar_modelo(replace(ctx.vig, cortes=cortes, pct_alto=0.0), sem_ea)
+    r = escorar_dia_guardado("2026-11-16", ctx.t, sem_ea, ctx.out)
+    assert r["codigo"] == DISTRIBUICAO_FORA and not (ctx.out / "escoragem_20261116.csv").exists()

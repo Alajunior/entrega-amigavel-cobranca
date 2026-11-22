@@ -63,6 +63,9 @@ def _publicados(saida: Path) -> dict[pd.Timestamp, Path]:
 
 
 def distribuicao_ok(e: pd.DataFrame, pct_alto_esperado: float) -> bool:
+    """Sem ALTO previsto (calibração sem nenhuma EA → corte NaN) a classificação inteira cai em BAIXO: não publica."""
+    if not pct_alto_esperado or pct_alto_esperado != pct_alto_esperado:
+        return False
     real = (e["classe"] == "ALTO").mean()
     return bool(FAIXA_ALTO[0] * pct_alto_esperado <= real <= FAIXA_ALTO[1] * pct_alto_esperado)
 

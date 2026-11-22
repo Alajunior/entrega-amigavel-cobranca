@@ -52,6 +52,9 @@ def test_reindicacao_conta_duas_e_efetividade_ate_100(dados):
     f = agregar_fluxo(ct, ev, esc, dias, HOJE)
     assert f["indicacoes"].sum() == 2 and f["form_por_ind"].sum() == 1 and f["form_por_form"].sum() == 1
     assert f.loc[f["form_por_ind"] == 1, "dia"].iloc[0] == pd.Timestamp("2026-03-06")
+    por_classe = f.groupby("classe")[["indicacoes", "form_por_ind"]].sum()
+    assert por_classe.loc["MEDIO", "indicacoes"] == 1 and por_classe.loc["ALTO", "indicacoes"] == 1   # classe do próprio dia
+    assert por_classe.loc["ALTO", "form_por_ind"] == 1 and por_classe.loc["MEDIO", "form_por_ind"] == 0
     fl = pd.DataFrame(dados["fluxo"])
     assert (fl["form_por_ind"] <= fl["indicacoes"]).all()
 
@@ -74,3 +77,23 @@ def test_nada_depois_de_hoje(dados):
     assert all(e["data"] <= f"{HOJE:%Y-%m-%d}" for e in dados["eventos"])
     assert max(dados["fluxo"]["dia"]) < len(dados["meta"]["dias"]) and max(dados["estoque"]["dia"]) < len(dados["meta"]["dias"])
     assert all(r["classe"] == "ALTO" for r in dados["fila"]) and len(dados["fila"]) <= 200
+
+
+@pytest.mark.parametrize("inicio, fora, dentro", [
+    ("2026-03-02", ["2026-02-27"], ["2026-02-28", "2026-03-01"]),           # começa na segunda: sexta fica fora
+    ("2026-03-04", ["2026-03-02", "2026-03-03"], []),                       # começa na quarta: seg e ter ficam fora
+])
+def test_fluxo_so_puxa_os_dias_nao_uteis_logo_antes_do_inicio(inicio, fora, dentro):
+    dias = pd.bdate_range(inicio, "2026-03-13")
+    datas = fora + dentro + [inicio]
+    esc = pd.DataFrame({"dia": dias, "id_contrato": 1, "classe": "ALTO", "faixa_atraso": "181-360", "fase": "0181-0360"})
+    ct = pd.DataFrame({"id_contrato": 1, "data": pd.to_datetime(datas), "canal": "discador", "alo": True, "cpc": True})
+    ev = pd.DataFrame(columns=["id_contrato", "data_indicacao", "canal", "operador", "desfecho", "data_desfecho", "motivo_insucesso"])
+    f = agregar_fluxo(ct, ev, esc, dias, HOJE)
+    assert f["trabalhado"].sum() == len(dentro) + 1
+    assert set(f["dia"]) == {pd.Timestamp(inicio)}
+
+
+def test_eventos_levam_o_dia_util_dos_cards(dados):
+    assert all("dia" in e and e["dia"] >= dados["meta"]["dias"][0] for e in dados["eventos"])
+    assert all(e["dia"] >= e["data"] for e in dados["eventos"])

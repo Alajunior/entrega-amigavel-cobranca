@@ -25,10 +25,13 @@ Como a carteira funciona:
     - mudança de regime em 01/06/2026: entram contratos com bureau pior, a cura fica mais lenta (o estoque
       envelhece) e o efeito do ltv sobre a EA fica mais forte (o modelo antigo perde ordenação).
     - tabulação do operador: em ~15% das ligações com desfecho de EA o operador lança outra coisa.
+    - a operação não abre no domingo e no sábado tem ~30% do volume de um dia útil (contatos, indicações e
+      formalizações); sem isso, o painel empilharia o fim de semana na segunda-feira.
 
 Valores medidos com a base padrão (120 mil contratos, ~99 mil com passagem pelo período, geração em ~10 s):
-    estoque ativo ~28 mil por dia útil; ~3,2 mil tentativas e ~580 CPC por dia útil; ~6,5 indicações e ~3,8
-    formalizações por dia útil; taxa ea_60d nas safras maduras de 0,49% (abr/2025) a 0,73% (set/2026), média 0,55%;
+    estoque ativo ~29 mil por dia útil; ~3,2 mil tentativas e ~590 CPC por dia útil (mais o plantão de sábado);
+    ~6 indicações e ~3,8 formalizações por dia útil; taxa ea_60d nas safras maduras de 0,47% (abr/2025) a
+    0,73% (set/2026), média 0,53%;
     dívida ÷ valor atual do carro com mediana 0,98 e p90 1,42.
 """
 import argparse
@@ -58,6 +61,21 @@ DESFECHOS = np.array(["SEM DESFECHO", "ACORDO", "RENEGOCIACAO", "ALEGA PAGAMENTO
 P_DESFECHO = np.array([0.62, 0.12, 0.06, 0.08, 0.02, 0.10])          # sem "EA INDICADA": essa vem da decisão
 MOTIVOS = np.array(["AVALIACAO DO VEICULO", "DOCUMENTACAO", "DESISTENCIA", "DEBITOS DO VEICULO", "NAO LOCALIZADO"])
 P_ATTEMPT = 0.12
+
+
+def _dow(dia):
+    """Dia da semana (seg = 0) a partir do número do dia da simulação (D0 = 28/11/2023, terça)."""
+    return (1 + np.asarray(dia)) % 7
+
+
+def _para_dia_util(rng, dia):
+    """Evento de operação cai em dia útil: domingo vai para segunda; sábado fica com chance de 30% (plantão)."""
+    dia = np.asarray(dia).copy()
+    w = _dow(dia)
+    dia[w == 6] += 1
+    sab = (w == 5) & (rng.random(len(dia)) >= 0.3)
+    dia[sab] += 2
+    return dia
 
 
 def _sig(x):
@@ -106,6 +124,9 @@ def _contatos_potenciais(rng, entrada, contatavel):
     idx, dia = idx[ordem], dia[ordem]
     unico = np.r_[True, (idx[1:] != idx[:-1]) | (dia[1:] != dia[:-1])]
     idx, dia = idx[unico], dia[unico]
+    w = _dow(dia)
+    util = (w < 5) | ((w == 5) & (rng.random(len(dia)) < 0.3))     # domingo sem operação; sábado ~30% de um dia útil
+    idx, dia = idx[util], dia[util]
     m = len(idx)
     digital = rng.random(m) < 0.2
     c = contatavel[idx]
@@ -185,8 +206,8 @@ def _simular(rng, n, entrada, bureau, contratacao, contratos, cont, quebra):
             form = rng.random(len(ii)) < p_form
             atraso_ind = rng.integers(0, 15, len(ii))
             prazo = rng.integers(5, 51, len(ii))
-            dia_ind = dia_ev[ii] + atraso_ind
-            dia_desf = dia_ind + prazo
+            dia_ind = _para_dia_util(rng, dia_ev[ii] + atraso_ind)
+            dia_desf = _para_dia_util(rng, dia_ind + prazo)
             decisoes.extend(zip(ii, dia_ind, dia_desf, form))
             sai = form & (dia_desf <= DIA_HOJE) & (dia_desf < entrada[ii] + DUR_MAX)
             saida[ii[sai]], motivo[ii[sai]] = dia_desf[sai], "EA"
@@ -266,6 +287,8 @@ def gerar(n_contratos: int, saida: Path, seed: int = 42) -> dict[str, pd.DataFra
 
 
 if __name__ == "__main__":
+    import sys
+    sys.stdout.reconfigure(encoding="utf-8")         # console do Windows (cp1252) não tem a seta
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("n", nargs="?", type=int, default=120_000)
     ap.add_argument("--saida", type=Path, default=SAIDA_PADRAO)
