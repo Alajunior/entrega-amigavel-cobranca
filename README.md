@@ -201,7 +201,7 @@ pip install -r requirements.txt
 python dados/gerar_carteira.py      # carteira sintética de 120 mil contratos (~10 s)
 python -m src.treinar               # escada com gate, teste de vazamento e importância em relatorios/ (~1 min)
 python -m src.montar_painel         # escoragem diária em 3 modos, agregados e docs/index.html (~3 min; cache em dados/escoragem/)
-python -m pytest                    # 147 testes
+python -m pytest                    # 166 testes
 ```
 
 **Áudio (opcional, local; a CI não roda).** Roteiros, MP3 e transcrições já estão versionados, e o build só reaplica as regras sobre o texto salvo. Para refazer tudo do zero:
@@ -243,5 +243,5 @@ src/audio/medir.py           regra × gabarito: confusão, alertas, ablação, t
 dados/ligacoes/              roteiros.json, tempos.json, transcricoes.jsonl
 docs/                        o painel publicado, os 60 MP3 (docs/audio/) e as imagens deste README
 relatorios/                  escada.json, vazamento.json, importancia.csv
-tests/                       147 testes: futuro, alvo, gate, cortes, vigência, travas, APTO, as-of, payload, regras, pegadinhas, telefone, turnos, WER, medição, guarda de publicação
+tests/                       166 testes: futuro, alvo, gate, cortes, vigência, travas, APTO, as-of, payload, regras, pegadinhas, telefone, turnos, WER, medição, guarda de publicação
 ```
