@@ -15,12 +15,14 @@ ANCORAS = ("entrega", "entregar", "devolucao", "devolver")
 VERBOS_DEVOLUCAO = ANCORAS + ("devolve", "devolvendo", "entregando")
 OBJETOS = ("veiculo", "carro", "bem", "automovel")
 DETERMINANTES = ("o", "seu", "esse", "este")
-RARAS = ("migavel", "amigaval", "anigavel", "ligavel", "amigavo", "amigaveu")
+RARAS = ("migavel", "amigaval", "anigavel", "ligavel", "amigavo", "amigaveu",
+         "migada", "amigada")                # estas duas apareceram na rodada de calibração do ruído
 COMUNS = ("amiga", "amigo", "ligada", "brigado", "amigas")
 CONTEXTO_LOJA = ("loja", "concessionaria", "revenda", "vendedor")
 PARA_CLIENTE = ("para o senhor", "para a senhora", "para voce", "pra voce")
 NAO_E_VEICULO = ("boleto", "boletos", "documento", "documentos", "segunda", "comprovante", "carne")
 VOCAB_PRODUTO = ("saldo remanescente", "quitativa")
+VOCAB_TOLERANTE = (r"saldo remanesc\w*", r"quitativ\w*")    # "saldo remanescendo", "quitativo"
 
 _NUM = r"(\d{1,2}|dez|quinze|vinte|trinta|quarenta|cinquenta|sessenta|setenta|oitenta|noventa)( e (cinco|\w+))?"
 _PCT = _NUM + r" ?(%|por cento)"
@@ -65,13 +67,15 @@ def _trecho(toks: list[str], i: int) -> str:
     return " ".join(toks[max(0, i - 4):i + 8])
 
 
-def _excluida(toks: list[str], i: int) -> bool:
+def _excluida(toks: list[str], i: int, devolucao: bool = False) -> bool:
+    """Loja/concessionária antes, "me entregou", ou entrega de boleto/documento. "Entregar o carro para o senhor"
+    só exclui a devolução (é a loja entregando); "a entrega amigável para a senhora" é oferta."""
     antes, depois = toks[max(0, i - 6):i], " ".join(toks[i + 1:i + 9])
     if any(t in CONTEXTO_LOJA for t in antes) or "me" in toks[max(0, i - 1):i]:
         return True
     if any(t in NAO_E_VEICULO for t in toks[i + 1:i + 4]):
         return True
-    return any(p in depois for p in PARA_CLIENTE)
+    return devolucao and any(p in depois for p in PARA_CLIENTE)
 
 
 def achar_mencoes(texto: str, tolerante: bool = True) -> list[dict]:
@@ -82,22 +86,23 @@ def achar_mencoes(texto: str, tolerante: bool = True) -> list[dict]:
     for i, tok in enumerate(toks):
         if _e_ancora(tok, tolerante) and not _excluida(toks, i):
             seg = toks[i + 1:i + 4]
-            exp = "amigavel" in seg
-            if tolerante:
-                exp = exp or any(t in RARAS or ate_1_edicao(t, "amigavel") for t in seg)
-                exp = exp or (bool(seg) and seg[0] in COMUNS)
-            if exp:
-                achadas.append({"tipo": "explicita", "trecho": _trecho(toks, i), "pos": i})
+            alvo = [j for j, t in enumerate(seg) if t == "amigavel"
+                    or (tolerante and (t in RARAS or ate_1_edicao(t, "amigavel")))]
+            if not alvo and tolerante and seg and seg[0] in COMUNS:
+                alvo = [0]
+            if alvo:
+                achadas.append({"tipo": "explicita", "trecho": _trecho(toks, i), "pos": i, "n": alvo[0] + 2})
                 continue
-        if _e_ancora(tok, tolerante, VERBOS_DEVOLUCAO) and not _excluida(toks, i):
+        if _e_ancora(tok, tolerante, VERBOS_DEVOLUCAO) and not _excluida(toks, i, devolucao=True):
             seg = toks[i + 1:i + 3]
             if seg and (seg[0] in OBJETOS or (seg[0] in DETERMINANTES and len(seg) > 1 and seg[1] in OBJETOS)):
-                achadas.append({"tipo": "devolucao", "trecho": _trecho(toks, i), "pos": i})
+                achadas.append({"tipo": "devolucao", "trecho": _trecho(toks, i), "pos": i,
+                                "n": 2 if seg[0] in OBJETOS else 3})
     norm = " ".join(toks)
-    for termo in VOCAB_PRODUTO:
+    for termo in VOCAB_TOLERANTE if tolerante else VOCAB_PRODUTO:
         for m in re.finditer(rf"\b{termo}\b", norm):
             i = norm[:m.start()].count(" ")
-            achadas.append({"tipo": "devolucao", "trecho": _trecho(toks, i), "pos": i})
+            achadas.append({"tipo": "devolucao", "trecho": _trecho(toks, i), "pos": i, "n": len(m.group(0).split())})
     return sorted(achadas, key=lambda m: m["pos"])
 
 
@@ -124,24 +129,28 @@ def classificar_oferta(turnos: list[dict], tolerante: bool = True) -> dict:
 
 
 def alertas_operador(turnos: list[dict]) -> list[dict]:
-    """Alertas de conduta na fala do operador (a do cliente não conta), no máximo um por tipo."""
+    """Alertas de conduta na fala do operador (a do cliente não conta), no máximo um por tipo.
+    Cada alerta diz onde está: `turno` (índice na lista), `pos` e `n` (palavras do texto normalizado do turno)."""
     achados = {}
-    falas = [normalizar(t.get("texto")) for t in turnos if t.get("lado") == "operador"]
-    for norm in falas:
+    falas = [(k, normalizar(t.get("texto"))) for k, t in enumerate(turnos) if t.get("lado") == "operador"]
+    for k, norm in falas:
         for alerta in ("ameaca_bloqueio", "desconto_percentual", "quitacao_sem_ressalva"):
             m = _RE_ALERTA[alerta].search(norm)
             if alerta in achados or not m:
                 continue
             if alerta == "quitacao_sem_ressalva" and _RESSALVA.search(norm):
                 continue
-            achados[alerta] = norm[max(0, m.start() - 40):m.end() + 40].strip()
-    toks = " ".join(falas).split()                     # nome limpo: só perto de uma menção de entrega/devolução
+            achados[alerta] = {"trecho": norm[max(0, m.start() - 40):m.end() + 40].strip(), "turno": k,
+                               "pos": norm[:m.start()].count(" "), "n": len(m.group(0).split())}
+    onde = [(k, j) for k, norm in falas for j in range(len(norm.split()))]   # palavra global → (turno, posição)
+    toks = " ".join(norm for _, norm in falas).split()  # nome limpo: só perto de uma menção de entrega/devolução
     texto = " ".join(toks)
     ancoras = [i for i, t in enumerate(toks) if _ANCORA_EA.match(t)]
     for m in _RE_ALERTA["nome_limpo"].finditer(texto):
         i = texto[:m.start()].count(" ")
         if any(abs(i - a) <= JANELA_NOME_LIMPO for a in ancoras):
-            achados["nome_limpo"] = _trecho(toks, i)
+            achados["nome_limpo"] = {"trecho": _trecho(toks, i), "turno": onde[i][0], "pos": onde[i][1],
+                                     "n": len(m.group(0).split())}
             break
     ordem = ("ameaca_bloqueio", "desconto_percentual", "quitacao_sem_ressalva", "nome_limpo")
-    return [{"alerta": a, "trecho": achados[a]} for a in ordem if a in achados]
+    return [{"alerta": a} | achados[a] for a in ordem if a in achados]

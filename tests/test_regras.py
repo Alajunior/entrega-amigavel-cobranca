@@ -110,3 +110,30 @@ def test_alerta_do_cliente_nao_conta():
 def test_um_alerta_por_tipo():
     r = alertas_operador(op("Consigo 30% de desconto.", "Repito: 30% de desconto só hoje."))
     assert [a["alerta"] for a in r] == ["desconto_percentual"] and r[0]["trecho"]
+
+
+def test_mencao_e_alerta_dizem_onde_estao():
+    """O painel destaca as palavras que dispararam a regra: posição e tamanho em palavras do turno original."""
+    m = achar_mencoes("Olha, temos a entrega a migável hoje.")
+    assert (m[0]["pos"], m[0]["n"]) == (3, 3)
+    turnos = op("Bom dia.") + cli("Oi.") + op("Fechando hoje eu consigo 40% de desconto.",
+                                              "A entrega amigável deixa o seu nome limpo.")
+    al = {a["alerta"]: a for a in alertas_operador(turnos)}
+    assert (al["desconto_percentual"]["turno"], al["desconto_percentual"]["pos"]) == (2, 4)
+    assert al["desconto_percentual"]["n"] == 3
+    assert (al["nome_limpo"]["turno"], al["nome_limpo"]["pos"], al["nome_limpo"]["n"]) == (3, 6, 2)
+
+
+def test_grafias_descobertas_na_calibracao():
+    """Grafias erradas que o Whisper produziu na rodada de calibração (outro ruído, outros sorteios)."""
+    assert classificar_oferta(op("Temos a opção da entrega migada."))["oferta"] == "OFERECEU"
+    assert classificar_oferta(op("Temos a entrega amigada para a senhora."))["oferta"] == "OFERECEU"
+    r = classificar_oferta(op("Se sobrar, fica um saldo remanescendo."))
+    assert r["oferta"] == "OFERECEU" and r["tipo"] == "devolucao"
+    assert classificar_oferta(op("Se sobrar, fica um saldo remanescendo."), tolerante=False)["oferta"] == "NÃO OFERECEU"
+    assert classificar_oferta(op("Uma amiga migada veio aqui."))["oferta"] == "NÃO OFERECEU"
+
+
+def test_entrega_amigavel_para_a_senhora_e_oferta():
+    assert classificar_oferta(op("Posso abrir a entrega amigável para a senhora hoje."))["oferta"] == "OFERECEU"
+    assert classificar_oferta(op("A loja vai entregar o carro para o senhor amanhã."))["oferta"] == "NÃO OFERECEU"
