@@ -27,8 +27,8 @@ Como a carteira funciona:
     - tabulação do operador: em ~15% das ligações com desfecho de EA o operador lança outra coisa.
 
 Valores medidos com a base padrão (120 mil contratos, ~99 mil com passagem pelo período, geração em ~10 s):
-    estoque ativo ~28 mil por dia útil; ~3,2 mil tentativas e ~580 CPC por dia útil; ~7 indicações e ~4,4
-    formalizações por dia útil; taxa ea_60d nas safras maduras de 0,45% (abr/2025) a 1,1% (set/2026), média 0,55%.
+    estoque ativo ~28 mil por dia útil; ~3,2 mil tentativas e ~580 CPC por dia útil; ~7 indicações e ~4,3
+    formalizações por dia útil; taxa ea_60d nas safras maduras de 0,45% (abr/2025) a 1,0% (set/2026), média 0,56%.
 """
 import argparse
 from pathlib import Path
@@ -130,7 +130,7 @@ def _simular(rng, n, entrada, bureau, contratos, cont, quebra):
     divida = contratos["valor_parcela"].to_numpy() * (contratos["plano"].to_numpy() - contratos["parcelas_pagas"].to_numpy())
     valor0 = contratos["valor_veiculo_inicial"].to_numpy()
     ano_v = contratos["ano_veiculo"].to_numpy()
-    fragil = rng.normal(0, 0.6, n)                                    # heterogeneidade não observada
+    fragil = rng.normal(0, 0.4, n)                                    # heterogeneidade não observada
     cpc_sem = _bins_semanais(cont, entrada, n, cont["cpc"].to_numpy())
     desf = cont["desf"].to_numpy()
     acordo = desf == 1
@@ -162,8 +162,8 @@ def _simular(rng, n, entrada, bureau, contratos, cont, quebra):
         queb26 = queb_sem[:, max(0, w - 26):w].sum(1) > 0
         regime = dia0 >= DIA_REGIME
         f_dias = -0.9 if dias_atraso < 90 else (0.0 if dias_atraso <= 180 else (0.45 if dias_atraso <= 400 else 0.15))
-        l_ea = (-10.6 + f_dias + (1.15 + 0.35 * regime) * np.clip(ltv, 0, 2.5)
-                + 0.9 * ((ltv > 1.1) & (idade_v > 7)) + EFEITO_BUREAU_EA[bureau] - 1.3 * pct_pago
+        l_ea = (-11.75 + 1.4 * f_dias + (1.5 + 0.35 * regime) * np.clip(ltv, 0, 2.5)
+                + 1.3 * ((ltv > 1.1) & (idade_v > 7)) + EFEITO_BUREAU_EA[bureau] - 1.3 * pct_pago
                 + 0.35 * np.minimum(cpc30, 3) + 0.25 * (cpc30 > 0) * (bureau >= 3) + 0.6 * queb26
                 - 0.8 * (insucessos > 0) + fragil)
         h_ea = _sig(l_ea) * (dia0 >= DIA_INICIO) * (dia0 >= livre_em)
