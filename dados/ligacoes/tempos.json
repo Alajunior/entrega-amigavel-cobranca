@@ -1,0 +1,4852 @@
+{
+ "L00017546": {
+  "duracao": 58.27,
+  "ruido": {
+   "sbr_central": 6.2,
+   "snr_operador": 13.0,
+   "snr_cliente": 8.6
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.748
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.282,
+    "fim": 10.232
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.098,
+    "fim": 13.642
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.347,
+    "fim": 15.873
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.436,
+    "fim": 24.536
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.529,
+    "fim": 27.291
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.704,
+    "fim": 34.726
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.215,
+    "fim": 36.512
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.856,
+    "fim": 42.209
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.722,
+    "fim": 47.369
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.663,
+    "fim": 55.906
+   },
+   {
+    "lado": "cliente",
+    "inicio": 56.682,
+    "fim": 57.972
+   }
+  ]
+ },
+ "L00109119": {
+  "duracao": 64.62,
+  "ruido": {
+   "sbr_central": 6.6,
+   "snr_operador": 14.0,
+   "snr_cliente": 10.1
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.899
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.225,
+    "fim": 9.266
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.998,
+    "fim": 15.304
+   },
+   {
+    "lado": "cliente",
+    "inicio": 15.678,
+    "fim": 17.276
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.722,
+    "fim": 26.799
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.622,
+    "fim": 30.08
+   },
+   {
+    "lado": "operador",
+    "inicio": 30.362,
+    "fim": 40.385
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.042,
+    "fim": 42.278
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.666,
+    "fim": 49.411
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.017,
+    "fim": 52.461
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.229,
+    "fim": 62.422
+   },
+   {
+    "lado": "cliente",
+    "inicio": 63.178,
+    "fim": 64.318
+   }
+  ]
+ },
+ "L00145030": {
+  "duracao": 69.78,
+  "ruido": {
+   "sbr_central": 8.5,
+   "snr_operador": 15.5,
+   "snr_cliente": 9.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.177
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.073,
+    "fim": 7.574
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.427,
+    "fim": 10.992
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.551,
+    "fim": 13.567
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.184,
+    "fim": 22.134
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.579,
+    "fim": 25.331
+   },
+   {
+    "lado": "operador",
+    "inicio": 25.884,
+    "fim": 35.048
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.303,
+    "fim": 36.6
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.916,
+    "fim": 42.344
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.944,
+    "fim": 44.634
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.011,
+    "fim": 49.236
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.147,
+    "fim": 52.757
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.279,
+    "fim": 56.345
+   },
+   {
+    "lado": "cliente",
+    "inicio": 56.968,
+    "fim": 58.539
+   },
+   {
+    "lado": "operador",
+    "inicio": 59.263,
+    "fim": 67.584
+   },
+   {
+    "lado": "cliente",
+    "inicio": 67.899,
+    "fim": 69.484
+   }
+  ]
+ },
+ "L00196650": {
+  "duracao": 71.68,
+  "ruido": {
+   "sbr_central": 8.1,
+   "snr_operador": 12.6,
+   "snr_cliente": 10.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.359
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.92,
+    "fim": 9.832
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.301,
+    "fim": 14.284
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.595,
+    "fim": 16.692
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.057,
+    "fim": 26.814
+   },
+   {
+    "lado": "cliente",
+    "inicio": 27.481,
+    "fim": 29.893
+   },
+   {
+    "lado": "operador",
+    "inicio": 29.876,
+    "fim": 45.771
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.243,
+    "fim": 48.083
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.005,
+    "fim": 53.404
+   },
+   {
+    "lado": "cliente",
+    "inicio": 53.983,
+    "fim": 57.412
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.882,
+    "fim": 69.576
+   },
+   {
+    "lado": "cliente",
+    "inicio": 70.126,
+    "fim": 71.385
+   }
+  ]
+ },
+ "L00202694": {
+  "duracao": 96.77,
+  "ruido": {
+   "sbr_central": 10.8,
+   "snr_operador": 13.7,
+   "snr_cliente": 13.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.204
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.884,
+    "fim": 10.339
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.703,
+    "fim": 16.009
+   },
+   {
+    "lado": "cliente",
+    "inicio": 16.472,
+    "fim": 18.051
+   },
+   {
+    "lado": "operador",
+    "inicio": 18.717,
+    "fim": 27.568
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.011,
+    "fim": 30.762
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.475,
+    "fim": 35.606
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.922,
+    "fim": 38.553
+   },
+   {
+    "lado": "operador",
+    "inicio": 38.977,
+    "fim": 43.355
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.723,
+    "fim": 48.136
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.481,
+    "fim": 59.218
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.965,
+    "fim": 62.828
+   },
+   {
+    "lado": "operador",
+    "inicio": 62.809,
+    "fim": 68.209
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.883,
+    "fim": 71.327
+   },
+   {
+    "lado": "operador",
+    "inicio": 71.768,
+    "fim": 82.388
+   },
+   {
+    "lado": "cliente",
+    "inicio": 82.933,
+    "fim": 85.402
+   },
+   {
+    "lado": "operador",
+    "inicio": 86.026,
+    "fim": 95.498
+   },
+   {
+    "lado": "cliente",
+    "inicio": 95.334,
+    "fim": 96.474
+   }
+  ]
+ },
+ "L00217508": {
+  "duracao": 54.92,
+  "ruido": {
+   "sbr_central": 9.4,
+   "snr_operador": 17.2,
+   "snr_cliente": 15.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.061
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.965,
+    "fim": 7.593
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.987,
+    "fim": 11.375
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.257,
+    "fim": 13.701
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.471,
+    "fim": 21.898
+   },
+   {
+    "lado": "cliente",
+    "inicio": 21.754,
+    "fim": 24.693
+   },
+   {
+    "lado": "operador",
+    "inicio": 25.047,
+    "fim": 28.284
+   },
+   {
+    "lado": "cliente",
+    "inicio": 29.029,
+    "fim": 30.945
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.4,
+    "fim": 40.012
+   },
+   {
+    "lado": "cliente",
+    "inicio": 39.82,
+    "fim": 44.045
+   },
+   {
+    "lado": "operador",
+    "inicio": 44.335,
+    "fim": 52.063
+   },
+   {
+    "lado": "cliente",
+    "inicio": 52.7,
+    "fim": 54.625
+   }
+  ]
+ },
+ "L00254780": {
+  "duracao": 75.52,
+  "ruido": {
+   "sbr_central": 8.7,
+   "snr_operador": 11.1,
+   "snr_cliente": 11.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.523
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.144,
+    "fim": 8.215
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.796,
+    "fim": 13.626
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.957,
+    "fim": 15.595
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.21,
+    "fim": 23.834
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.619,
+    "fim": 27.371
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.656,
+    "fim": 34.895
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.216,
+    "fim": 36.624
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.182,
+    "fim": 43.601
+   },
+   {
+    "lado": "cliente",
+    "inicio": 44.212,
+    "fim": 46.571
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.049,
+    "fim": 50.559
+   },
+   {
+    "lado": "cliente",
+    "inicio": 51.342,
+    "fim": 54.344
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.632,
+    "fim": 57.697
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.275,
+    "fim": 59.66
+   },
+   {
+    "lado": "operador",
+    "inicio": 60.101,
+    "fim": 62.858
+   },
+   {
+    "lado": "cliente",
+    "inicio": 62.677,
+    "fim": 64.247
+   },
+   {
+    "lado": "operador",
+    "inicio": 64.159,
+    "fim": 73.231
+   },
+   {
+    "lado": "cliente",
+    "inicio": 74.001,
+    "fim": 75.217
+   }
+  ]
+ },
+ "L00295496": {
+  "duracao": 61.41,
+  "ruido": {
+   "sbr_central": 9.8,
+   "snr_operador": 17.7,
+   "snr_cliente": 13.6
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.788
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.254,
+    "fim": 9.167
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.599,
+    "fim": 13.427
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.72,
+    "fim": 15.278
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.65,
+    "fim": 24.188
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.799,
+    "fim": 27.818
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.427,
+    "fim": 32.608
+   },
+   {
+    "lado": "cliente",
+    "inicio": 32.58,
+    "fim": 36.041
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.82,
+    "fim": 47.475
+   },
+   {
+    "lado": "cliente",
+    "inicio": 48.021,
+    "fim": 51.33
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.19,
+    "fim": 59.991
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.85,
+    "fim": 61.109
+   }
+  ]
+ },
+ "L00322768": {
+  "duracao": 63.35,
+  "ruido": {
+   "sbr_central": 6.5,
+   "snr_operador": 10.8,
+   "snr_cliente": 11.7
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.789
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.21,
+    "fim": 8.956
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.92,
+    "fim": 13.704
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.356,
+    "fim": 16.64
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.21,
+    "fim": 25.672
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.467,
+    "fim": 29.699
+   },
+   {
+    "lado": "operador",
+    "inicio": 30.159,
+    "fim": 38.586
+   },
+   {
+    "lado": "cliente",
+    "inicio": 39.097,
+    "fim": 40.722
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.986,
+    "fim": 46.314
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.681,
+    "fim": 52.269
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.549,
+    "fim": 61.112
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.555,
+    "fim": 63.052
+   }
+  ]
+ },
+ "L00373969": {
+  "duracao": 63.7,
+  "ruido": {
+   "sbr_central": 7.6,
+   "snr_operador": 13.7,
+   "snr_cliente": 10.1
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.658
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.445,
+    "fim": 8.516
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.153,
+    "fim": 13.937
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.225,
+    "fim": 16.178
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.939,
+    "fim": 25.101
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.839,
+    "fim": 28.601
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.941,
+    "fim": 37.772
+   },
+   {
+    "lado": "cliente",
+    "inicio": 38.475,
+    "fim": 41.682
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.035,
+    "fim": 47.363
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.846,
+    "fim": 52.579
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.408,
+    "fim": 61.08
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.812,
+    "fim": 63.397
+   }
+  ]
+ },
+ "L00374154": {
+  "duracao": 79.48,
+  "ruido": {
+   "sbr_central": 11.6,
+   "snr_operador": 15.9,
+   "snr_cliente": 11.6
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.031
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.543,
+    "fim": 10.746
+   },
+   {
+    "lado": "operador",
+    "inicio": 11.362,
+    "fim": 16.669
+   },
+   {
+    "lado": "cliente",
+    "inicio": 17.454,
+    "fim": 18.663
+   },
+   {
+    "lado": "operador",
+    "inicio": 18.643,
+    "fim": 28.503
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.86,
+    "fim": 31.879
+   },
+   {
+    "lado": "operador",
+    "inicio": 32.403,
+    "fim": 36.754
+   },
+   {
+    "lado": "cliente",
+    "inicio": 37.379,
+    "fim": 40.222
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.743,
+    "fim": 50.241
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.981,
+    "fim": 52.069
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.521,
+    "fim": 57.92
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.568,
+    "fim": 62.323
+   },
+   {
+    "lado": "operador",
+    "inicio": 62.859,
+    "fim": 65.934
+   },
+   {
+    "lado": "cliente",
+    "inicio": 66.411,
+    "fim": 67.82
+   },
+   {
+    "lado": "operador",
+    "inicio": 68.208,
+    "fim": 77.541
+   },
+   {
+    "lado": "cliente",
+    "inicio": 77.866,
+    "fim": 79.183
+   }
+  ]
+ },
+ "L00377906": {
+  "duracao": 65.63,
+  "ruido": {
+   "sbr_central": 7.4,
+   "snr_operador": 10.9,
+   "snr_cliente": 14.7
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.861
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.769,
+    "fim": 7.84
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.162,
+    "fim": 11.666
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.618,
+    "fim": 13.578
+   },
+   {
+    "lado": "operador",
+    "inicio": 13.881,
+    "fim": 21.771
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.263,
+    "fim": 25.025
+   },
+   {
+    "lado": "operador",
+    "inicio": 25.459,
+    "fim": 34.847
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.204,
+    "fim": 37.198
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.798,
+    "fim": 43.127
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.579,
+    "fim": 45.269
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.751,
+    "fim": 49.604
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.403,
+    "fim": 53.79
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.379,
+    "fim": 63.347
+   },
+   {
+    "lado": "cliente",
+    "inicio": 64.037,
+    "fim": 65.326
+   }
+  ]
+ },
+ "L00402530": {
+  "duracao": 77.32,
+  "ruido": {
+   "sbr_central": 6.6,
+   "snr_operador": 17.2,
+   "snr_cliente": 12.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.01
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.334,
+    "fim": 7.962
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.409,
+    "fim": 12.237
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.885,
+    "fim": 14.711
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.44,
+    "fim": 25.058
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.428,
+    "fim": 28.501
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.879,
+    "fim": 32.849
+   },
+   {
+    "lado": "cliente",
+    "inicio": 33.268,
+    "fim": 35.914
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.223,
+    "fim": 46.808
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.772,
+    "fim": 48.118
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.947,
+    "fim": 53.671
+   },
+   {
+    "lado": "cliente",
+    "inicio": 53.57,
+    "fim": 59.142
+   },
+   {
+    "lado": "operador",
+    "inicio": 58.945,
+    "fim": 62.859
+   },
+   {
+    "lado": "cliente",
+    "inicio": 63.24,
+    "fim": 65.224
+   },
+   {
+    "lado": "operador",
+    "inicio": 65.948,
+    "fim": 75.431
+   },
+   {
+    "lado": "cliente",
+    "inicio": 75.761,
+    "fim": 77.019
+   }
+  ]
+ },
+ "L00406646": {
+  "duracao": 63.9,
+  "ruido": {
+   "sbr_central": 10.5,
+   "snr_operador": 14.9,
+   "snr_cliente": 12.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.19
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.653,
+    "fim": 9.895
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.43,
+    "fim": 14.236
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.609,
+    "fim": 16.451
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.105,
+    "fim": 25.891
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.634,
+    "fim": 29.783
+   },
+   {
+    "lado": "operador",
+    "inicio": 30.149,
+    "fim": 38.374
+   },
+   {
+    "lado": "cliente",
+    "inicio": 38.748,
+    "fim": 40.094
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.547,
+    "fim": 46.506
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.103,
+    "fim": 51.917
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.806,
+    "fim": 61.681
+   },
+   {
+    "lado": "cliente",
+    "inicio": 62.337,
+    "fim": 63.595
+   }
+  ]
+ },
+ "L00455005": {
+  "duracao": 61.54,
+  "ruido": {
+   "sbr_central": 11.7,
+   "snr_operador": 11.3,
+   "snr_cliente": 11.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.07
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.57,
+    "fim": 9.035
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.356,
+    "fim": 12.921
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.622,
+    "fim": 15.967
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.594,
+    "fim": 24.378
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.847,
+    "fim": 28.429
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.681,
+    "fim": 36.842
+   },
+   {
+    "lado": "cliente",
+    "inicio": 37.136,
+    "fim": 39.418
+   },
+   {
+    "lado": "operador",
+    "inicio": 39.408,
+    "fim": 41.16
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.574,
+    "fim": 42.335
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.785,
+    "fim": 46.888
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.263,
+    "fim": 51.903
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.211,
+    "fim": 59.328
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.809,
+    "fim": 61.242
+   }
+  ]
+ },
+ "L00472663": {
+  "duracao": 69.33,
+  "ruido": {
+   "sbr_central": 7.9,
+   "snr_operador": 10.8,
+   "snr_cliente": 10.9
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.699
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.064,
+    "fim": 7.135
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.878,
+    "fim": 11.421
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.711,
+    "fim": 13.236
+   },
+   {
+    "lado": "operador",
+    "inicio": 13.582,
+    "fim": 22.382
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.887,
+    "fim": 25.651
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.254,
+    "fim": 35.27
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.707,
+    "fim": 37.647
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.961,
+    "fim": 45.885
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.558,
+    "fim": 49.543
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.177,
+    "fim": 53.928
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.25,
+    "fim": 55.634
+   },
+   {
+    "lado": "operador",
+    "inicio": 55.571,
+    "fim": 67.292
+   },
+   {
+    "lado": "cliente",
+    "inicio": 67.817,
+    "fim": 69.033
+   }
+  ]
+ },
+ "L00485800": {
+  "duracao": 66.73,
+  "ruido": {
+   "sbr_central": 7.8,
+   "snr_operador": 16.6,
+   "snr_cliente": 11.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.475
+   },
+   {
+    "lado": "cliente",
+    "inicio": 9.149,
+    "fim": 10.548
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.986,
+    "fim": 14.793
+   },
+   {
+    "lado": "cliente",
+    "inicio": 15.407,
+    "fim": 17.172
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.887,
+    "fim": 27.489
+   },
+   {
+    "lado": "cliente",
+    "inicio": 27.318,
+    "fim": 30.069
+   },
+   {
+    "lado": "operador",
+    "inicio": 30.508,
+    "fim": 41.005
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.7,
+    "fim": 42.936
+   },
+   {
+    "lado": "operador",
+    "inicio": 43.361,
+    "fim": 48.76
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.354,
+    "fim": 51.799
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.462,
+    "fim": 56.644
+   },
+   {
+    "lado": "cliente",
+    "inicio": 57.275,
+    "fim": 58.343
+   },
+   {
+    "lado": "operador",
+    "inicio": 58.877,
+    "fim": 64.42
+   },
+   {
+    "lado": "cliente",
+    "inicio": 65.002,
+    "fim": 66.433
+   }
+  ]
+ },
+ "L00491223": {
+  "duracao": 58.97,
+  "ruido": {
+   "sbr_central": 7.9,
+   "snr_operador": 15.2,
+   "snr_cliente": 9.7
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.666
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.275,
+    "fim": 8.508
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.119,
+    "fim": 12.663
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.297,
+    "fim": 14.864
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.303,
+    "fim": 23.306
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.794,
+    "fim": 26.813
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.629,
+    "fim": 34.476
+   },
+   {
+    "lado": "cliente",
+    "inicio": 34.392,
+    "fim": 37.143
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.449,
+    "fim": 40.251
+   },
+   {
+    "lado": "cliente",
+    "inicio": 40.63,
+    "fim": 42.555
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.973,
+    "fim": 45.91
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.387,
+    "fim": 47.822
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.114,
+    "fim": 57.017
+   },
+   {
+    "lado": "cliente",
+    "inicio": 57.356,
+    "fim": 58.674
+   }
+  ]
+ },
+ "L00521107": {
+  "duracao": 61.37,
+  "ruido": {
+   "sbr_central": 10.5,
+   "snr_operador": 11.1,
+   "snr_cliente": 11.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.001
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.602,
+    "fim": 6.843
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.384,
+    "fim": 12.206
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.564,
+    "fim": 14.631
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.224,
+    "fim": 22.674
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.077,
+    "fim": 26.15
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.67,
+    "fim": 34.122
+   },
+   {
+    "lado": "cliente",
+    "inicio": 34.419,
+    "fim": 36.491
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.902,
+    "fim": 42.391
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.72,
+    "fim": 44.601
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.271,
+    "fim": 52.773
+   },
+   {
+    "lado": "cliente",
+    "inicio": 53.265,
+    "fim": 54.069
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.328,
+    "fim": 58.891
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.538,
+    "fim": 61.065
+   }
+  ]
+ },
+ "L00526150": {
+  "duracao": 65.78,
+  "ruido": {
+   "sbr_central": 11.6,
+   "snr_operador": 10.4,
+   "snr_cliente": 10.6
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.015
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.486,
+    "fim": 8.398
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.041,
+    "fim": 12.545
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.527,
+    "fim": 14.094
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.792,
+    "fim": 23.352
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.909,
+    "fim": 26.361
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.643,
+    "fim": 37.239
+   },
+   {
+    "lado": "cliente",
+    "inicio": 38.033,
+    "fim": 39.873
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.148,
+    "fim": 45.4
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.251,
+    "fim": 49.684
+   },
+   {
+    "lado": "operador",
+    "inicio": 49.572,
+    "fim": 52.672
+   },
+   {
+    "lado": "cliente",
+    "inicio": 53.131,
+    "fim": 54.566
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.9,
+    "fim": 63.603
+   },
+   {
+    "lado": "cliente",
+    "inicio": 64.168,
+    "fim": 65.485
+   }
+  ]
+ },
+ "L00590600": {
+  "duracao": 67.17,
+  "ruido": {
+   "sbr_central": 10.1,
+   "snr_operador": 11.8,
+   "snr_cliente": 10.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.626
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.02,
+    "fim": 8.648
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.899,
+    "fim": 12.706
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.598,
+    "fim": 15.041
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.981,
+    "fim": 24.919
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.265,
+    "fim": 28.959
+   },
+   {
+    "lado": "operador",
+    "inicio": 29.72,
+    "fim": 39.729
+   },
+   {
+    "lado": "cliente",
+    "inicio": 40.34,
+    "fim": 43.476
+   },
+   {
+    "lado": "operador",
+    "inicio": 43.919,
+    "fim": 50.664
+   },
+   {
+    "lado": "cliente",
+    "inicio": 51.178,
+    "fim": 53.692
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.102,
+    "fim": 57.911
+   },
+   {
+    "lado": "cliente",
+    "inicio": 57.898,
+    "fim": 58.69
+   },
+   {
+    "lado": "operador",
+    "inicio": 59.294,
+    "fim": 64.552
+   },
+   {
+    "lado": "cliente",
+    "inicio": 65.34,
+    "fim": 66.867
+   }
+  ]
+ },
+ "L00598140": {
+  "duracao": 73.97,
+  "ruido": {
+   "sbr_central": 11.1,
+   "snr_operador": 17.8,
+   "snr_cliente": 9.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.85
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.527,
+    "fim": 9.982
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.912,
+    "fim": 15.011
+   },
+   {
+    "lado": "cliente",
+    "inicio": 15.4,
+    "fim": 17.066
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.416,
+    "fim": 26.137
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.896,
+    "fim": 30.354
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.056,
+    "fim": 41.093
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.034,
+    "fim": 42.985
+   },
+   {
+    "lado": "operador",
+    "inicio": 43.386,
+    "fim": 45.288
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.717,
+    "fim": 49.161
+   },
+   {
+    "lado": "operador",
+    "inicio": 49.592,
+    "fim": 52.547
+   },
+   {
+    "lado": "cliente",
+    "inicio": 53.321,
+    "fim": 54.923
+   },
+   {
+    "lado": "operador",
+    "inicio": 55.494,
+    "fim": 58.403
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.988,
+    "fim": 60.788
+   },
+   {
+    "lado": "operador",
+    "inicio": 61.333,
+    "fim": 72.563
+   },
+   {
+    "lado": "cliente",
+    "inicio": 72.526,
+    "fim": 73.666
+   }
+  ]
+ },
+ "L00659726": {
+  "duracao": 69.16,
+  "ruido": {
+   "sbr_central": 7.5,
+   "snr_operador": 10.4,
+   "snr_cliente": 14.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.33
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.715,
+    "fim": 8.343
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.941,
+    "fim": 12.506
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.073,
+    "fim": 15.517
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.222,
+    "fim": 23.633
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.296,
+    "fim": 27.623
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.152,
+    "fim": 36.973
+   },
+   {
+    "lado": "cliente",
+    "inicio": 37.389,
+    "fim": 39.461
+   },
+   {
+    "lado": "operador",
+    "inicio": 39.901,
+    "fim": 46.37
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.655,
+    "fim": 51.114
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.827,
+    "fim": 54.583
+   },
+   {
+    "lado": "cliente",
+    "inicio": 55.123,
+    "fim": 56.857
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.363,
+    "fim": 66.377
+   },
+   {
+    "lado": "cliente",
+    "inicio": 66.939,
+    "fim": 68.858
+   }
+  ]
+ },
+ "L00730230": {
+  "duracao": 56.45,
+  "ruido": {
+   "sbr_central": 6.2,
+   "snr_operador": 17.2,
+   "snr_cliente": 14.3
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.002
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.387,
+    "fim": 7.631
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.465,
+    "fim": 11.03
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.398,
+    "fim": 13.185
+   },
+   {
+    "lado": "operador",
+    "inicio": 13.025,
+    "fim": 20.82
+   },
+   {
+    "lado": "cliente",
+    "inicio": 20.66,
+    "fim": 23.893
+   },
+   {
+    "lado": "operador",
+    "inicio": 24.235,
+    "fim": 27.471
+   },
+   {
+    "lado": "cliente",
+    "inicio": 27.872,
+    "fim": 31.621
+   },
+   {
+    "lado": "operador",
+    "inicio": 32.12,
+    "fim": 41.224
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.61,
+    "fim": 43.892
+   },
+   {
+    "lado": "operador",
+    "inicio": 44.234,
+    "fim": 47.268
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.896,
+    "fim": 49.338
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.118,
+    "fim": 54.361
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.716,
+    "fim": 56.149
+   }
+  ]
+ },
+ "L00750254": {
+  "duracao": 60.1,
+  "ruido": {
+   "sbr_central": 9.0,
+   "snr_operador": 14.3,
+   "snr_cliente": 13.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.908
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.763,
+    "fim": 8.265
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.208,
+    "fim": 11.713
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.36,
+    "fim": 13.885
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.325,
+    "fim": 22.426
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.051,
+    "fim": 26.115
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.547,
+    "fim": 33.944
+   },
+   {
+    "lado": "cliente",
+    "inicio": 33.916,
+    "fim": 37.123
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.423,
+    "fim": 43.564
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.913,
+    "fim": 49.559
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.022,
+    "fim": 57.873
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.587,
+    "fim": 59.803
+   }
+  ]
+ },
+ "L00812608": {
+  "duracao": 64.23,
+  "ruido": {
+   "sbr_central": 8.8,
+   "snr_operador": 10.4,
+   "snr_cliente": 9.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.647
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.139,
+    "fim": 9.644
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.278,
+    "fim": 13.777
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.582,
+    "fim": 15.802
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.484,
+    "fim": 24.14
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.05,
+    "fim": 26.801
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.561,
+    "fim": 34.912
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.615,
+    "fim": 36.851
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.226,
+    "fim": 42.486
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.771,
+    "fim": 46.694
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.291,
+    "fim": 50.393
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.838,
+    "fim": 52.431
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.172,
+    "fim": 62.064
+   },
+   {
+    "lado": "cliente",
+    "inicio": 62.421,
+    "fim": 63.933
+   }
+  ]
+ },
+ "L00843623": {
+  "duracao": 70.36,
+  "ruido": {
+   "sbr_central": 10.9,
+   "snr_operador": 10.5,
+   "snr_cliente": 8.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.969
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.782,
+    "fim": 8.699
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.117,
+    "fim": 14.215
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.883,
+    "fim": 16.95
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.561,
+    "fim": 26.446
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.361,
+    "fim": 29.51
+   },
+   {
+    "lado": "operador",
+    "inicio": 30.104,
+    "fim": 38.003
+   },
+   {
+    "lado": "cliente",
+    "inicio": 38.42,
+    "fim": 39.762
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.226,
+    "fim": 45.95
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.424,
+    "fim": 50.411
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.372,
+    "fim": 54.285
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.865,
+    "fim": 56.849
+   },
+   {
+    "lado": "operador",
+    "inicio": 56.663,
+    "fim": 67.893
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.533,
+    "fim": 70.06
+   }
+  ]
+ },
+ "L00854944": {
+  "duracao": 61.08,
+  "ruido": {
+   "sbr_central": 6.4,
+   "snr_operador": 14.8,
+   "snr_cliente": 15.9
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.261
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.965,
+    "fim": 7.207
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.928,
+    "fim": 11.493
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.827,
+    "fim": 13.654
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.225,
+    "fim": 21.675
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.06,
+    "fim": 25.755
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.446,
+    "fim": 35.826
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.728,
+    "fim": 38.864
+   },
+   {
+    "lado": "operador",
+    "inicio": 39.569,
+    "fim": 44.997
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.695,
+    "fim": 48.208
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.014,
+    "fim": 51.524
+   },
+   {
+    "lado": "cliente",
+    "inicio": 52.266,
+    "fim": 53.691
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.486,
+    "fim": 59.657
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.519,
+    "fim": 60.777
+   }
+  ]
+ },
+ "L00855497": {
+  "duracao": 70.27,
+  "ruido": {
+   "sbr_central": 8.3,
+   "snr_operador": 13.3,
+   "snr_cliente": 14.5
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.564
+   },
+   {
+    "lado": "cliente",
+    "inicio": 9.2,
+    "fim": 10.839
+   },
+   {
+    "lado": "operador",
+    "inicio": 11.304,
+    "fim": 15.111
+   },
+   {
+    "lado": "cliente",
+    "inicio": 15.569,
+    "fim": 17.41
+   },
+   {
+    "lado": "operador",
+    "inicio": 17.875,
+    "fim": 27.992
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.41,
+    "fim": 31.349
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.958,
+    "fim": 40.779
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.554,
+    "fim": 46.59
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.391,
+    "fim": 49.466
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.266,
+    "fim": 51.88
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.241,
+    "fim": 55.266
+   },
+   {
+    "lado": "cliente",
+    "inicio": 55.793,
+    "fim": 57.777
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.724,
+    "fim": 67.738
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.445,
+    "fim": 69.971
+   }
+  ]
+ },
+ "L00890042": {
+  "duracao": 60.91,
+  "ruido": {
+   "sbr_central": 7.8,
+   "snr_operador": 10.3,
+   "snr_cliente": 12.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.929
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.441,
+    "fim": 8.511
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.279,
+    "fim": 12.783
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.12,
+    "fim": 15.08
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.709,
+    "fim": 24.284
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.94,
+    "fim": 27.702
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.312,
+    "fim": 36.65
+   },
+   {
+    "lado": "cliente",
+    "inicio": 36.98,
+    "fim": 41.277
+   },
+   {
+    "lado": "operador",
+    "inicio": 41.229,
+    "fim": 44.98
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.515,
+    "fim": 47.469
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.342,
+    "fim": 59.345
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.317,
+    "fim": 60.608
+   }
+  ]
+ },
+ "L00917365": {
+  "duracao": 61.76,
+  "ruido": {
+   "sbr_central": 10.9,
+   "snr_operador": 16.0,
+   "snr_cliente": 9.7
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.138
+   },
+   {
+    "lado": "cliente",
+    "inicio": 4.941,
+    "fim": 7.857
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.423,
+    "fim": 13.245
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.942,
+    "fim": 15.938
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.672,
+    "fim": 24.288
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.842,
+    "fim": 27.915
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.27,
+    "fim": 36.392
+   },
+   {
+    "lado": "cliente",
+    "inicio": 36.196,
+    "fim": 38.429
+   },
+   {
+    "lado": "operador",
+    "inicio": 38.418,
+    "fim": 41.499
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.91,
+    "fim": 45.203
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.984,
+    "fim": 48.741
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.187,
+    "fim": 51.172
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.922,
+    "fim": 59.789
+   },
+   {
+    "lado": "cliente",
+    "inicio": 60.201,
+    "fim": 61.459
+   }
+  ]
+ },
+ "L00925958": {
+  "duracao": 57.9,
+  "ruido": {
+   "sbr_central": 7.6,
+   "snr_operador": 11.1,
+   "snr_cliente": 13.7
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.606
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.873,
+    "fim": 7.944
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.432,
+    "fim": 11.932
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.908,
+    "fim": 13.868
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.138,
+    "fim": 22.057
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.759,
+    "fim": 25.511
+   },
+   {
+    "lado": "operador",
+    "inicio": 25.431,
+    "fim": 34.447
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.149,
+    "fim": 39.805
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.603,
+    "fim": 43.539
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.894,
+    "fim": 45.462
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.069,
+    "fim": 55.662
+   },
+   {
+    "lado": "cliente",
+    "inicio": 56.308,
+    "fim": 57.598
+   }
+  ]
+ },
+ "L00989488": {
+  "duracao": 80.12,
+  "ruido": {
+   "sbr_central": 10.2,
+   "snr_operador": 17.0,
+   "snr_cliente": 11.9
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.25
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.533,
+    "fim": 7.446
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.022,
+    "fim": 11.681
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.039,
+    "fim": 14.137
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.409,
+    "fim": 23.975
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.231,
+    "fim": 27.25
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.863,
+    "fim": 32.044
+   },
+   {
+    "lado": "cliente",
+    "inicio": 32.834,
+    "fim": 36.295
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.03,
+    "fim": 47.361
+   },
+   {
+    "lado": "cliente",
+    "inicio": 48.119,
+    "fim": 49.297
+   },
+   {
+    "lado": "operador",
+    "inicio": 49.712,
+    "fim": 54.852
+   },
+   {
+    "lado": "cliente",
+    "inicio": 55.347,
+    "fim": 58.354
+   },
+   {
+    "lado": "operador",
+    "inicio": 58.985,
+    "fim": 61.941
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.889,
+    "fim": 63.324
+   },
+   {
+    "lado": "operador",
+    "inicio": 63.609,
+    "fim": 67.523
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.025,
+    "fim": 69.435
+   },
+   {
+    "lado": "operador",
+    "inicio": 69.409,
+    "fim": 78.21
+   },
+   {
+    "lado": "cliente",
+    "inicio": 78.817,
+    "fim": 79.822
+   }
+  ]
+ },
+ "L01020357": {
+  "duracao": 58.57,
+  "ruido": {
+   "sbr_central": 10.5,
+   "snr_operador": 12.6,
+   "snr_cliente": 13.7
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.96
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.31,
+    "fim": 9.223
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.486,
+    "fim": 13.313
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.603,
+    "fim": 15.7
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.508,
+    "fim": 25.076
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.4,
+    "fim": 27.934
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.662,
+    "fim": 37.838
+   },
+   {
+    "lado": "cliente",
+    "inicio": 37.65,
+    "fim": 41.367
+   },
+   {
+    "lado": "operador",
+    "inicio": 41.633,
+    "fim": 45.063
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.435,
+    "fim": 46.844
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.595,
+    "fim": 56.396
+   },
+   {
+    "lado": "cliente",
+    "inicio": 56.957,
+    "fim": 58.274
+   }
+  ]
+ },
+ "L01035750": {
+  "duracao": 67.46,
+  "ruido": {
+   "sbr_central": 11.7,
+   "snr_operador": 12.5,
+   "snr_cliente": 9.3
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.767
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.538,
+    "fim": 8.451
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.063,
+    "fim": 12.606
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.867,
+    "fim": 14.434
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.908,
+    "fim": 22.806
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.181,
+    "fim": 25.593
+   },
+   {
+    "lado": "operador",
+    "inicio": 25.407,
+    "fim": 33.344
+   },
+   {
+    "lado": "cliente",
+    "inicio": 33.778,
+    "fim": 35.146
+   },
+   {
+    "lado": "operador",
+    "inicio": 35.505,
+    "fim": 40.858
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.611,
+    "fim": 45.27
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.137,
+    "fim": 48.907
+   },
+   {
+    "lado": "cliente",
+    "inicio": 48.83,
+    "fim": 50.418
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.092,
+    "fim": 54.193
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.666,
+    "fim": 56.592
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.384,
+    "fim": 65.345
+   },
+   {
+    "lado": "cliente",
+    "inicio": 65.903,
+    "fim": 67.162
+   }
+  ]
+ },
+ "L01117977": {
+  "duracao": 63.11,
+  "ruido": {
+   "sbr_central": 8.5,
+   "snr_operador": 13.7,
+   "snr_cliente": 10.1
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.052
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.713,
+    "fim": 8.946
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.47,
+    "fim": 13.014
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.644,
+    "fim": 15.211
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.468,
+    "fim": 24.253
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.646,
+    "fim": 27.058
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.715,
+    "fim": 36.311
+   },
+   {
+    "lado": "cliente",
+    "inicio": 36.98,
+    "fim": 40.225
+   },
+   {
+    "lado": "operador",
+    "inicio": 40.602,
+    "fim": 43.702
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.579,
+    "fim": 45.505
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.258,
+    "fim": 49.195
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.643,
+    "fim": 51.052
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.812,
+    "fim": 60.893
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.493,
+    "fim": 62.81
+   }
+  ]
+ },
+ "L01131840": {
+  "duracao": 82.93,
+  "ruido": {
+   "sbr_central": 10.7,
+   "snr_operador": 12.9,
+   "snr_cliente": 9.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.192
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.794,
+    "fim": 9.744
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.329,
+    "fim": 15.159
+   },
+   {
+    "lado": "cliente",
+    "inicio": 15.931,
+    "fim": 17.883
+   },
+   {
+    "lado": "operador",
+    "inicio": 18.35,
+    "fim": 26.317
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.876,
+    "fim": 29.64
+   },
+   {
+    "lado": "operador",
+    "inicio": 30.166,
+    "fim": 32.431
+   },
+   {
+    "lado": "cliente",
+    "inicio": 33.136,
+    "fim": 34.919
+   },
+   {
+    "lado": "operador",
+    "inicio": 35.223,
+    "fim": 45.716
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.419,
+    "fim": 47.828
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.12,
+    "fim": 54.54
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.837,
+    "fim": 57.196
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.451,
+    "fim": 60.961
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.751,
+    "fim": 62.981
+   },
+   {
+    "lado": "operador",
+    "inicio": 63.585,
+    "fim": 68.987
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.839,
+    "fim": 71.853
+   },
+   {
+    "lado": "operador",
+    "inicio": 72.467,
+    "fim": 81.539
+   },
+   {
+    "lado": "cliente",
+    "inicio": 81.413,
+    "fim": 82.629
+   }
+  ]
+ },
+ "L01152270": {
+  "duracao": 65.12,
+  "ruido": {
+   "sbr_central": 8.0,
+   "snr_operador": 15.4,
+   "snr_cliente": 14.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.224
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.994,
+    "fim": 8.278
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.989,
+    "fim": 12.817
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.263,
+    "fim": 15.36
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.723,
+    "fim": 24.495
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.934,
+    "fim": 27.468
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.182,
+    "fim": 38.22
+   },
+   {
+    "lado": "cliente",
+    "inicio": 38.782,
+    "fim": 41.838
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.357,
+    "fim": 45.266
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.144,
+    "fim": 47.07
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.587,
+    "fim": 50.543
+   },
+   {
+    "lado": "cliente",
+    "inicio": 51.0,
+    "fim": 52.436
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.025,
+    "fim": 63.125
+   },
+   {
+    "lado": "cliente",
+    "inicio": 63.506,
+    "fim": 64.823
+   }
+  ]
+ },
+ "L01191860": {
+  "duracao": 58.67,
+  "ruido": {
+   "sbr_central": 10.7,
+   "snr_operador": 16.6,
+   "snr_cliente": 13.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 4.96
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.316,
+    "fim": 6.752
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.393,
+    "fim": 10.781
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.241,
+    "fim": 12.747
+   },
+   {
+    "lado": "operador",
+    "inicio": 13.423,
+    "fim": 20.991
+   },
+   {
+    "lado": "cliente",
+    "inicio": 21.64,
+    "fim": 24.392
+   },
+   {
+    "lado": "operador",
+    "inicio": 24.92,
+    "fim": 28.156
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.608,
+    "fim": 32.023
+   },
+   {
+    "lado": "operador",
+    "inicio": 32.432,
+    "fim": 36.172
+   },
+   {
+    "lado": "cliente",
+    "inicio": 36.593,
+    "fim": 39.801
+   },
+   {
+    "lado": "operador",
+    "inicio": 39.654,
+    "fim": 49.699
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.435,
+    "fim": 51.711
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.684,
+    "fim": 56.625
+   },
+   {
+    "lado": "cliente",
+    "inicio": 57.083,
+    "fim": 58.374
+   }
+  ]
+ },
+ "L01225888": {
+  "duracao": 60.66,
+  "ruido": {
+   "sbr_central": 6.8,
+   "snr_operador": 12.0,
+   "snr_cliente": 12.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.226
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.589,
+    "fim": 9.053
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.503,
+    "fim": 12.89
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.556,
+    "fim": 15.343
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.809,
+    "fim": 23.657
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.223,
+    "fim": 27.457
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.967,
+    "fim": 30.232
+   },
+   {
+    "lado": "cliente",
+    "inicio": 30.84,
+    "fim": 33.678
+   },
+   {
+    "lado": "operador",
+    "inicio": 34.039,
+    "fim": 43.955
+   },
+   {
+    "lado": "cliente",
+    "inicio": 44.631,
+    "fim": 49.494
+   },
+   {
+    "lado": "operador",
+    "inicio": 49.902,
+    "fim": 58.298
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.922,
+    "fim": 60.355
+   }
+  ]
+ },
+ "L01227634": {
+  "duracao": 60.38,
+  "ruido": {
+   "sbr_central": 6.5,
+   "snr_operador": 12.3,
+   "snr_cliente": 12.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.892
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.68,
+    "fim": 9.72
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.686,
+    "fim": 13.514
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.875,
+    "fim": 16.261
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.906,
+    "fim": 25.641
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.142,
+    "fim": 28.936
+   },
+   {
+    "lado": "operador",
+    "inicio": 29.568,
+    "fim": 42.685
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.502,
+    "fim": 43.738
+   },
+   {
+    "lado": "operador",
+    "inicio": 44.24,
+    "fim": 49.964
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.418,
+    "fim": 52.305
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.561,
+    "fim": 57.883
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.568,
+    "fim": 60.08
+   }
+  ]
+ },
+ "L01243776": {
+  "duracao": 61.84,
+  "ruido": {
+   "sbr_central": 11.2,
+   "snr_operador": 16.9,
+   "snr_cliente": 10.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.509
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.282,
+    "fim": 8.787
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.723,
+    "fim": 13.615
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.366,
+    "fim": 15.734
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.6,
+    "fim": 24.135
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.747,
+    "fim": 27.542
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.285,
+    "fim": 36.828
+   },
+   {
+    "lado": "cliente",
+    "inicio": 37.149,
+    "fim": 41.387
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.076,
+    "fim": 45.176
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.962,
+    "fim": 47.586
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.164,
+    "fim": 59.89
+   },
+   {
+    "lado": "cliente",
+    "inicio": 60.405,
+    "fim": 61.545
+   }
+  ]
+ },
+ "L01275531": {
+  "duracao": 69.55,
+  "ruido": {
+   "sbr_central": 8.4,
+   "snr_operador": 16.9,
+   "snr_cliente": 8.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.482
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.013,
+    "fim": 8.247
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.73,
+    "fim": 12.558
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.162,
+    "fim": 15.102
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.75,
+    "fim": 24.635
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.533,
+    "fim": 26.945
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.66,
+    "fim": 36.678
+   },
+   {
+    "lado": "cliente",
+    "inicio": 37.069,
+    "fim": 38.247
+   },
+   {
+    "lado": "operador",
+    "inicio": 39.035,
+    "fim": 42.326
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.003,
+    "fim": 45.76
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.016,
+    "fim": 49.93
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.373,
+    "fim": 51.961
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.519,
+    "fim": 55.948
+   },
+   {
+    "lado": "cliente",
+    "inicio": 56.552,
+    "fim": 57.961
+   },
+   {
+    "lado": "operador",
+    "inicio": 58.749,
+    "fim": 67.657
+   },
+   {
+    "lado": "cliente",
+    "inicio": 67.992,
+    "fim": 69.251
+   }
+  ]
+ },
+ "L01282302": {
+  "duracao": 65.11,
+  "ruido": {
+   "sbr_central": 6.4,
+   "snr_operador": 13.1,
+   "snr_cliente": 15.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.955
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.479,
+    "fim": 11.395
+   },
+   {
+    "lado": "operador",
+    "inicio": 11.96,
+    "fim": 17.267
+   },
+   {
+    "lado": "cliente",
+    "inicio": 18.059,
+    "fim": 20.055
+   },
+   {
+    "lado": "operador",
+    "inicio": 20.581,
+    "fim": 29.764
+   },
+   {
+    "lado": "cliente",
+    "inicio": 30.328,
+    "fim": 34.023
+   },
+   {
+    "lado": "operador",
+    "inicio": 33.967,
+    "fim": 42.899
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.324,
+    "fim": 46.743
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.667,
+    "fim": 49.691
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.438,
+    "fim": 52.811
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.755,
+    "fim": 63.719
+   },
+   {
+    "lado": "cliente",
+    "inicio": 63.55,
+    "fim": 64.808
+   }
+  ]
+ },
+ "L01290935": {
+  "duracao": 63.21,
+  "ruido": {
+   "sbr_central": 12.0,
+   "snr_operador": 16.0,
+   "snr_cliente": 9.3
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.954
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.835,
+    "fim": 8.747
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.132,
+    "fim": 12.959
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.301,
+    "fim": 15.399
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.757,
+    "fim": 24.26
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.522,
+    "fim": 27.056
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.534,
+    "fim": 38.711
+   },
+   {
+    "lado": "cliente",
+    "inicio": 39.045,
+    "fim": 40.886
+   },
+   {
+    "lado": "operador",
+    "inicio": 41.381,
+    "fim": 47.105
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.443,
+    "fim": 49.493
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.293,
+    "fim": 53.953
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.724,
+    "fim": 55.869
+   },
+   {
+    "lado": "operador",
+    "inicio": 55.67,
+    "fim": 60.992
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.652,
+    "fim": 62.911
+   }
+  ]
+ },
+ "L01295357": {
+  "duracao": 76.62,
+  "ruido": {
+   "sbr_central": 11.1,
+   "snr_operador": 15.5,
+   "snr_cliente": 11.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.099
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.67,
+    "fim": 9.911
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.811,
+    "fim": 13.639
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.001,
+    "fim": 15.827
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.803,
+    "fim": 25.369
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.908,
+    "fim": 29.235
+   },
+   {
+    "lado": "operador",
+    "inicio": 29.74,
+    "fim": 39.728
+   },
+   {
+    "lado": "cliente",
+    "inicio": 40.272,
+    "fim": 43.407
+   },
+   {
+    "lado": "operador",
+    "inicio": 43.684,
+    "fim": 49.407
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.986,
+    "fim": 53.301
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.624,
+    "fim": 58.758
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.108,
+    "fim": 62.858
+   },
+   {
+    "lado": "operador",
+    "inicio": 63.204,
+    "fim": 74.434
+   },
+   {
+    "lado": "cliente",
+    "inicio": 75.064,
+    "fim": 76.322
+   }
+  ]
+ },
+ "L01298091": {
+  "duracao": 63.26,
+  "ruido": {
+   "sbr_central": 7.8,
+   "snr_operador": 18.0,
+   "snr_cliente": 12.9
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.057
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.613,
+    "fim": 8.286
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.865,
+    "fim": 12.43
+   },
+   {
+    "lado": "cliente",
+    "inicio": 12.94,
+    "fim": 14.727
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.319,
+    "fim": 23.272
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.04,
+    "fim": 27.274
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.599,
+    "fim": 35.505
+   },
+   {
+    "lado": "cliente",
+    "inicio": 36.214,
+    "fim": 40.89
+   },
+   {
+    "lado": "operador",
+    "inicio": 41.598,
+    "fim": 44.664
+   },
+   {
+    "lado": "cliente",
+    "inicio": 45.245,
+    "fim": 47.528
+   },
+   {
+    "lado": "operador",
+    "inicio": 48.268,
+    "fim": 50.967
+   },
+   {
+    "lado": "cliente",
+    "inicio": 51.701,
+    "fim": 53.313
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.606,
+    "fim": 61.163
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.524,
+    "fim": 62.957
+   }
+  ]
+ },
+ "L01303135": {
+  "duracao": 63.27,
+  "ruido": {
+   "sbr_central": 9.4,
+   "snr_operador": 15.3,
+   "snr_cliente": 15.9
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.959
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.578,
+    "fim": 8.206
+   },
+   {
+    "lado": "operador",
+    "inicio": 8.656,
+    "fim": 13.479
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.051,
+    "fim": 16.118
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.417,
+    "fim": 23.845
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.172,
+    "fim": 27.245
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.498,
+    "fim": 35.903
+   },
+   {
+    "lado": "cliente",
+    "inicio": 36.323,
+    "fim": 37.892
+   },
+   {
+    "lado": "operador",
+    "inicio": 38.225,
+    "fim": 42.588
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.942,
+    "fim": 45.724
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.484,
+    "fim": 50.279
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.732,
+    "fim": 53.105
+   },
+   {
+    "lado": "operador",
+    "inicio": 53.875,
+    "fim": 61.132
+   },
+   {
+    "lado": "cliente",
+    "inicio": 61.442,
+    "fim": 62.969
+   }
+  ]
+ },
+ "L01325670": {
+  "duracao": 65.73,
+  "ruido": {
+   "sbr_central": 7.2,
+   "snr_operador": 16.6,
+   "snr_cliente": 15.1
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.11
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.584,
+    "fim": 8.042
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.883,
+    "fim": 11.541
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.949,
+    "fim": 13.732
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.403,
+    "fim": 23.113
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.839,
+    "fim": 27.174
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.099,
+    "fim": 42.226
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.591,
+    "fim": 43.827
+   },
+   {
+    "lado": "operador",
+    "inicio": 44.244,
+    "fim": 49.43
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.281,
+    "fim": 54.168
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.431,
+    "fim": 63.434
+   },
+   {
+    "lado": "cliente",
+    "inicio": 64.003,
+    "fim": 65.434
+   }
+  ]
+ },
+ "L01377359": {
+  "duracao": 61.79,
+  "ruido": {
+   "sbr_central": 10.6,
+   "snr_operador": 17.4,
+   "snr_cliente": 15.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.748
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.051,
+    "fim": 9.506
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.921,
+    "fim": 13.58
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.016,
+    "fim": 16.235
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.575,
+    "fim": 25.423
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.858,
+    "fim": 29.316
+   },
+   {
+    "lado": "operador",
+    "inicio": 29.145,
+    "fim": 38.511
+   },
+   {
+    "lado": "cliente",
+    "inicio": 39.114,
+    "fim": 41.321
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.005,
+    "fim": 46.024
+   },
+   {
+    "lado": "cliente",
+    "inicio": 46.762,
+    "fim": 50.471
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.781,
+    "fim": 59.783
+   },
+   {
+    "lado": "cliente",
+    "inicio": 60.06,
+    "fim": 61.491
+   }
+  ]
+ },
+ "L01387448": {
+  "duracao": 70.52,
+  "ruido": {
+   "sbr_central": 6.1,
+   "snr_operador": 15.9,
+   "snr_cliente": 8.4
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.187
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.554,
+    "fim": 10.193
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.469,
+    "fim": 15.776
+   },
+   {
+    "lado": "cliente",
+    "inicio": 16.178,
+    "fim": 18.245
+   },
+   {
+    "lado": "operador",
+    "inicio": 18.941,
+    "fim": 27.767
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.411,
+    "fim": 31.484
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.897,
+    "fim": 42.805
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.51,
+    "fim": 46.645
+   },
+   {
+    "lado": "operador",
+    "inicio": 47.25,
+    "fim": 52.649
+   },
+   {
+    "lado": "cliente",
+    "inicio": 53.159,
+    "fim": 59.179
+   },
+   {
+    "lado": "operador",
+    "inicio": 59.654,
+    "fim": 68.858
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.689,
+    "fim": 70.219
+   }
+  ]
+ },
+ "L01464417": {
+  "duracao": 69.64,
+  "ruido": {
+   "sbr_central": 8.3,
+   "snr_operador": 15.5,
+   "snr_cliente": 12.3
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.406
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.361,
+    "fim": 7.274
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.9,
+    "fim": 11.405
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.756,
+    "fim": 13.853
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.43,
+    "fim": 22.329
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.726,
+    "fim": 25.138
+   },
+   {
+    "lado": "operador",
+    "inicio": 24.984,
+    "fim": 34.102
+   },
+   {
+    "lado": "cliente",
+    "inicio": 34.097,
+    "fim": 35.465
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.088,
+    "fim": 42.318
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.72,
+    "fim": 46.474
+   },
+   {
+    "lado": "operador",
+    "inicio": 46.283,
+    "fim": 49.219
+   },
+   {
+    "lado": "cliente",
+    "inicio": 49.188,
+    "fim": 50.623
+   },
+   {
+    "lado": "operador",
+    "inicio": 50.991,
+    "fim": 54.761
+   },
+   {
+    "lado": "cliente",
+    "inicio": 55.086,
+    "fim": 56.496
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.077,
+    "fim": 67.733
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.077,
+    "fim": 69.336
+   }
+  ]
+ },
+ "L01474548": {
+  "duracao": 75.62,
+  "ruido": {
+   "sbr_central": 7.2,
+   "snr_operador": 15.8,
+   "snr_cliente": 13.3
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.254
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.11,
+    "fim": 7.355
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.738,
+    "fim": 11.303
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.633,
+    "fim": 13.923
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.316,
+    "fim": 22.16
+   },
+   {
+    "lado": "cliente",
+    "inicio": 22.425,
+    "fim": 25.655
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.264,
+    "fim": 28.529
+   },
+   {
+    "lado": "cliente",
+    "inicio": 29.034,
+    "fim": 32.567
+   },
+   {
+    "lado": "operador",
+    "inicio": 32.886,
+    "fim": 39.726
+   },
+   {
+    "lado": "cliente",
+    "inicio": 40.443,
+    "fim": 41.93
+   },
+   {
+    "lado": "operador",
+    "inicio": 42.574,
+    "fim": 48.002
+   },
+   {
+    "lado": "cliente",
+    "inicio": 48.394,
+    "fim": 54.004
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.656,
+    "fim": 57.721
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.509,
+    "fim": 60.336
+   },
+   {
+    "lado": "operador",
+    "inicio": 61.022,
+    "fim": 73.091
+   },
+   {
+    "lado": "cliente",
+    "inicio": 73.468,
+    "fim": 75.321
+   }
+  ]
+ },
+ "L01493130": {
+  "duracao": 69.5,
+  "ruido": {
+   "sbr_central": 7.0,
+   "snr_operador": 12.7,
+   "snr_cliente": 8.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.769
+   },
+   {
+    "lado": "cliente",
+    "inicio": 6.588,
+    "fim": 7.5
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.823,
+    "fim": 12.715
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.008,
+    "fim": 14.217
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.748,
+    "fim": 22.554
+   },
+   {
+    "lado": "cliente",
+    "inicio": 23.342,
+    "fim": 25.754
+   },
+   {
+    "lado": "operador",
+    "inicio": 26.368,
+    "fim": 34.902
+   },
+   {
+    "lado": "cliente",
+    "inicio": 34.797,
+    "fim": 36.166
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.085,
+    "fim": 41.345
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.802,
+    "fim": 43.955
+   },
+   {
+    "lado": "operador",
+    "inicio": 44.75,
+    "fim": 48.257
+   },
+   {
+    "lado": "cliente",
+    "inicio": 48.787,
+    "fim": 51.502
+   },
+   {
+    "lado": "operador",
+    "inicio": 51.96,
+    "fim": 54.763
+   },
+   {
+    "lado": "cliente",
+    "inicio": 55.349,
+    "fim": 56.937
+   },
+   {
+    "lado": "operador",
+    "inicio": 57.594,
+    "fim": 67.237
+   },
+   {
+    "lado": "cliente",
+    "inicio": 67.94,
+    "fim": 69.199
+   }
+  ]
+ },
+ "L01508114": {
+  "duracao": 79.65,
+  "ruido": {
+   "sbr_central": 9.9,
+   "snr_operador": 13.8,
+   "snr_cliente": 10.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.307
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.801,
+    "fim": 9.841
+   },
+   {
+    "lado": "operador",
+    "inicio": 10.164,
+    "fim": 14.147
+   },
+   {
+    "lado": "cliente",
+    "inicio": 14.416,
+    "fim": 16.199
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.603,
+    "fim": 25.925
+   },
+   {
+    "lado": "cliente",
+    "inicio": 26.224,
+    "fim": 29.118
+   },
+   {
+    "lado": "operador",
+    "inicio": 29.084,
+    "fim": 31.863
+   },
+   {
+    "lado": "cliente",
+    "inicio": 32.43,
+    "fim": 35.559
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.088,
+    "fim": 46.627
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.205,
+    "fim": 48.532
+   },
+   {
+    "lado": "operador",
+    "inicio": 49.212,
+    "fim": 51.189
+   },
+   {
+    "lado": "cliente",
+    "inicio": 51.461,
+    "fim": 54.516
+   },
+   {
+    "lado": "operador",
+    "inicio": 54.397,
+    "fim": 57.472
+   },
+   {
+    "lado": "cliente",
+    "inicio": 58.055,
+    "fim": 59.855
+   },
+   {
+    "lado": "operador",
+    "inicio": 60.135,
+    "fim": 63.704
+   },
+   {
+    "lado": "cliente",
+    "inicio": 63.569,
+    "fim": 65.193
+   },
+   {
+    "lado": "operador",
+    "inicio": 65.541,
+    "fim": 77.521
+   },
+   {
+    "lado": "cliente",
+    "inicio": 77.915,
+    "fim": 79.346
+   }
+  ]
+ },
+ "L01520638": {
+  "duracao": 83.84,
+  "ruido": {
+   "sbr_central": 6.3,
+   "snr_operador": 14.0,
+   "snr_cliente": 13.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.211
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.762,
+    "fim": 10.401
+   },
+   {
+    "lado": "operador",
+    "inicio": 11.026,
+    "fim": 16.125
+   },
+   {
+    "lado": "cliente",
+    "inicio": 16.625,
+    "fim": 18.692
+   },
+   {
+    "lado": "operador",
+    "inicio": 19.306,
+    "fim": 27.797
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.343,
+    "fim": 31.282
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.604,
+    "fim": 34.904
+   },
+   {
+    "lado": "cliente",
+    "inicio": 35.249,
+    "fim": 38.68
+   },
+   {
+    "lado": "operador",
+    "inicio": 38.993,
+    "fim": 49.785
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.294,
+    "fim": 52.206
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.022,
+    "fim": 53.924
+   },
+   {
+    "lado": "cliente",
+    "inicio": 54.518,
+    "fim": 58.532
+   },
+   {
+    "lado": "operador",
+    "inicio": 59.19,
+    "fim": 62.146
+   },
+   {
+    "lado": "cliente",
+    "inicio": 62.605,
+    "fim": 64.34
+   },
+   {
+    "lado": "operador",
+    "inicio": 64.975,
+    "fim": 68.889
+   },
+   {
+    "lado": "cliente",
+    "inicio": 68.802,
+    "fim": 70.493
+   },
+   {
+    "lado": "operador",
+    "inicio": 71.1,
+    "fim": 81.81
+   },
+   {
+    "lado": "cliente",
+    "inicio": 82.286,
+    "fim": 83.544
+   }
+  ]
+ },
+ "L01564277": {
+  "duracao": 74.28,
+  "ruido": {
+   "sbr_central": 9.8,
+   "snr_operador": 13.7,
+   "snr_cliente": 8.2
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 7.854
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.752,
+    "fim": 9.38
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.962,
+    "fim": 13.621
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.488,
+    "fim": 15.931
+   },
+   {
+    "lado": "operador",
+    "inicio": 16.502,
+    "fim": 24.881
+   },
+   {
+    "lado": "cliente",
+    "inicio": 25.267,
+    "fim": 28.205
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.097,
+    "fim": 31.397
+   },
+   {
+    "lado": "cliente",
+    "inicio": 32.041,
+    "fim": 36.808
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.109,
+    "fim": 43.926
+   },
+   {
+    "lado": "cliente",
+    "inicio": 43.917,
+    "fim": 45.263
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.201,
+    "fim": 50.925
+   },
+   {
+    "lado": "cliente",
+    "inicio": 51.398,
+    "fim": 56.31
+   },
+   {
+    "lado": "operador",
+    "inicio": 56.203,
+    "fim": 59.633
+   },
+   {
+    "lado": "cliente",
+    "inicio": 59.983,
+    "fim": 61.598
+   },
+   {
+    "lado": "operador",
+    "inicio": 62.316,
+    "fim": 71.414
+   },
+   {
+    "lado": "cliente",
+    "inicio": 72.065,
+    "fim": 73.984
+   }
+  ]
+ },
+ "L01608302": {
+  "duracao": 73.46,
+  "ruido": {
+   "sbr_central": 10.9,
+   "snr_operador": 14.5,
+   "snr_cliente": 10.8
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 5.277
+   },
+   {
+    "lado": "cliente",
+    "inicio": 5.664,
+    "fim": 7.337
+   },
+   {
+    "lado": "operador",
+    "inicio": 7.978,
+    "fim": 11.478
+   },
+   {
+    "lado": "cliente",
+    "inicio": 11.938,
+    "fim": 14.227
+   },
+   {
+    "lado": "operador",
+    "inicio": 14.486,
+    "fim": 23.423
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.088,
+    "fim": 27.317
+   },
+   {
+    "lado": "operador",
+    "inicio": 27.961,
+    "fim": 31.893
+   },
+   {
+    "lado": "cliente",
+    "inicio": 32.452,
+    "fim": 37.203
+   },
+   {
+    "lado": "operador",
+    "inicio": 37.785,
+    "fim": 40.758
+   },
+   {
+    "lado": "cliente",
+    "inicio": 41.25,
+    "fim": 45.206
+   },
+   {
+    "lado": "operador",
+    "inicio": 45.608,
+    "fim": 55.725
+   },
+   {
+    "lado": "cliente",
+    "inicio": 56.196,
+    "fim": 61.059
+   },
+   {
+    "lado": "operador",
+    "inicio": 61.808,
+    "fim": 71.401
+   },
+   {
+    "lado": "cliente",
+    "inicio": 71.666,
+    "fim": 73.164
+   }
+  ]
+ },
+ "L01611583": {
+  "duracao": 85.09,
+  "ruido": {
+   "sbr_central": 11.4,
+   "snr_operador": 12.7,
+   "snr_cliente": 9.3
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 8.068
+   },
+   {
+    "lado": "cliente",
+    "inicio": 8.558,
+    "fim": 11.063
+   },
+   {
+    "lado": "operador",
+    "inicio": 11.766,
+    "fim": 15.573
+   },
+   {
+    "lado": "cliente",
+    "inicio": 16.328,
+    "fim": 18.713
+   },
+   {
+    "lado": "operador",
+    "inicio": 19.308,
+    "fim": 28.462
+   },
+   {
+    "lado": "cliente",
+    "inicio": 28.887,
+    "fim": 31.638
+   },
+   {
+    "lado": "operador",
+    "inicio": 31.894,
+    "fim": 42.623
+   },
+   {
+    "lado": "cliente",
+    "inicio": 42.596,
+    "fim": 44.148
+   },
+   {
+    "lado": "operador",
+    "inicio": 44.563,
+    "fim": 50.522
+   },
+   {
+    "lado": "cliente",
+    "inicio": 50.477,
+    "fim": 52.364
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.763,
+    "fim": 56.572
+   },
+   {
+    "lado": "cliente",
+    "inicio": 57.027,
+    "fim": 60.471
+   },
+   {
+    "lado": "operador",
+    "inicio": 61.22,
+    "fim": 64.294
+   },
+   {
+    "lado": "cliente",
+    "inicio": 64.8,
+    "fim": 66.4
+   },
+   {
+    "lado": "operador",
+    "inicio": 67.182,
+    "fim": 70.207
+   },
+   {
+    "lado": "cliente",
+    "inicio": 70.967,
+    "fim": 72.768
+   },
+   {
+    "lado": "operador",
+    "inicio": 73.498,
+    "fim": 83.205
+   },
+   {
+    "lado": "cliente",
+    "inicio": 83.653,
+    "fim": 84.792
+   }
+  ]
+ },
+ "L01618436": {
+  "duracao": 72.03,
+  "ruido": {
+   "sbr_central": 7.6,
+   "snr_operador": 15.4,
+   "snr_cliente": 15.0
+  },
+  "turnos": [
+   {
+    "lado": "operador",
+    "inicio": 0.3,
+    "fim": 6.457
+   },
+   {
+    "lado": "cliente",
+    "inicio": 7.163,
+    "fim": 8.404
+   },
+   {
+    "lado": "operador",
+    "inicio": 9.01,
+    "fim": 12.838
+   },
+   {
+    "lado": "cliente",
+    "inicio": 13.156,
+    "fim": 14.982
+   },
+   {
+    "lado": "operador",
+    "inicio": 15.633,
+    "fim": 24.134
+   },
+   {
+    "lado": "cliente",
+    "inicio": 24.633,
+    "fim": 27.572
+   },
+   {
+    "lado": "operador",
+    "inicio": 28.138,
+    "fim": 31.438
+   },
+   {
+    "lado": "cliente",
+    "inicio": 32.007,
+    "fim": 35.438
+   },
+   {
+    "lado": "operador",
+    "inicio": 36.095,
+    "fim": 46.887
+   },
+   {
+    "lado": "cliente",
+    "inicio": 47.658,
+    "fim": 51.582
+   },
+   {
+    "lado": "operador",
+    "inicio": 52.27,
+    "fim": 55.179
+   },
+   {
+    "lado": "cliente",
+    "inicio": 55.474,
+    "fim": 57.847
+   },
+   {
+    "lado": "operador",
+    "inicio": 58.484,
+    "fim": 69.233
+   },
+   {
+    "lado": "cliente",
+    "inicio": 69.803,
+    "fim": 71.727
+   }
+  ]
+ }
+}

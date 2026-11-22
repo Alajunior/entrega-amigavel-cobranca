@@ -1,0 +1,4 @@
+# Só para gerar o áudio e as transcrições localmente (a CI não usa)
+edge-tts==7.3.1
+faster-whisper==1.2.1
+av==18.0.0
