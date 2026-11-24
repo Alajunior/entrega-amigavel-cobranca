@@ -1,5 +1,13 @@
 # Entrega Amigável: modelo de classe rara, painel e auditoria de ligações
 
+[![CI](https://github.com/Alajunior/entrega-amigavel-cobranca/actions/workflows/ci.yml/badge.svg)](https://github.com/Alajunior/entrega-amigavel-cobranca/actions/workflows/ci.yml) ![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white) [![Painel ao vivo](https://img.shields.io/badge/painel-ao%20vivo-2ea44f)](https://alajunior.github.io/entrega-amigavel-cobranca/) ![Dados 100% sintéticos](https://img.shields.io/badge/dados-100%25%20sint%C3%A9ticos-6e7781)
+
+> **Em 30 segundos**
+>
+> - **Problema:** menos de 1% dos contratos formaliza uma Entrega Amigável; a operação precisa saber para quem ofertar e se o operador ofertou de fato.
+> - **Como:** logística × LightGBM × régua atual, medidos por PR-AUC e captura no topo em 6 safras fora do tempo, e auditoria de 60 ligações transcritas com faster-whisper.
+> - **Resultado:** lift de 5,6× e recall de 56% no top 10% (a régua faz 3,1× e 31%). A auditoria acerta 91,7% das ligações, sem nenhum falso positivo de oferta.
+
 **Painel ao vivo:** https://alajunior.github.io/entrega-amigavel-cobranca/ · dados 100% sintéticos · projeto de portfólio
 
 No financiamento de veículo em atraso, a **Entrega Amigável (EA)** é quando o cliente devolve o carro de forma voluntária e a dívida é tratada sem busca e apreensão. É bom para os dois lados, e é raro: **menos de 1%** dos contratos em cobrança formaliza uma EA nos 60 dias seguintes. Este projeto mostra o que muda quando a classe positiva é tão rara:
